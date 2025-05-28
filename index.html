@@ -427,25 +427,19 @@ State.setVar("$sleepCount", sleepCount);
     "▶希臘羅馬神話": "Literature",
     "▶英文短篇小說選讀": "Literature"
   };
+  
+const currentField = courseFieldMap[currentPassage];
+if (currentField) {
+  State.setVar("$currentCourseField", currentField);
+  const currentCount = State.getVar(`$courseCount${currentField}`) || 0;
+  State.setVar(`$courseCount${currentField}`, currentCount + 1);
 
-  const currentField = courseFieldMap[currentPassage];
-  if (currentField) {
-    State.setVar("$currentCourseField", currentField);
-    const currentCount = State.getVar(`$courseCount${currentField}`) || 0;
-    State.setVar(`$courseCount${currentField}`, currentCount + 1);
+  const playerGrade = getGrade(currentCount);
+  const canChooseSuccess = playerGrade !== "D";
+  State.setVar("$canChooseSuccess", canChooseSuccess);
 
-    const playerGrade = getGrade(currentCount);
-    const canChooseSuccess = playerGrade !== "D";
-    State.setVar("$canChooseSuccess", canChooseSuccess);
+}
 
-    const eventTypes = ["drowsiness", "quiz", "report"];
-    const selectedEventType = eventTypes[Math.floor(Math.random() * eventTypes.length)];
-    State.setVar("$selectedEventType", selectedEventType);
-
-    setTimeout(() => {
-      Engine.play(selectedEventType.charAt(0).toUpperCase() + selectedEventType.slice(1));
-    }, 1000);
-  }
 
   // ✅ 參加心靈講座計時器
   if (currentPassage === "參加心靈講座") {
@@ -651,7 +645,7 @@ $completed_英文短篇小說選讀 = false</tw-passagedata><tw-passagedata pid=
 [[上課]]
 [[參加心靈講座]]
 &lt;br&gt;
-</tw-passagedata><tw-passagedata pid="18" name="上課" tags="" position="1375,350" size="100,100">&lt;&lt;set $sleepCount = 0&gt;&gt;
+</tw-passagedata><tw-passagedata pid="18" name="上課" tags="" position="1775,0" size="100,100">&lt;&lt;set $sleepCount = 0&gt;&gt;
 你沿著走廊前行，腳步在瓷磚地上留下輕微回音。
 教室的門半掩著，裡頭傳來翻書與輕聲交談的聲音。你輕輕推門而入，選了個座位坐下。片刻之後，門外傳來一陣穩重的腳步聲。老師走了進來，身上仍帶著些微戶外的風氣。 他/她將課本與資料輕放在講桌上，抬頭環視教室，眼神不帶嚴厲，卻有種讓人自然而然安靜下來的氣場。他清了清喉嚨，語氣平穩地開口：「好，我們開始上課吧。」
 [[選擇想上的課]] 
@@ -663,7 +657,7 @@ $completed_英文短篇小說選讀 = false</tw-passagedata><tw-passagedata pid=
 
 &lt;&lt;set $stress = Math.max(0, $stress - 2)&gt;&gt;
 &lt;&lt;set $energy -= 2&gt;&gt;
-[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="20" name="選擇想上的課" tags="" position="1775,175" size="100,100">[[▶ 視譯與口語]]
+[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="20" name="選擇想上的課" tags="" position="1800,175" size="100,100">[[▶ 視譯與口語]]
 [[▶文學翻譯入門]]
 [[▶外語教學法]]
 [[▶兒童文學與繪本]]
@@ -678,14 +672,18 @@ $completed_英文短篇小說選讀 = false</tw-passagedata><tw-passagedata pid=
 討論時間，空氣中多了一點互動與活力，有人提出問題，有人補充資料，
 即使話不多，你也在心中組織著自己的看法，默默吸收每一段對話中的養分。
 課程的節奏不快不慢，理論與實例交錯進行，讓你逐漸釐清原本模糊的概念，感覺學習正在一點一滴累積。
-</tw-passagedata><tw-passagedata pid="22" name="▶文學翻譯入門" tags="" position="2050,325" size="100,100">你坐在教室裡，空氣中混合著筆墨與紙張的味道。投影機緩緩亮起，螢幕上浮現今天的課程主題。
-教授站在講台前，語調清晰有節奏，不疾不徐地引導大家進入內容核心。
-有些同學低頭記筆記，有些則專注地望向前方，時不時點頭或輕聲與旁人交換想法。
-你一邊聽、一邊在筆記本上寫下重點，有時也會停下來反思課堂中提出的觀點。
-討論時間，空氣中多了一點互動與活力，有人提出問題，有人補充資料，
-即使話不多，你也在心中組織著自己的看法，默默吸收每一段對話中的養分。
-課程的節奏不快不慢，理論與實例交錯進行，讓你逐漸釐清原本模糊的概念，感覺學習正在一點一滴累積。
-</tw-passagedata><tw-passagedata pid="23" name="▶外語教學法" tags="" position="2000,200" size="100,100">你坐在教室裡，空氣中混合著筆墨與紙張的味道。投影機緩緩亮起，螢幕上浮現今天的課程主題。
+
+&lt;&lt;link &quot;next&quot;&gt;&gt;
+    &lt;&lt;set _r to Math.random()&gt;&gt;
+    &lt;&lt;if _r &lt; 0.3&gt;&gt;
+        &lt;&lt;set _events to [&quot;drowsiness&quot;, &quot;quiz&quot;, &quot;report&quot;]&gt;&gt;
+        &lt;&lt;set $selectedEventType to _events.random()&gt;&gt;
+        &lt;&lt;set _capitalized to $selectedEventType.substr(0, 1).toUpperCase() + $selectedEventType.substr(1)&gt;&gt;
+        &lt;&lt;goto _capitalized&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+        &lt;&lt;goto &quot;start&quot;&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="▶文學翻譯入門" tags="" position="1850,525" size="100,100">你坐在教室裡，空氣中混合著筆墨與紙張的味道。投影機緩緩亮起，螢幕上浮現今天的課程主題。
 教授站在講台前，語調清晰有節奏，不疾不徐地引導大家進入內容核心。
 有些同學低頭記筆記，有些則專注地望向前方，時不時點頭或輕聲與旁人交換想法。
 你一邊聽、一邊在筆記本上寫下重點，有時也會停下來反思課堂中提出的觀點。
@@ -693,46 +691,129 @@ $completed_英文短篇小說選讀 = false</tw-passagedata><tw-passagedata pid=
 即使話不多，你也在心中組織著自己的看法，默默吸收每一段對話中的養分。
 課程的節奏不快不慢，理論與實例交錯進行，讓你逐漸釐清原本模糊的概念，感覺學習正在一點一滴累積。
 
-</tw-passagedata><tw-passagedata pid="24" name="▶兒童文學與繪本" tags="" position="2100,575" size="100,100">你坐在教室裡，空氣中混合著筆墨與紙張的味道。投影機緩緩亮起，螢幕上浮現今天的課程主題。
+&lt;&lt;link &quot;next&quot;&gt;&gt;
+    &lt;&lt;set _r to Math.random()&gt;&gt;
+    &lt;&lt;if _r &lt; 0.3&gt;&gt;
+        &lt;&lt;set _events to [&quot;drowsiness&quot;, &quot;quiz&quot;, &quot;report&quot;]&gt;&gt;
+        &lt;&lt;set $selectedEventType to _events.random()&gt;&gt;
+        &lt;&lt;set _capitalized to $selectedEventType.substr(0, 1).toUpperCase() + $selectedEventType.substr(1)&gt;&gt;
+        &lt;&lt;goto _capitalized&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+        &lt;&lt;goto &quot;start&quot;&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="▶外語教學法" tags="" position="1975,550" size="100,100">你坐在教室裡，空氣中混合著筆墨與紙張的味道。投影機緩緩亮起，螢幕上浮現今天的課程主題。
 教授站在講台前，語調清晰有節奏，不疾不徐地引導大家進入內容核心。
 有些同學低頭記筆記，有些則專注地望向前方，時不時點頭或輕聲與旁人交換想法。
 你一邊聽、一邊在筆記本上寫下重點，有時也會停下來反思課堂中提出的觀點。
 討論時間，空氣中多了一點互動與活力，有人提出問題，有人補充資料，
 即使話不多，你也在心中組織著自己的看法，默默吸收每一段對話中的養分。
 課程的節奏不快不慢，理論與實例交錯進行，讓你逐漸釐清原本模糊的概念，感覺學習正在一點一滴累積。
-</tw-passagedata><tw-passagedata pid="25" name="▶導覽英文" tags="" position="1650,425" size="100,100">你坐在教室裡，空氣中混合著筆墨與紙張的味道。投影機緩緩亮起，螢幕上浮現今天的課程主題。
+
+&lt;&lt;link &quot;next&quot;&gt;&gt;
+    &lt;&lt;set _r to Math.random()&gt;&gt;
+    &lt;&lt;if _r &lt; 0.3&gt;&gt;
+        &lt;&lt;set _events to [&quot;drowsiness&quot;, &quot;quiz&quot;, &quot;report&quot;]&gt;&gt;
+        &lt;&lt;set $selectedEventType to _events.random()&gt;&gt;
+        &lt;&lt;set _capitalized to $selectedEventType.substr(0, 1).toUpperCase() + $selectedEventType.substr(1)&gt;&gt;
+        &lt;&lt;goto _capitalized&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+        &lt;&lt;goto &quot;start&quot;&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="▶兒童文學與繪本" tags="" position="2000,400" size="100,100">你坐在教室裡，空氣中混合著筆墨與紙張的味道。投影機緩緩亮起，螢幕上浮現今天的課程主題。
 教授站在講台前，語調清晰有節奏，不疾不徐地引導大家進入內容核心。
 有些同學低頭記筆記，有些則專注地望向前方，時不時點頭或輕聲與旁人交換想法。
 你一邊聽、一邊在筆記本上寫下重點，有時也會停下來反思課堂中提出的觀點。
 討論時間，空氣中多了一點互動與活力，有人提出問題，有人補充資料，
 即使話不多，你也在心中組織著自己的看法，默默吸收每一段對話中的養分。
 課程的節奏不快不慢，理論與實例交錯進行，讓你逐漸釐清原本模糊的概念，感覺學習正在一點一滴累積。
-</tw-passagedata><tw-passagedata pid="26" name="▶國際禮儀" tags="" position="1825,625" size="100,100">你坐在教室裡，空氣中混合著筆墨與紙張的味道。投影機緩緩亮起，螢幕上浮現今天的課程主題。
+
+&lt;&lt;link &quot;next&quot;&gt;&gt;
+    &lt;&lt;set _r to Math.random()&gt;&gt;
+    &lt;&lt;if _r &lt; 0.3&gt;&gt;
+        &lt;&lt;set _events to [&quot;drowsiness&quot;, &quot;quiz&quot;, &quot;report&quot;]&gt;&gt;
+        &lt;&lt;set $selectedEventType to _events.random()&gt;&gt;
+        &lt;&lt;set _capitalized to $selectedEventType.substr(0, 1).toUpperCase() + $selectedEventType.substr(1)&gt;&gt;
+        &lt;&lt;goto _capitalized&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+        &lt;&lt;goto &quot;start&quot;&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="▶導覽英文" tags="" position="1750,375" size="100,100">你坐在教室裡，空氣中混合著筆墨與紙張的味道。投影機緩緩亮起，螢幕上浮現今天的課程主題。
 教授站在講台前，語調清晰有節奏，不疾不徐地引導大家進入內容核心。
 有些同學低頭記筆記，有些則專注地望向前方，時不時點頭或輕聲與旁人交換想法。
 你一邊聽、一邊在筆記本上寫下重點，有時也會停下來反思課堂中提出的觀點。
 討論時間，空氣中多了一點互動與活力，有人提出問題，有人補充資料，
 即使話不多，你也在心中組織著自己的看法，默默吸收每一段對話中的養分。
 課程的節奏不快不慢，理論與實例交錯進行，讓你逐漸釐清原本模糊的概念，感覺學習正在一點一滴累積。
-</tw-passagedata><tw-passagedata pid="27" name="▶希臘羅馬神話" tags="" position="1925,1050" size="100,100">你坐在教室裡，空氣中混合著筆墨與紙張的味道。投影機緩緩亮起，螢幕上浮現今天的課程主題。
+
+&lt;&lt;link &quot;next&quot;&gt;&gt;
+    &lt;&lt;set _r to Math.random()&gt;&gt;
+    &lt;&lt;if _r &lt; 0.3&gt;&gt;
+        &lt;&lt;set _events to [&quot;drowsiness&quot;, &quot;quiz&quot;, &quot;report&quot;]&gt;&gt;
+        &lt;&lt;set $selectedEventType to _events.random()&gt;&gt;
+        &lt;&lt;set _capitalized to $selectedEventType.substr(0, 1).toUpperCase() + $selectedEventType.substr(1)&gt;&gt;
+        &lt;&lt;goto _capitalized&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+        &lt;&lt;goto &quot;start&quot;&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="▶國際禮儀" tags="" position="1700,525" size="100,100">你坐在教室裡，空氣中混合著筆墨與紙張的味道。投影機緩緩亮起，螢幕上浮現今天的課程主題。
 教授站在講台前，語調清晰有節奏，不疾不徐地引導大家進入內容核心。
 有些同學低頭記筆記，有些則專注地望向前方，時不時點頭或輕聲與旁人交換想法。
 你一邊聽、一邊在筆記本上寫下重點，有時也會停下來反思課堂中提出的觀點。
 討論時間，空氣中多了一點互動與活力，有人提出問題，有人補充資料，
 即使話不多，你也在心中組織著自己的看法，默默吸收每一段對話中的養分。
 課程的節奏不快不慢，理論與實例交錯進行，讓你逐漸釐清原本模糊的概念，感覺學習正在一點一滴累積。
-</tw-passagedata><tw-passagedata pid="28" name="▶英文短篇小說選讀" tags="" position="1500,450" size="100,100">你坐在教室裡，空氣中混合著筆墨與紙張的味道。投影機緩緩亮起，螢幕上浮現今天的課程主題。
+
+&lt;&lt;link &quot;next&quot;&gt;&gt;
+    &lt;&lt;set _r to Math.random()&gt;&gt;
+    &lt;&lt;if _r &lt; 0.3&gt;&gt;
+        &lt;&lt;set _events to [&quot;drowsiness&quot;, &quot;quiz&quot;, &quot;report&quot;]&gt;&gt;
+        &lt;&lt;set $selectedEventType to _events.random()&gt;&gt;
+        &lt;&lt;set _capitalized to $selectedEventType.substr(0, 1).toUpperCase() + $selectedEventType.substr(1)&gt;&gt;
+        &lt;&lt;goto _capitalized&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+        &lt;&lt;goto &quot;start&quot;&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="▶希臘羅馬神話" tags="" position="2150,500" size="100,100">你坐在教室裡，空氣中混合著筆墨與紙張的味道。投影機緩緩亮起，螢幕上浮現今天的課程主題。
 教授站在講台前，語調清晰有節奏，不疾不徐地引導大家進入內容核心。
 有些同學低頭記筆記，有些則專注地望向前方，時不時點頭或輕聲與旁人交換想法。
 你一邊聽、一邊在筆記本上寫下重點，有時也會停下來反思課堂中提出的觀點。
 討論時間，空氣中多了一點互動與活力，有人提出問題，有人補充資料，
 即使話不多，你也在心中組織著自己的看法，默默吸收每一段對話中的養分。
 課程的節奏不快不慢，理論與實例交錯進行，讓你逐漸釐清原本模糊的概念，感覺學習正在一點一滴累積。
-</tw-passagedata><tw-passagedata pid="29" name="DrowsinessSuccess" tags="" position="1400,750" size="100,100">腦中空白零點五秒，但奇蹟般的事情發生了。
+
+&lt;&lt;link &quot;next&quot;&gt;&gt;
+    &lt;&lt;set _r to Math.random()&gt;&gt;
+    &lt;&lt;if _r &lt; 0.3&gt;&gt;
+        &lt;&lt;set _events to [&quot;drowsiness&quot;, &quot;quiz&quot;, &quot;report&quot;]&gt;&gt;
+        &lt;&lt;set $selectedEventType to _events.random()&gt;&gt;
+        &lt;&lt;set _capitalized to $selectedEventType.substr(0, 1).toUpperCase() + $selectedEventType.substr(1)&gt;&gt;
+        &lt;&lt;goto _capitalized&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+        &lt;&lt;goto &quot;start&quot;&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="▶英文短篇小說選讀" tags="" position="1625,375" size="100,100">你坐在教室裡，空氣中混合著筆墨與紙張的味道。投影機緩緩亮起，螢幕上浮現今天的課程主題。
+教授站在講台前，語調清晰有節奏，不疾不徐地引導大家進入內容核心。
+有些同學低頭記筆記，有些則專注地望向前方，時不時點頭或輕聲與旁人交換想法。
+你一邊聽、一邊在筆記本上寫下重點，有時也會停下來反思課堂中提出的觀點。
+討論時間，空氣中多了一點互動與活力，有人提出問題，有人補充資料，
+即使話不多，你也在心中組織著自己的看法，默默吸收每一段對話中的養分。
+課程的節奏不快不慢，理論與實例交錯進行，讓你逐漸釐清原本模糊的概念，感覺學習正在一點一滴累積。
+
+&lt;&lt;link &quot;next&quot;&gt;&gt;
+    &lt;&lt;set _r to Math.random()&gt;&gt;
+    &lt;&lt;if _r &lt; 0.3&gt;&gt;
+        &lt;&lt;set _events to [&quot;drowsiness&quot;, &quot;quiz&quot;, &quot;report&quot;]&gt;&gt;
+        &lt;&lt;set $selectedEventType to _events.random()&gt;&gt;
+        &lt;&lt;set _capitalized to $selectedEventType.substr(0, 1).toUpperCase() + $selectedEventType.substr(1)&gt;&gt;
+        &lt;&lt;goto _capitalized&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+        &lt;&lt;goto &quot;start&quot;&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="DrowsinessSuccess" tags="" position="1400,750" size="100,100">腦中空白零點五秒，但奇蹟般的事情發生了。
 你昨晚努力複習過的內容，在這驚嚇的一瞬間全數浮現，你脫口而出一長串的知識點後全班一陣安靜。
 教授眼睛一亮，點頭：「非常好，這正是我想帶大家思考的方向。」
 你慢慢坐下，心跳還沒緩過來，但內心忍不住吶喊：「天啊！幸好我有複習過」
-[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="30" name="DrowsinessFailure" tags="" position="1550,725" size="100,100">教授的聲音如雷般在耳邊炸響，全班瞬間安靜下來，數十道目光射向你。
+[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="30" name="DrowsinessFailure" tags="" position="1550,775" size="100,100">教授的聲音如雷般在耳邊炸響，全班瞬間安靜下來，數十道目光射向你。
 你瞬間清醒，腦中一片空白，只聽見自己心跳聲砰砰作響。
 筆從手中滑落，你下意識地站起來，試圖組織語言，但嘴巴先你一步說出了：「啊？呃、對不起……」
 全班爆出一陣低笑，教授也微微一笑，淡淡說：「至少你現在醒了，對吧？」
