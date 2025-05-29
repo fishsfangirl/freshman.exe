@@ -373,7 +373,7 @@ $(document).on(':passagerender', function () {
   // ✅ 背景設定
   const bgGroups = [
     { keywords: ["大學背景", "first", "start", "second", "學校"], url: "images/school.png" },
-    { keywords: ["回家", "寫日記", "睡覺", "繼續睡", "報告", "讀小考", "GoodSleepResult", "BadSleepResult", "坐到書桌前面做些什麼。"], url: "images/room.png" },
+    { keywords: ["回家", "寫日記", "睡覺", "繼續睡", "準備", "GoodSleepResult", "BadSleepResult", "坐到書桌前面做些什麼。"], url: "images/room.png" },
     { keywords: ["西校區", "運動"], url: "images/playground.png" },
     { keywords: ["參加心靈講座"], url: "images/speech.png" },
     { keywords: ["看心靈書籍(有知識點)"], url: "images/bookshelve.png" },
@@ -549,9 +549,9 @@ $(document).on(':passagerender', function () {
   };
 });
 </script><tw-passagedata pid="1" name="first" tags="" position="150,0" size="100,100">&lt;br&gt;
-●大學生模擬器●
+●Freshman.exe●
 
-請輸入你的名字：&lt;br&gt; 輸入完請按enter鍵!
+Please type your name：&lt;br&gt; Aftert typing, press enter!
 &lt;&lt;textbox &quot;$playerName&quot; &quot;&quot; &quot;second&quot; &quot;oninput&quot;&gt;&gt;
 &lt;br&gt;
 &lt;br&gt;</tw-passagedata><tw-passagedata pid="2" name="StoryInit" tags="" position="1100,75" size="100,100">:: StoryInit
@@ -569,9 +569,10 @@ $completed_導覽英文 = false
 $completed_國際禮儀 = false
 $completed_希臘羅馬神話 = false
 $completed_英文短篇小說選讀 = false</tw-passagedata><tw-passagedata pid="3" name="second" tags="" position="525,0" size="100,100">&lt;br&gt;
-你，$playerName是一個剛進入高科大一年級的應英系新生，剛離家的你，原本對未知的新生活充滿期待，但接踵而來的presentations、meetings與各式各樣的生活壓力，使你開始對未來感到迷茫。於是你下定決心，要透過時間管理奪回這一切！
+You, $playerName are a freshman who just started at NKUST in the Department of Applied English. You just left home, and you’re excited to start a new chapter in your life. But things change fast. A lot of presentations, meetings, and stress keep piling up. You start to feel lost about the future. That’s when you decide to take back control by learning time management!
+
 &lt;br&gt;
-[[start]] </tw-passagedata><tw-passagedata pid="4" name="start" tags="" position="100,200" size="100,100">&lt;&lt;silently&gt;&gt;
+[[start]] </tw-passagedata><tw-passagedata pid="4" name="start" tags="" position="75,175" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;if $day == 1&gt;&gt;
   &lt;&lt;set $endTriggered = false&gt;&gt;
 &lt;&lt;/if&gt;&gt;
@@ -579,7 +580,7 @@ $completed_英文短篇小說選讀 = false</tw-passagedata><tw-passagedata pid=
   &lt;&lt;set $day += 1&gt;&gt;
   &lt;&lt;set $justSlept = false&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;set _weekday = [&quot;一&quot;, &quot;二&quot;, &quot;三&quot;, &quot;四&quot;, &quot;五&quot;, &quot;六&quot;, &quot;日&quot;][($day - 1) % 7]&gt;&gt;
+&lt;&lt;set _weekday = [&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Monday&quot;, &quot;Saturday&quot;, &quot;Sunday&quot;][($day - 1) % 7]&gt;&gt;
 &lt;&lt;if $day == 14 and !$endTriggered&gt;&gt;
   &lt;&lt;set $endTriggered = true&gt;&gt;
   &lt;&lt;if $stress &gt;= 9&gt;&gt;
@@ -592,107 +593,118 @@ $completed_英文短篇小說選讀 = false</tw-passagedata><tw-passagedata pid=
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/silently&gt;&gt;
 
-今天是星期&lt;&lt;print _weekday&gt;&gt;
+Today is &lt;&lt;print _weekday&gt;&gt;
 
-你想要...
+You decide...
 
-[[回家]]
-[[學校]]</tw-passagedata><tw-passagedata pid="5" name="回家" tags="" position="600,450" size="100,100">終於，你抵達家門口。你換下鞋子，踏進屋內，肩膀的重量隨著書包落地的一刻一併卸下。你把書包放在椅子旁，經過了一天，終於可以慢下來了。
-你現在想要...
+[[Go home -&gt;回家]]
+[[Go to school -&gt;學校]]</tw-passagedata><tw-passagedata pid="5" name="回家" tags="" position="600,450" size="100,100">Finally, you reach your front door. You take off your shoes and step inside. The weight on your shoulders lifts as your backpack drops to the floor. You set your bag down next to the chair. After a long day, you can finally relax.
+Now, you want to...
+
 
 &lt;&lt;if $sleepCount &lt; 4&gt;&gt;
-  [[睡覺  (警告：睡覺將會跳轉到另一天)。]]
+  [[Sleep (Heads up: sleeping skips you to the next day). -&gt;睡覺  (警告：睡覺將會跳轉到另一天)。]]
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $sleepCount &gt;= 4&gt;&gt;
   &lt;span style=&quot;color:red;&quot;&gt;你已經連續睡覺四次，不能再睡了！請先去上課。&lt;/span&gt;
 &lt;&lt;/if&gt;&gt;
-[[坐到書桌前面做些什麼。]]</tw-passagedata><tw-passagedata pid="6" name="學校" tags="" position="925,50" size="100,100">&lt;br&gt;
-[[西校區/運動]]
-[[走廊]]
-&lt;br&gt;</tw-passagedata><tw-passagedata pid="7" name="睡覺  (警告：睡覺將會跳轉到另一天)。" tags="" position="675,275" size="100,100">&lt;&lt;set $sleepCount += 1&gt;&gt;
-你走進房間，輕輕關上門，燈光隨著指尖一按而熄滅，整個世界也靜了下來。  
-空氣中帶著熟悉的氣息，床鋪早已等待你一整天。  
-你換上睡衣，躺了下來，身體陷入柔軟的被窩。  
-眼皮隨著呼吸慢慢變重，思緒在枕頭的柔軟中一點一點模糊。  
+[[Sit down at the desk and do something.-&gt;坐到書桌前面做些什麼。]]</tw-passagedata><tw-passagedata pid="6" name="學校" tags="" position="875,25" size="100,100">&lt;br&gt;
+[[West campus / exercise -&gt;西校區/運動]]
+[[aisle -&gt;走廊]]
+&lt;br&gt;</tw-passagedata><tw-passagedata pid="7" name="睡覺  (警告：睡覺將會跳轉到另一天)。" tags="" position="475,250" size="100,100">&lt;&lt;set $sleepCount += 1&gt;&gt;
+You head into your room and softly shut the door behind you. You tap the light switch and everything goes quiet.
+The room smells familiar and comforting. Your bed has been waiting all day. 
+
 &lt;&lt;set $justSlept = true&gt;&gt;
-[[next-&gt;sleepresult]] </tw-passagedata><tw-passagedata pid="8" name="坐到書桌前面做些什麼。" tags="" position="325,700" size="100,100">你選擇了坐到書桌前面，你想要
+[[next-&gt;sleepresult]] </tw-passagedata><tw-passagedata pid="8" name="坐到書桌前面做些什麼。" tags="" position="100,625" size="100,100">After a deep breath, you get up and turn on the desk lamp. You spread out your notes and start working. Your thoughts begin to clear.
+Even though you’re still tired, you know this hard work is necessary. Every minute counts as you get ready for tomorrow. In the quiet night, you quietly build your own determination.
 
-[[看心靈書籍(有知識點)]]
-[[寫日記]]
+You choose to sit down at your desk. What do you want to do?
 
-</tw-passagedata><tw-passagedata pid="9" name="繼續睡" tags="" position="1000,600" size="100,100">&lt;br&gt;
-你小睡了一會兒，夢境尚未散去，卻被突如其來的念頭驚醒...明天有報告？！
-心頭一陣緊繃，壓力如潮水湧來，卻又疲憊得無力抗拒。你閉上眼，再次投降於沉重的瞼皮，讓夢境慢慢將你包圍。 暫時放下煩惱吧！，明天再來決定如何迎戰。
 
-你決定再睡一會兒，雖然精力恢復了，但壓力也隨之增加。
+[[Read a self-help book -&gt;看心靈書籍(有知識點)]]
+[[Write something in your diary-&gt;寫日記]]
+
+</tw-passagedata><tw-passagedata pid="9" name="繼續睡" tags="" position="750,950" size="100,100">&lt;br&gt;
+You take a short nap, but a sudden thought wakes you up …  tomorrow’s quiz or presentation! Your chest tightens as stress rushes in, yet your body is too tired to fight it. You close your eyes again and let yourself drift back to sleep, telling yourself to forget the worries for now and deal with them tomorrow.
 &lt;&lt;set $energy = Math.min($energy + 2, 10)&gt;&gt;
 &lt;&lt;set $stress += 2&gt;&gt;
-[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="10" name="看心靈書籍(有知識點)" tags="" position="400,925" size="100,100">你現在想要拿起那本心靈書籍，翻開封面。書頁輕輕散發著紙張的香氣，像是在邀請你展開一段內心的旅程。你坐回椅子，讓思緒隨著文字緩緩流動。每一句話像是一道光，穿透疲憊與雜念，帶你走向一片寧靜的心田。頁頁翻過，外界的喧囂彷彿遠去，只剩下你和書中那份溫柔的力量，陪伴著你安靜地呼吸，靜靜地感受。
-(隨機跳出一個知識點)
+[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="10" name="看心靈書籍(有知識點)" tags="" position="400,925" size="100,100">You reach for the self-help book and open the cover. The pages softly give off the scent of paper. It feels like an invitation to begin an inner journey.
+You settle back into your chair and let your thoughts flow with the words. Each sentence feels like a beam of light that cuts through fatigue and distractions. It leads you to a peaceful place inside.
+As you turn the pages, the noise of the outside world fades away. It is just you and the gentle power of the book, breathing quietly together and feeling calm.
+
 
 [[next-&gt;start]]
-&lt;&lt;set $energy -= 2&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="寫日記" tags="" position="200,900" size="100,100">你把書包輕輕放在椅子旁，深吸一口氣，感覺一天的疲憊漸漸散去。
-坐到書桌前，你打開筆記本，筆尖在紙上輕輕滑動，開始寫下今天的經歷...
+&lt;&lt;set $energy -= 2&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="寫日記" tags="" position="200,900" size="100,100">You gently set your backpack beside the chair and take a deep breath. The tiredness from the day slowly fades away.
+Sitting at your desk, you open your notebook. Your pen glides softly across the paper as you begin to write about today’s experiences...
 
-請寫下你的日記：
 
+write down your diary：
+&lt;&lt;set $energy -= 1&gt;&gt;
 &lt;&lt;textbox &quot;$diaryInput&quot; &quot;&quot;&gt;&gt;
 
-&lt;&lt;button &quot;儲存日記&quot;&gt;&gt;
+&lt;&lt;button &quot;save your diary&quot;&gt;&gt;
     &lt;&lt;set $diaryEntry = $diaryInput&gt;&gt;
     &lt;&lt;goto &quot;savediary&quot;&gt;&gt;
 &lt;&lt;/button&gt;&gt;
 
 &lt;&lt;if $diaryEntry&gt;&gt;
-    &lt;&lt;button &quot;查看日記內容&quot;&gt;&gt;
+    &lt;&lt;button &quot;look again&quot;&gt;&gt;
         &lt;&lt;goto &quot;lookdiary&quot;&gt;&gt;
     &lt;&lt;/button&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="12" name="GoodSleepResult" tags="" position="500,775" size="100,100">你沉入一場平靜的夢境，睡得很安穩。
+[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="12" name="GoodSleepResult" tags="" position="525,825" size="100,100">After changing into your pajamas, flop down and sink into the soft blankets.
+You can feel your eyelids getting heavier with each breath, and your thoughts start to drift off on the comfy pillow.
 
-當你醒來時，窗外的陽光溫和地照進房間，你伸了個懶腰，感覺這將是完美的一天。你的身體和思緒都得到了充分的休息。
+[[start]] </tw-passagedata><tw-passagedata pid="13" name="西校區/運動" tags="" position="850,375" size="100,100">&lt;&lt;set $stress -= 2&gt;&gt;
+You walk through the campus path and reach the West Campus.
+The sun’s shining down on the field, and the air smells like fresh grass and sweat.
+You take a deep breath and start feeling your body wake up. Your mood gets lighter too.
 
-[[start]] </tw-passagedata><tw-passagedata pid="13" name="西校區/運動" tags="" position="925,400" size="100,100">&lt;&lt;set $stress -= 2&gt;&gt;
-你穿過校園小徑，來到西校區。陽光灑落在操場上，空氣中混著青草與汗水的氣息。你深吸一口氣，感受到身體漸漸甦醒，心情也隨之輕盈起來。
 
 [[next-&gt;start]]
-&lt;&lt;set $energy -= 2&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="BadSleepResult" tags="" position="1100,925" size="100,100">不知道是什麼原因，半夜你突然驚醒。房間裡一片漆黑，只有數字時鐘顯示著凌晨3:27的微光。
+&lt;&lt;set $energy -= 2&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="BadSleepResult" tags="" position="575,1000" size="100,100">&lt;&lt;set _event to either(&quot;報告&quot;, &quot;讀小考&quot;)&gt;&gt;
 
-你嘗試再次入睡，但腦海中浮現的各種思緒讓你輾轉難眠。最終，當天色漸亮時，你帶著些許疲憊起床了。
+Suddenly, a sharp thought hits you like a warning siren:  
+YOU HAVEN’T PREPARED FOR TOMORROW’S &lt;&lt;if _event == &quot;報告&quot;&gt;&gt;PRESENTATION&lt;&lt;else&gt;&gt;QUIZ&lt;&lt;/if&gt;&gt;!  
+Your heart races even though your body feels exhausted. What will you do now?
 
-雖然你的壓力有所降低，精力也恢復了一些，但感覺並不那麼理想。
-
-你要做什麼？
-* [[報告]]（精力-2，壓力-1）
-* [[讀小考]]（精力-2，壓力-1）
-* [[繼續睡]]（精力+2，壓力+2）
-</tw-passagedata><tw-passagedata pid="15" name="報告" tags="" position="775,925" size="100,100">&lt;br&gt;
-你拖著疲憊的身體開始練習報告，雖然有點累，但壓力稍微減輕了。
+[[prepare-&gt;準備]]
+[[keep sleeping-&gt;繼續睡]]</tw-passagedata><tw-passagedata pid="15" name="準備" tags="" position="575,1225" size="100,100">&lt;br&gt;
+你拖著疲憊的身體開始練習，雖然有點累，但壓力稍微減輕了。
 &lt;&lt;set $energy -= 2&gt;&gt;
 &lt;&lt;set $stress -= 1&gt;&gt;
 [[next-&gt;start]] 
-</tw-passagedata><tw-passagedata pid="16" name="讀小考" tags="" position="900,775" size="100,100">&lt;br&gt;
+</tw-passagedata><tw-passagedata pid="16" name="讀小考" tags="" position="750,1225" size="100,100">&lt;br&gt;
 你努力準備小考，精神有些不濟，但壓力也減少了一些。
 &lt;&lt;set $energy -= 2&gt;&gt;
 &lt;&lt;set $stress -= 1&gt;&gt;
-[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="17" name="走廊" tags="" position="1100,275" size="100,100">&lt;br&gt;
-[[上課]]
-[[參加心靈講座]]
+[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="17" name="走廊" tags="" position="1075,275" size="100,100">&lt;br&gt;
+[[classroom-&gt;上課]]
+[[speech-&gt;參加心靈講座]]
 &lt;br&gt;
-</tw-passagedata><tw-passagedata pid="18" name="上課" tags="" position="1775,0" size="100,100">&lt;&lt;if $energy &lt;= 1&gt;&gt;
+</tw-passagedata><tw-passagedata pid="18" name="上課" tags="" position="1400,450" size="100,100">&lt;&lt;if $energy &lt;= 1&gt;&gt;
 ⚠ 你太累了，已經沒有力氣上課。請回家睡覺。
 [[回家-&gt;回家]]
 &lt;&lt;else&gt;&gt;
 &lt;&lt;set $sleepCount = 0&gt;&gt;
-你沿著走廊前行，腳步在瓷磚地上留下輕微回音。
-教室的門半掩著，裡頭傳來翻書與輕聲交談的聲音。你輕輕推門而入，選了個座位坐下。片刻之後，門外傳來一陣穩重的腳步聲。老師走了進來，身上仍帶著些微戶外的風氣。 他/她將課本與資料輕放在講桌上，抬頭環視教室，眼神不帶嚴厲，卻有種讓人自然而然安靜下來的氣場。他清了清喉嚨，語氣平穩地開口：「好，我們開始上課吧。」
-[[選擇想上的課]] 
+The classroom door’s slightly open, and you can hear pages flipping and soft chatting inside.
+You quietly push the door and pick a seat. After a bit, you hear steady footsteps outside.
+The teacher walks in, still smelling a bit like the outdoors. They set their books and papers on the desk and look around the room.
+Their eyes aren’t strict but somehow make everyone calm down naturally.
+Clearing their throat, the teacher says in a steady voice, “Alright, let’s get started.”
+[[choose what course to take-&gt;選擇想上的課]] 
 &lt;&lt;set $energy -= 2&gt;&gt;
 &lt;&lt;set $stress += 1&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="參加心靈講座" tags="" position="1500,225" size="100,100">深呼吸練習呼吸30s-&gt;你緩步走過學校的長廊，腳步在光影間交錯。 不遠處，一間安靜的教室正舉行心靈講座，空氣中瀰漫著淡淡的檀香氣息。你推門而入，坐下。四周靜謐，講者語氣溫和，引導你閉上眼睛。你跟著指引，緩緩吸氣……再緩緩吐氣。
-(倒數後)
-30秒的深呼吸裡，你彷彿穿越了喧囂與思緒的迷霧，來到一片清澈的內心湖面。
-當你睜開眼，一切依舊，卻彷彿有所不同。
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="參加心靈講座" tags="" position="1500,225" size="100,100">You walk slowly down the school corridor, your footsteps weaving through patches of light and shadow.
+Not far ahead, a quiet classroom is holding a mindfulness talk. The air is filled with a soft scent of sandalwood.
+You push the door open and take a seat. The room is calm and still. The speaker’s gentle voice guides you to close your eyes.
+Following the instructions, you breathe in slowly... then breathe out slowly.
+
+In just 30 seconds of deep breathing, it feels like you drift through the fog of noise and thoughts. You arrive at a quiet, clear lake inside your mind.
+When you open your eyes, everything around you looks the same. Still, somehow, it all feels a little different.
+
+
 
 &lt;&lt;set $stress = Math.max(0, $stress - 2)&gt;&gt;
 &lt;&lt;set $energy -= 2&gt;&gt;
@@ -704,13 +716,8 @@ $completed_英文短篇小說選讀 = false</tw-passagedata><tw-passagedata pid=
 [[▶國際禮儀]]
 [[▶希臘羅馬神話]]
 [[▶英文短篇小說選讀]]
-</tw-passagedata><tw-passagedata pid="21" name="▶ 視譯與口語" tags="" position="1875,375" size="100,100">你坐在教室裡，空氣中混合著筆墨與紙張的味道。投影機緩緩亮起，螢幕上浮現今天的課程主題。
-教授站在講台前，語調清晰有節奏，不疾不徐地引導大家進入內容核心。
-有些同學低頭記筆記，有些則專注地望向前方，時不時點頭或輕聲與旁人交換想法。
-你一邊聽、一邊在筆記本上寫下重點，有時也會停下來反思課堂中提出的觀點。
-討論時間，空氣中多了一點互動與活力，有人提出問題，有人補充資料，
-即使話不多，你也在心中組織著自己的看法，默默吸收每一段對話中的養分。
-課程的節奏不快不慢，理論與實例交錯進行，讓你逐漸釐清原本模糊的概念，感覺學習正在一點一滴累積。
+</tw-passagedata><tw-passagedata pid="21" name="▶ 視譯與口語" tags="" position="1875,375" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
+During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
 
 &lt;&lt;link &quot;next&quot;&gt;&gt;
     &lt;&lt;set _r to Math.random()&gt;&gt;
@@ -722,13 +729,8 @@ $completed_英文短篇小說選讀 = false</tw-passagedata><tw-passagedata pid=
     &lt;&lt;else&gt;&gt;
         &lt;&lt;goto &quot;start&quot;&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="▶文學翻譯入門" tags="" position="1850,525" size="100,100">你坐在教室裡，空氣中混合著筆墨與紙張的味道。投影機緩緩亮起，螢幕上浮現今天的課程主題。
-教授站在講台前，語調清晰有節奏，不疾不徐地引導大家進入內容核心。
-有些同學低頭記筆記，有些則專注地望向前方，時不時點頭或輕聲與旁人交換想法。
-你一邊聽、一邊在筆記本上寫下重點，有時也會停下來反思課堂中提出的觀點。
-討論時間，空氣中多了一點互動與活力，有人提出問題，有人補充資料，
-即使話不多，你也在心中組織著自己的看法，默默吸收每一段對話中的養分。
-課程的節奏不快不慢，理論與實例交錯進行，讓你逐漸釐清原本模糊的概念，感覺學習正在一點一滴累積。
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="▶文學翻譯入門" tags="" position="1850,525" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
+During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
 
 &lt;&lt;link &quot;next&quot;&gt;&gt;
     &lt;&lt;set _r to Math.random()&gt;&gt;
@@ -740,13 +742,8 @@ $completed_英文短篇小說選讀 = false</tw-passagedata><tw-passagedata pid=
     &lt;&lt;else&gt;&gt;
         &lt;&lt;goto &quot;start&quot;&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="▶外語教學法" tags="" position="1975,550" size="100,100">你坐在教室裡，空氣中混合著筆墨與紙張的味道。投影機緩緩亮起，螢幕上浮現今天的課程主題。
-教授站在講台前，語調清晰有節奏，不疾不徐地引導大家進入內容核心。
-有些同學低頭記筆記，有些則專注地望向前方，時不時點頭或輕聲與旁人交換想法。
-你一邊聽、一邊在筆記本上寫下重點，有時也會停下來反思課堂中提出的觀點。
-討論時間，空氣中多了一點互動與活力，有人提出問題，有人補充資料，
-即使話不多，你也在心中組織著自己的看法，默默吸收每一段對話中的養分。
-課程的節奏不快不慢，理論與實例交錯進行，讓你逐漸釐清原本模糊的概念，感覺學習正在一點一滴累積。
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="▶外語教學法" tags="" position="1975,550" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
+During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
 
 &lt;&lt;link &quot;next&quot;&gt;&gt;
     &lt;&lt;set _r to Math.random()&gt;&gt;
@@ -758,13 +755,9 @@ $completed_英文短篇小說選讀 = false</tw-passagedata><tw-passagedata pid=
     &lt;&lt;else&gt;&gt;
         &lt;&lt;goto &quot;start&quot;&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="▶兒童文學與繪本" tags="" position="2000,400" size="100,100">你坐在教室裡，空氣中混合著筆墨與紙張的味道。投影機緩緩亮起，螢幕上浮現今天的課程主題。
-教授站在講台前，語調清晰有節奏，不疾不徐地引導大家進入內容核心。
-有些同學低頭記筆記，有些則專注地望向前方，時不時點頭或輕聲與旁人交換想法。
-你一邊聽、一邊在筆記本上寫下重點，有時也會停下來反思課堂中提出的觀點。
-討論時間，空氣中多了一點互動與活力，有人提出問題，有人補充資料，
-即使話不多，你也在心中組織著自己的看法，默默吸收每一段對話中的養分。
-課程的節奏不快不慢，理論與實例交錯進行，讓你逐漸釐清原本模糊的概念，感覺學習正在一點一滴累積。
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="▶兒童文學與繪本" tags="" position="2000,400" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
+During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
+
 
 &lt;&lt;link &quot;next&quot;&gt;&gt;
     &lt;&lt;set _r to Math.random()&gt;&gt;
@@ -776,13 +769,9 @@ $completed_英文短篇小說選讀 = false</tw-passagedata><tw-passagedata pid=
     &lt;&lt;else&gt;&gt;
         &lt;&lt;goto &quot;start&quot;&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="▶導覽英文" tags="" position="1750,375" size="100,100">你坐在教室裡，空氣中混合著筆墨與紙張的味道。投影機緩緩亮起，螢幕上浮現今天的課程主題。
-教授站在講台前，語調清晰有節奏，不疾不徐地引導大家進入內容核心。
-有些同學低頭記筆記，有些則專注地望向前方，時不時點頭或輕聲與旁人交換想法。
-你一邊聽、一邊在筆記本上寫下重點，有時也會停下來反思課堂中提出的觀點。
-討論時間，空氣中多了一點互動與活力，有人提出問題，有人補充資料，
-即使話不多，你也在心中組織著自己的看法，默默吸收每一段對話中的養分。
-課程的節奏不快不慢，理論與實例交錯進行，讓你逐漸釐清原本模糊的概念，感覺學習正在一點一滴累積。
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="▶導覽英文" tags="" position="1750,375" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
+During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
+
 
 &lt;&lt;link &quot;next&quot;&gt;&gt;
     &lt;&lt;set _r to Math.random()&gt;&gt;
@@ -794,13 +783,9 @@ $completed_英文短篇小說選讀 = false</tw-passagedata><tw-passagedata pid=
     &lt;&lt;else&gt;&gt;
         &lt;&lt;goto &quot;start&quot;&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="▶國際禮儀" tags="" position="1700,525" size="100,100">你坐在教室裡，空氣中混合著筆墨與紙張的味道。投影機緩緩亮起，螢幕上浮現今天的課程主題。
-教授站在講台前，語調清晰有節奏，不疾不徐地引導大家進入內容核心。
-有些同學低頭記筆記，有些則專注地望向前方，時不時點頭或輕聲與旁人交換想法。
-你一邊聽、一邊在筆記本上寫下重點，有時也會停下來反思課堂中提出的觀點。
-討論時間，空氣中多了一點互動與活力，有人提出問題，有人補充資料，
-即使話不多，你也在心中組織著自己的看法，默默吸收每一段對話中的養分。
-課程的節奏不快不慢，理論與實例交錯進行，讓你逐漸釐清原本模糊的概念，感覺學習正在一點一滴累積。
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="▶國際禮儀" tags="" position="1700,525" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
+During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
+
 
 &lt;&lt;link &quot;next&quot;&gt;&gt;
     &lt;&lt;set _r to Math.random()&gt;&gt;
@@ -830,13 +815,9 @@ $completed_英文短篇小說選讀 = false</tw-passagedata><tw-passagedata pid=
     &lt;&lt;else&gt;&gt;
         &lt;&lt;goto &quot;start&quot;&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="▶英文短篇小說選讀" tags="" position="1625,375" size="100,100">你坐在教室裡，空氣中混合著筆墨與紙張的味道。投影機緩緩亮起，螢幕上浮現今天的課程主題。
-教授站在講台前，語調清晰有節奏，不疾不徐地引導大家進入內容核心。
-有些同學低頭記筆記，有些則專注地望向前方，時不時點頭或輕聲與旁人交換想法。
-你一邊聽、一邊在筆記本上寫下重點，有時也會停下來反思課堂中提出的觀點。
-討論時間，空氣中多了一點互動與活力，有人提出問題，有人補充資料，
-即使話不多，你也在心中組織著自己的看法，默默吸收每一段對話中的養分。
-課程的節奏不快不慢，理論與實例交錯進行，讓你逐漸釐清原本模糊的概念，感覺學習正在一點一滴累積。
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="▶英文短篇小說選讀" tags="" position="1625,375" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
+During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
+
 
 &lt;&lt;link &quot;next&quot;&gt;&gt;
     &lt;&lt;set _r to Math.random()&gt;&gt;
@@ -884,7 +865,7 @@ $completed_英文短篇小說選讀 = false</tw-passagedata><tw-passagedata pid=
 回到座位後，你感覺整個背都在冒汗，臉頰發燙，連眼神都不太敢與同學接觸。
 教授語氣平淡地說：「下次建議多練習一下簡報的流暢度。」
 你低下頭，心中只有一個想法：「我好像連晚餐都不想吃了……」
-[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="35" name="sleepresult" tags="" position="475,550" size="100,100">&lt;&lt;set $sleepRoll = random(1, 100)&gt;&gt;
+[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="35" name="sleepresult" tags="" position="425,550" size="100,100">&lt;&lt;set $sleepRoll = random(1, 100)&gt;&gt;
 
 &lt;&lt;if $sleepRoll &lt;= 50&gt;&gt;
   &lt;&lt;set $energy = 10&gt;&gt;
@@ -935,8 +916,7 @@ would u like to restart?
 
 [[Fail|ReportFailure]]
 
-</tw-passagedata><tw-passagedata pid="42" name="savediary" tags="" position="175,1050" size="100,100">:: savediary
-&lt;p&gt;日記已儲存！&lt;/p&gt;
+</tw-passagedata><tw-passagedata pid="42" name="savediary" tags="" position="175,1050" size="100,100">&lt;p&gt;日記已儲存！&lt;/p&gt;
 &lt;&lt;button &quot;返回寫日記&quot;&gt;&gt;
     &lt;&lt;goto &quot;寫日記&quot;&gt;&gt;
 &lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="lookdiary" tags="" position="350,1075" size="100,100">:: lookdiary
