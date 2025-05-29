@@ -340,26 +340,28 @@ State.setVar("$sleepCount", sleepCount);
   
   // ✅ 背景設定
   const bgGroups = [
-    { keywords: ["大學背景", "first", "start", "second", "學校"], url: "https://i.postimg.cc/s2h8v0wW/bg1.png" },
-    { keywords: ["回家", "寫日記", "睡覺", "繼續睡","報告", "讀小考","GoodSleepResult","BadSleepResult"], url: "https://i.postimg.cc/VNQrkd7b/room.png" },
-    { keywords: ["西校區", "運動"], url: "https://iili.io/3inKsZ7.png" },
-    { keywords: ["參加心靈講座"], url: "https://iili.io/3bzapje.png" },
-    { keywords: ["看心靈書籍(有知識點)"], url: "https://iili.io/3bzE0e2.md.png" },
-    { keywords: ["走廊"], url: "https://iili.io/3ioxZjj.md.png" },
-    { keywords: ["上課", "選擇想上的課", "DrowsinessSuccess", "DrowsinessFailure", "QuizSuccess", "QuizFailure", "ReportSuccess", "ReportFailure"], url: "https://iili.io/3ioYVCg.md.png" }
+    { keywords: ["大學背景", "first", "start", "second", "學校"], url: "images/school.png" },
+    { keywords: ["回家", "寫日記", "睡覺", "繼續睡","報告", "讀小考","GoodSleepResult","BadSleepResult"], url: "images/room.png" },
+    { keywords: ["西校區", "運動"], url: "images/playground.png" },
+    { keywords: ["參加心靈講座"], url: "images/speech.png" },
+    { keywords: ["看心靈書籍(有知識點)"], url: "images/bookshelve.png" },
+    { keywords: ["走廊"], url: "images/aisle.png" },
+    { keywords: ["上課", "選擇想上的課", "DrowsinessSuccess", "DrowsinessFailure", "QuizSuccess", "QuizFailure", "ReportSuccess", "ReportFailure"], url: "images/classroom.png" }
   ];
 
-  let bgUrl = "url('https://i.postimg.cc/s2h8v0wW/bg1.png')";
-  outer: for (const group of bgGroups) {
-    for (const kw of group.keywords) {
-      if (currentPassage.includes(kw)) {
-        bgUrl = `url('${group.url}')`;
-        break outer;
-      }
+  let bgUrl = "images/school.png"; // 預設背景圖片
+outer: for (const group of bgGroups) {
+  for (const kw of group.keywords) {
+    if (currentPassage.includes(kw)) {
+      bgUrl = group.url;
+      break outer;
     }
   }
+}
 
-  document.body.style.backgroundImage = bgUrl;
+
+document.body.style.backgroundImage = "url('images/bg1.png')";
+
   document.body.style.backgroundSize = "cover";
   document.body.style.backgroundRepeat = "no-repeat";
   document.body.style.backgroundPosition = "center";
@@ -515,7 +517,7 @@ window.getDiaryEntry = function() {
     return State.variables.diaryEntry || "";
 };
 });</script><tw-passagedata pid="1" name="first" tags="" position="150,0" size="100,100">&lt;br&gt;
-●666大學生模擬器●
+●大學生模擬器●
 
 請輸入你的名字：&lt;br&gt; 輸入完請按enter鍵!
 &lt;&lt;textbox &quot;$playerName&quot; &quot;&quot; &quot;second&quot; &quot;oninput&quot;&gt;&gt;
