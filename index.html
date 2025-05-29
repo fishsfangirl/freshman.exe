@@ -375,7 +375,7 @@ $(document).on(':passagerender', function () {
     { keywords: ["大學背景", "first", "start", "second", "學校"], url: "images/school.png" },
     { keywords: ["回家", "寫日記", "睡覺", "繼續睡", "準備", "GoodSleepResult", "BadSleepResult", "坐到書桌前面做些什麼。"], url: "images/room.png" },
     { keywords: ["西校區", "運動"], url: "images/playground.png" },
-    { keywords: ["參加心靈講座"], url: "images/speech.png" },
+    { keywords: ["參加心靈講座","心靈講座後"], url: "images/speech.png" },
     { keywords: ["看心靈書籍(有知識點)"], url: "images/bookshelve.png" },
     { keywords: ["走廊"], url: "images/aisle.png" },
     { keywords: ["上課", "選擇想上的課","▶英文短篇小說選讀", "▶視譯與口語", "▶文學翻譯入門", "▶外語教學法", "▶兒童文學與繪本", "▶導覽英文", "▶國際禮儀", "▶希臘羅馬神話", "Drowsiness", " Quiz", "Report", "DrowsinessSuccess", "DrowsinessFailure", "QuizSuccess", "QuizFailure", "ReportSuccess", "ReportFailure"], url: "images/classroom.png" }
@@ -473,61 +473,63 @@ $(document).on(':passagerender', function () {
     State.setVar("$canChooseSuccess", canChooseSuccess);
   }
 
-  // ✅ 參加心靈講座計時器
-  if (currentPassage === "參加心靈講座") {
-    setTimeout(() => {
-      // 共用樣式
-      const sharedStyle = {
-        fontSize: '24px',
-        color: '#fff',
-        textAlign: 'center',
-        fontWeight: 'bold',
-        backgroundColor: 'rgba(0, 0, 0, 0.7)',
-        padding: '15px 25px',
-        borderRadius: '10px',
-        maxWidth: '300px',
-        position: 'fixed',
-        top: '80%',
-        left: '40%',
-        transform: 'translate(-50%, -50%)',
-        zIndex: '1000',
-        border: '2px solid #fff',
-        boxShadow: '0 4px 8px rgba(0,0,0,0.3)'
-      };
+if (currentPassage === "參加心靈講座") {
+  setTimeout(() => {
+    const sharedStyle = {
+      fontSize: '24px',
+      color: '#fff',
+      textAlign: 'center',
+      fontWeight: 'bold',
+      backgroundColor: 'rgba(0, 0, 0, 0.7)',
+      padding: '15px 25px',
+      borderRadius: '10px',
+      maxWidth: '300px',
+      position: 'fixed',
+      top: '80%',
+      left: '58%',
+      transform: 'translate(-50%, -50%)',
+      zIndex: '1000',
+      border: '2px solid #fff',
+      boxShadow: '0 4px 8px rgba(0,0,0,0.3)'
+    };
 
-      let startButton = $('<button id="start-timer-btn">開始計時</button>').css({
-        ...sharedStyle,
-        cursor: 'pointer',
-        backgroundColor: '#4CAF50',
-        border: 'none'
-      });
+    let startButton = $('<button id="start-timer-btn">開始計時</button>').css({
+      ...sharedStyle,
+      cursor: 'pointer',
+      backgroundColor: '#4CAF50',
+      border: 'none'
+    });
 
-      $('body').append(startButton);
+    $('body').append(startButton);
 
-      $('#start-timer-btn').on('click', function () {
-        $(this).remove();
+    $('#start-timer-btn').on('click', function () {
+      $(this).remove();
 
-        let timerDuration = 30;
-        let timerElement = $('<div id="timer">倒數計時: 30 秒</div>').css(sharedStyle);
+      let timerDuration = 30;
+      let timerElement = $('<div id="timer">倒數計時: 30 秒</div>').css(sharedStyle);
 
-        $('body').append(timerElement);
+      $('body').append(timerElement);
 
-        let interval = setInterval(function () {
-          timerDuration--;
-          $('#timer').text(`倒數計時: ${timerDuration} 秒`);
+      let interval = setInterval(function () {
+        timerDuration--;
+        $('#timer').text(`倒數計時: ${timerDuration} 秒`);
 
-          if (timerDuration <= 0) {
-            clearInterval(interval);
-            $('#timer').text('倒數完成，深呼吸結束！').css({
-              color: '#4CAF50',
-              backgroundColor: 'rgba(0, 0, 0, 0.8)',
-              fontWeight: 'bold'
-            });
-          }
-        }, 1000);
-      });
-    }, 200);
-  }
+        if (timerDuration <= 0) {
+          clearInterval(interval);
+          $('#timer').text('倒數完成，深呼吸結束！').css({
+            color: '#4CAF50',
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            fontWeight: 'bold'
+          });
+
+          setTimeout(() => {
+            Engine.play("心靈講座後");
+          }, 1500);
+        }
+      }, 1000);
+    });
+  }, 200);
+}
 
   // 睡眠結果判斷跳轉
   if (currentPassage === "sleepresult") {
@@ -699,17 +701,12 @@ Clearing their throat, the teacher says in a steady voice, “Alright, let’s g
 &lt;&lt;set $stress += 1&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="參加心靈講座" tags="" position="1500,225" size="100,100">You walk slowly down the school corridor, your footsteps weaving through patches of light and shadow.
 Not far ahead, a quiet classroom is holding a mindfulness talk. The air is filled with a soft scent of sandalwood.
+
 You push the door open and take a seat. The room is calm and still. The speaker’s gentle voice guides you to close your eyes.
 Following the instructions, you breathe in slowly... then breathe out slowly.
-
-In just 30 seconds of deep breathing, it feels like you drift through the fog of noise and thoughts. You arrive at a quiet, clear lake inside your mind.
-When you open your eyes, everything around you looks the same. Still, somehow, it all feels a little different.
-
-
-
 &lt;&lt;set $stress = Math.max(0, $stress - 2)&gt;&gt;
 &lt;&lt;set $energy -= 2&gt;&gt;
-[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="20" name="選擇想上的課" tags="" position="1800,175" size="100,100">[[▶ 視譯與口語]]
+</tw-passagedata><tw-passagedata pid="20" name="選擇想上的課" tags="" position="1800,175" size="100,100">[[▶ 視譯與口語]]
 [[▶文學翻譯入門]]
 [[▶外語教學法]]
 [[▶兒童文學與繪本]]
@@ -933,6 +930,11 @@ would u like to restart?
 最重要的是，你已經掌握了時間管理和情緒調適的秘訣，這也讓你在眾多的教案設計Demo中依然能保持好心情及穩定的品質。你相信未來無論是站上講台還是跨文化交流，都能用你的熱情與創意，讓學習變得活潑又有趣，甚至連最害羞的學生都會願意開口說話，成為真正的語言達人！
 </tw-passagedata><tw-passagedata pid="47" name="BusinessEnding" tags="" position="625,1600" size="100,100">經過這堂商用英文溝通與應用課程，你不只是學會了如何在會議上侃侃而談，還能用一口流利英文讓老闆點頭微笑，客戶聽了也想拍手叫好。
 從寫商業郵件到處理突發狀況，你的表現簡直完美！更棒的是，你還掌握了時間管理和情緒調適的秘訣，讓工作和學習效率大幅提升，壓力也變得更容易掌控。未來，你相信自己能用這些技能在職場上大放異彩，甚至成為那個讓同事驚呼自己才能的超級高手。
+</tw-passagedata><tw-passagedata pid="48" name="心靈講座後" tags="" position="1725,675" size="100,100">&lt;br&gt;
+In just 30 seconds of deep breathing, it feels like you drift through the fog of noise and thoughts. You arrive at a quiet, clear lake inside your mind.
+When you open your eyes, everything around you looks the same. Still, somehow, it all feels a little different.
+[[next-&gt;start]] 
+&lt;br&gt;
 </tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
