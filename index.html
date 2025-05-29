@@ -118,6 +118,129 @@ html, body {
   height: 100%;
 }
 
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #2a2a2a;
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    border: 2px solid #4CAF50;
+    animation: slideIn 0.3s ease;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #4CAF50;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.close-btn:hover {
+    background-color: rgba(76, 175, 80, 0.2);
+}
+
+/* Creator Styles */
+.creator-title {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #4CAF50;
+    letter-spacing: 3px;
+}
+
+.creator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.creator-card {
+    background-color: #3a3a3a;
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #4CAF50;
+}
+
+.creator-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3);
+}
+
+.creator-card-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #4CAF50;
+}
+
+.creator-card-text {
+    font-size: 16px;
+    color: #cccccc;
+    line-height: 1.5;
+}
+
+.modal-footer {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #4CAF50;
+}
+
+.modal-footer-text {
+    color: #999;
+    font-size: 14px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { 
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 #story {
   min-height: 100vh;
   display: flex;
@@ -156,7 +279,7 @@ html, body {
 #status-panel {
   background: #181818;
   color: #fff;
-  width: 220px;
+  width: 250px;
   padding: 24px 16px 24px 16px;
   border-radius: 0 12px 12px 0;
   border-left: 6px solid #fff;
@@ -172,7 +295,7 @@ html, body {
   z-index: 1000;
 }
 #status-panel h2 {
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: normal;
   margin: 0 0 12px 0;
   letter-spacing: 2px;
@@ -313,39 +436,6 @@ $(document).on(':passagerender', function () {
     return "A";
   }
 
-  if (day === 14 && !endTriggered) {
-    State.setVar("$endTriggered", true);
-
-    if (stress >= 9) {
-      Engine.play("depression");
-      return;
-    } else if (stress >= 8 && energy >= 8) {
-      Engine.play("escape");
-      return;
-    } else if (stress >= 7 && energy >= 2 && energy <= 8) {
-      Engine.play("fever");
-      return;
-    } else if (stress >= 0 && stress <= 6 && energy >= 4) {
-      const translationGrade = getGrade(State.getVar("$courseCountTranslation"));
-      const appliedGrade = getGrade(State.getVar("$courseCountApplied"));
-      const businessGrade = getGrade(State.getVar("$courseCountBusiness"));
-      const literatureGrade = getGrade(State.getVar("$courseCountLiterature"));
-
-      if (translationGrade === "A") {
-        Engine.play("TranslationEnding");
-        return;
-      } else if (appliedGrade === "A") {
-        Engine.play("TeachingEnding");
-        return;
-      } else if (businessGrade === "A") {
-        Engine.play("BusinessEnding");
-        return;
-      } else if (literatureGrade === "A") {
-        Engine.play("LiteratureEnding");
-        return;
-      }
-    }
-  }
 
   // ✅ 正確取得目前通道名稱
   const currentPassage = SugarCube.State.passage;
@@ -378,7 +468,7 @@ $(document).on(':passagerender', function () {
     { keywords: ["參加心靈講座","心靈講座後"], url: "images/speech.png" },
     { keywords: ["看心靈書籍(有知識點)"], url: "images/bookshelve.png" },
     { keywords: ["走廊"], url: "images/aisle.png" },
-    { keywords: ["上課", "選擇想上的課","▶英文短篇小說選讀", "▶視譯與口語", "▶文學翻譯入門", "▶外語教學法", "▶兒童文學與繪本", "▶導覽英文", "▶國際禮儀", "▶希臘羅馬神話", "Drowsiness", " Quiz", "Report", "DrowsinessSuccess", "DrowsinessFailure", "QuizSuccess", "QuizFailure", "ReportSuccess", "ReportFailure"], url: "images/classroom.png" }
+    { keywords: ["上課", "選擇想上的課","▶英文短篇小說選讀", "▶視譯與口語入門", "▶文學翻譯入門", "▶外語教學法", "▶繪本閱讀與教學", "▶導覽英文", "▶國際禮儀", "▶希臘羅馬神話", "Drowsiness", " Quiz", "Report", "DrowsinessSuccess", "DrowsinessFailure", "QuizSuccess", "QuizFailure", "ReportSuccess", "ReportFailure"], url: "images/classroom.png" }
   ];
 
   const baseUrl = "https://fishsfangirl.github.io/freshman.exe/";
@@ -422,40 +512,40 @@ $(document).on(':passagerender', function () {
   const html = `
     <br><br><br><br><br><br>
     <div class="divider"></div>
-    <h2>今天是第 ${day} 天</h2>
+    <h2>Day ${day}  </h2>
     <div class="status-row">
-      <span class="status-label">壓力：</span>
+      <span class="status-label">Press：</span>
       <div class="status-bar-bg">
         <div class="status-bar-fill ${stressClass}" style="width:${(stress / 10) * 100}%"></div>
       </div>
       <span>${stress}/10</span>
     </div>
     <div class="status-row">
-      <span class="status-label">精力：</span>
+      <span class="status-label">Energy：</span>
       <div class="status-bar-bg">
         <div class="status-bar-fill ${energyClass}" style="width:${(energy / 10) * 100}%"></div>
       </div>
       <span>${energy}/10</span>
     </div>
     <div class="divider"></div>
-    <button class="panel-btn" onclick="alert('存檔功能尚未實作')">✉ SAVES</button>
+    <button class="panel-btn" onclick="showAboutUs()">📝 ABOUT US</button>
     <button class="panel-btn" onclick="SugarCube.Engine.restart()">▶ RESTART</button>
     <div class="divider"></div>
-    <h2>課程四領域</h2>
-    <h2>口筆譯: ${getGrade(State.getVar("$courseCountTranslation"))} (${State.getVar("$courseCountTranslation")})</h2>
-    <h2>應用語言與英語教學: ${getGrade(State.getVar("$courseCountApplied"))} (${State.getVar("$courseCountApplied")})</h2>
-    <h2>商用英文與溝通應用: ${getGrade(State.getVar("$courseCountBusiness"))} (${State.getVar("$courseCountBusiness")})</h2>
-    <h2>文學與文化: ${getGrade(State.getVar("$courseCountLiterature"))} (${State.getVar("$courseCountLiterature")})</h2>
+    <h2>Field Proficiency Level</h2>
+    <h2>Translation and Interpretation: ${getGrade(State.getVar("$courseCountTranslation"))} (${State.getVar("$courseCountTranslation")})</h2>
+    <h2>Applied English Studies and English Teaching: ${getGrade(State.getVar("$courseCountApplied"))} (${State.getVar("$courseCountApplied")})</h2>
+    <h2>Business English Communication: ${getGrade(State.getVar("$courseCountBusiness"))} (${State.getVar("$courseCountBusiness")})</h2>
+    <h2>Literature and Culture: ${getGrade(State.getVar("$courseCountLiterature"))} (${State.getVar("$courseCountLiterature")})</h2>
   `;
 
   $("#status-panel").html(html);
 
   // ✅ 課程事件計數
   const courseFieldMap = {
-    "▶ 視譯與口語": "Translation",
+    "▶ 視譯與口語入門": "Translation",
     "▶文學翻譯入門": "Translation",
     "▶外語教學法": "Applied",
-    "▶兒童文學與繪本": "Applied",
+    "▶繪本閱讀與教學": "Applied",
     "▶導覽英文": "Business",
     "▶國際禮儀": "Business",
     "▶希臘羅馬神話": "Literature",
@@ -550,7 +640,76 @@ if (currentPassage === "參加心靈講座") {
     return State.variables.diaryEntry || "";
   };
 });
-</script><tw-passagedata pid="1" name="first" tags="" position="150,0" size="100,100">&lt;br&gt;
+
+// Show About Us Modal
+// Create modal dynamically when clicked
+window.showAboutUs = function() {
+    console.log("showAboutUs called"); // Debug line
+    
+    // Remove existing modal if any
+    const existingModal = document.getElementById('aboutUsModal');
+    if (existingModal) {
+        existingModal.remove();
+    }
+    
+    // Create modal HTML
+    const modalHTML = `
+        <div id="aboutUsModal" class="modal show">
+            <div class="modal-content">
+                <button class="close-btn" onclick="closeAboutUs()">&times;</button>
+                
+                <div class="creator-title">CREATORS</div>
+                <div class="creator-grid">
+                    <div class="creator-card">
+                        <div class="creator-card-title">Ling</div>
+                        <div class="creator-card-text">故事與圖片生成<br>Story & Image Generation</div>
+                    </div>
+                    <div class="creator-card">
+                        <div class="creator-card-title">Clare</div>
+                        <div class="creator-card-text">網頁設計與程式開發<br>Web Design & Development</div>
+                    </div>
+                </div>
+                
+                <div class="modal-footer">
+                    <div class="modal-footer-text">Thank you for playing our game! ❤️</div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Add modal to body
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    document.body.style.overflow = 'hidden';
+    
+    // Add click outside to close
+    setTimeout(() => {
+        const modal = document.getElementById('aboutUsModal');
+        if (modal) {
+            modal.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    closeAboutUs();
+                }
+            });
+        }
+    }, 100);
+};
+
+// Close About Us Modal
+window.closeAboutUs = function() {
+    console.log("closeAboutUs called"); // Debug line
+    const modal = document.getElementById('aboutUsModal');
+    if (modal) {
+        modal.remove();
+        document.body.style.overflow = 'auto';
+    }
+};
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeAboutUs();
+    }
+});</script><tw-passagedata pid="1" name="first" tags="" position="150,0" size="100,100">&lt;br&gt;
 ●Freshman.exe●
 
 Please type your name：&lt;br&gt; Aftert typing, press enter!
@@ -582,27 +741,17 @@ You, $playerName are a freshman who just started at NKUST in the Department of A
   &lt;&lt;set $day += 1&gt;&gt;
   &lt;&lt;set $justSlept = false&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;set _weekday = [&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Monday&quot;, &quot;Saturday&quot;, &quot;Sunday&quot;][($day - 1) % 7]&gt;&gt;
-&lt;&lt;if $day == 14 and !$endTriggered&gt;&gt;
-  &lt;&lt;set $endTriggered = true&gt;&gt;
-  &lt;&lt;if $stress &gt;= 9&gt;&gt;
-    &lt;&lt;goto &quot;depression&quot;&gt;&gt;
-  &lt;&lt;elseif $stress &gt;= 8 and $energy &gt;= 8&gt;&gt;
-    &lt;&lt;goto &quot;escape&quot;&gt;&gt;
-  &lt;&lt;elseif $stress &gt;= 7 and $energy &gt;= 2 and $energy &lt; 8&gt;&gt;
-    &lt;&lt;goto &quot;fever&quot;&gt;&gt;
-  &lt;&lt;/if&gt;&gt;
-&lt;&lt;/if&gt;&gt;
 &lt;&lt;/silently&gt;&gt;
+&lt;&lt;set _weekday = [&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Monday&quot;, &quot;Saturday&quot;, &quot;Sunday&quot;][($day - 1) % 7]&gt;&gt;
 
 Today is &lt;&lt;print _weekday&gt;&gt;
 
 You decide...
 
 [[Go home -&gt;回家]]
-[[Go to school -&gt;學校]]</tw-passagedata><tw-passagedata pid="5" name="回家" tags="" position="600,450" size="100,100">Finally, you reach your front door. You take off your shoes and step inside. The weight on your shoulders lifts as your backpack drops to the floor. You set your bag down next to the chair. After a long day, you can finally relax.
+[[Go to school -&gt;學校]]</tw-passagedata><tw-passagedata pid="5" name="回家" tags="" position="600,450" size="100,100">Finally, you reach your front door. You take off your shoes and step inside. The weight on your shoulders lifts as your backpack drops to the floor. You set your bag down next to the chair. 
+After a long day, you can finally relax.
 Now, you want to...
-
 
 &lt;&lt;if $sleepCount &lt; 4&gt;&gt;
   [[Sleep (Heads up: sleeping skips you to the next day). -&gt;睡覺  (警告：睡覺將會跳轉到另一天)。]]
@@ -614,11 +763,17 @@ Now, you want to...
 [[West campus / exercise -&gt;西校區/運動]]
 [[aisle -&gt;走廊]]
 &lt;br&gt;</tw-passagedata><tw-passagedata pid="7" name="睡覺  (警告：睡覺將會跳轉到另一天)。" tags="" position="475,250" size="100,100">&lt;&lt;set $sleepCount += 1&gt;&gt;
-You head into your room and softly shut the door behind you. You tap the light switch and everything goes quiet.
-The room smells familiar and comforting. Your bed has been waiting all day. 
-
 &lt;&lt;set $justSlept = true&gt;&gt;
-[[next-&gt;sleepresult]] </tw-passagedata><tw-passagedata pid="8" name="坐到書桌前面做些什麼。" tags="" position="100,625" size="100,100">After a deep breath, you get up and turn on the desk lamp. You spread out your notes and start working. Your thoughts begin to clear.
+
+You head into your room and softly shut the door behind you. You tap the light switch and everything goes quiet.
+The room smells familiar and comforting. Your bed has been waiting all day.
+
+&lt;&lt;if $day &gt;= 14&gt;&gt;
+    [[next -&gt;Ending]]
+&lt;&lt;else&gt;&gt;
+    [[next -&gt;sleepresult]]
+&lt;&lt;/if&gt;&gt;
+</tw-passagedata><tw-passagedata pid="8" name="坐到書桌前面做些什麼。" tags="" position="100,625" size="100,100">After a deep breath, you get up and turn on the desk lamp. You spread out your notes and start working. Your thoughts begin to clear.
 Even though you’re still tired, you know this hard work is necessary. Every minute counts as you get ready for tomorrow. In the quiet night, you quietly build your own determination.
 
 You choose to sit down at your desk. What do you want to do?
@@ -631,7 +786,7 @@ You choose to sit down at your desk. What do you want to do?
 You take a short nap, but a sudden thought wakes you up …  tomorrow’s quiz or presentation! Your chest tightens as stress rushes in, yet your body is too tired to fight it. You close your eyes again and let yourself drift back to sleep, telling yourself to forget the worries for now and deal with them tomorrow.
 &lt;&lt;set $energy = Math.min($energy + 2, 10)&gt;&gt;
 &lt;&lt;set $stress += 2&gt;&gt;
-[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="10" name="看心靈書籍(有知識點)" tags="" position="400,925" size="100,100">You reach for the self-help book and open the cover. The pages softly give off the scent of paper. It feels like an invitation to begin an inner journey.
+[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="10" name="看心靈書籍(有知識點)" tags="" position="425,875" size="100,100">You reach for the self-help book and open the cover. The pages softly give off the scent of paper. It feels like an invitation to begin an inner journey.
 You settle back into your chair and let your thoughts flow with the words. Each sentence feels like a beam of light that cuts through fatigue and distractions. It leads you to a peaceful place inside.
 As you turn the pages, the noise of the outside world fades away. It is just you and the gentle power of the book, breathing quietly together and feeling calm.
 
@@ -706,15 +861,15 @@ You push the door open and take a seat. The room is calm and still. The speaker�
 Following the instructions, you breathe in slowly... then breathe out slowly.
 &lt;&lt;set $stress = Math.max(0, $stress - 2)&gt;&gt;
 &lt;&lt;set $energy -= 2&gt;&gt;
-</tw-passagedata><tw-passagedata pid="20" name="選擇想上的課" tags="" position="1800,175" size="100,100">[[▶ 視譯與口語]]
+</tw-passagedata><tw-passagedata pid="20" name="選擇想上的課" tags="" position="1800,175" size="100,100">[[▶ 視譯與口語入門]]
 [[▶文學翻譯入門]]
 [[▶外語教學法]]
-[[▶兒童文學與繪本]]
+[[▶繪本閱讀與教學]]
 [[▶導覽英文]]
 [[▶國際禮儀]]
 [[▶希臘羅馬神話]]
 [[▶英文短篇小說選讀]]
-</tw-passagedata><tw-passagedata pid="21" name="▶ 視譯與口語" tags="" position="1875,375" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
+</tw-passagedata><tw-passagedata pid="21" name="▶ 視譯與口語入門" tags="" position="1875,375" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
 &lt;br&gt;
 During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
 
@@ -755,7 +910,7 @@ During discussion time, the room feels more alive. Some people ask questions, an
     &lt;&lt;else&gt;&gt;
         &lt;&lt;goto &quot;start&quot;&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="▶兒童文學與繪本" tags="" position="2000,400" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="▶繪本閱讀與教學" tags="" position="2000,400" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
 &lt;br&gt;
 During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
 
@@ -828,42 +983,27 @@ During discussion time, the room feels more alive. Some people ask questions, an
     &lt;&lt;else&gt;&gt;
         &lt;&lt;goto &quot;start&quot;&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="DrowsinessSuccess" tags="" position="1400,750" size="100,100">腦中空白零點五秒，但奇蹟般的事情發生了。
-你昨晚努力複習過的內容，在這驚嚇的一瞬間全數浮現，你脫口而出一長串的知識點後全班一陣安靜。
-教授眼睛一亮，點頭：「非常好，這正是我想帶大家思考的方向。」
-你慢慢坐下，心跳還沒緩過來，但內心忍不住吶喊：「天啊！幸好我有複習過」
-[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="30" name="DrowsinessFailure" tags="" position="1550,775" size="100,100">教授的聲音如雷般在耳邊炸響，全班瞬間安靜下來，數十道目光射向你。
-你瞬間清醒，腦中一片空白，只聽見自己心跳聲砰砰作響。
-筆從手中滑落，你下意識地站起來，試圖組織語言，但嘴巴先你一步說出了：「啊？呃、對不起……」
-全班爆出一陣低笑，教授也微微一笑，淡淡說：「至少你現在醒了，對吧？」
- 你尷尬地坐下，臉燙得像剛從操場曬回來，但心裡暗自發誓：下次一定要喝咖啡再進教室。
- [[next-&gt;start]]</tw-passagedata><tw-passagedata pid="31" name="QuizSuccess" tags="" position="1575,1000" size="100,100">你接過考卷，深吸一口氣。
- 題目看起來比你預想的還要複雜一點，但腦中昨晚複習過的重點開始慢慢浮現。
-你迅速進入狀態，一題接著一題地解開。思路清晰，連一開始卡住的題目也在回頭時理出頭緒。
-偶爾你聽到有人嘆氣，或急著翻書找答案，但你不為所動，目光專注、筆不停歇。
-交卷時，你甚至提早幾分鐘寫完，心中默默想著：「這次，應該穩了吧。」
-走出教室的陽光特別溫暖，你覺得腦袋雖然疲累，但內心異常輕盈。
-[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="32" name="QuizFailure" tags="" position="1725,1000" size="100,100">你拿起考卷，瞄了第一題，眉頭立刻皺起。
-你試圖回想上週上課內容，但腦中一片混亂，像是翻開一張空白的筆記本。
-一分鐘、兩分鐘過去，你仍停留在第一題。你偷看了一眼左右同學的進度，他們都已經寫到後半部分，焦慮像浪潮一樣襲來。
-你勉強寫下幾個模糊的答案，但內心很清楚：這不是實力發揮不佳，是完全沒準備好。
-最後交卷時，你只填了大半，手心濕透，眼神閃躲，彷彿整張考卷都在控訴你。
-走出教室，你的心沉得像石頭，只想說一句：「我完蛋了。」
-[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="33" name="ReportSuccess" tags="" position="1475,1250" size="100,100">你與組員一同站上教室前方，投影機亮起，簡報畫面逐頁推進。
-剛開始你有點緊張，聲音略帶顫抖，但幾句話後就找回熟悉的節奏。你不再只是在照稿念，而是自信地闡述觀點，甚至靈活補充額外資料，引起幾位同學專注傾聽。
-教授在你提到關鍵理論時點頭微笑，還不時在筆記本上寫了些什麼。
-當報告結束、投影片暗下，全班響起掌聲。
-你坐回座位，心臟還跳得有點快，但腦中只有一個想法：「這次，真的有撐住。」
-教授最後簡短評語：「邏輯清楚，觀點有延伸，表現很不錯。」
-你壓低聲音對組員說：「今晚可以放心吃宵夜了。」
-[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="34" name="ReportFailure" tags="" position="1625,1250" size="100,100">你與組員一同走上講台，燈光與目光齊聚而來。
-手心冒汗，你努力提醒自己要照著練習說，可打開簡報第一頁的那一刻，你卻突然卡住了。
-稿子好像瞬間變陌生，語句斷斷續續，聲音忽高忽低。
-組員試圖幫你接話，但氣氛已經開始凝結，簡報節奏也亂了套。
-你強撐著完成內容，但台下不少人開始低頭滑手機。最尷尬的是，教授在結尾提問時，你一時答不上來，只能勉強擠出一句「我們之後可以再補充」。
-回到座位後，你感覺整個背都在冒汗，臉頰發燙，連眼神都不太敢與同學接觸。
-教授語氣平淡地說：「下次建議多練習一下簡報的流暢度。」
-你低下頭，心中只有一個想法：「我好像連晚餐都不想吃了……」
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="DrowsinessSuccess" tags="" position="1375,775" size="100,100">Your mind goes completely blank for half a second, but then something AMAZING happens. Everything you reviewed last night suddenly comes flooding back in that split second of panic. 
+You blurt out a full answer, listing the key points without even thinking. The room goes quiet. The professor’s eyes light up as he nods and says, “Excellent. That’s exactly the direction I wanted us to explore.” 
+You slowly sit back down, your heart still racing, but deep down, you can’t help but shout to yourself, “Thank goodness I studied last night!”
+
+[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="30" name="DrowsinessFailure" tags="" position="1550,775" size="100,100">The professor’s voice booms like thunder in your ears. The room falls dead silent, and dozens of eyes turn toward you. You&#39;re instantly awake, your mind completely blank. All you can hear is the loud thumping of your own heartbeat. Your pen slips from your hand as you automatically stand up, trying to form a sentence…
+
+
+ but your mouth speaks first: “HUh? UH... soRry...”
+A few students chuckle, and even the professor lets out a small smile. “At least you’re awake now, right?” he says.
+ You sit back down, your face burning like you just came in from the sun. Deep inside, you make a promise to yourself: Next time, I’m definitely drinking coffee before class.
+
+ [[next-&gt;start]]</tw-passagedata><tw-passagedata pid="31" name="QuizSuccess" tags="" position="1575,1000" size="100,100">Taking the quiz papers, a deep breath is drawn. The questions seem harder than expected, but last night’s review slowly comes back. Settling into the zone, one question after another gets solved. Even the tricky ones start to make sense. 
+While some sigh around the room, focus stays sharp and the pen keeps moving. By the time the paper is handed in, there’s still time left. 
+Quietly, the thought comes: “I think I nailed it.” Stepping outside, the warm sunlight feels comforting. The brain is tired, but the heart feels light.
+
+[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="32" name="QuizFailure" tags="" position="1725,1000" size="100,100">You grab the quiz and look at the first question. Your forehead wrinkles right away because your mind is blank like an empty notebook. One minute passes, then two, but you are still stuck on that first question. You peek at your classmates. They are already halfway done. Anxiety hits you like a wave. You write down some messy answers, but deep down you know you are not ready. When you hand in the paper, only half is done. Your hands are sweaty, and you avoid looking at anyone. It feels like the test is blaming you. Walking out of the classroom, your heart feels heavy. You just think, “I’m doomed.”
+[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="33" name="ReportSuccess" tags="" position="1475,1250" size="100,100">Standing at the front of the classroom with your teammates, the slides advance one by one. At first, nerves make your voice shake slightly, but after a few sentences, confidence grows and the rhythm returns. Instead of just reading the script, points are explained clearly, with extra information added to engage several classmates. The professor nods and smiles when key theories are mentioned, occasionally jotting down notes. When the presentation ends and the screen goes dark, applause fills the room. Sitting back down, your heart still races, yet the mind thinks, “I really held it together this time.” The professor offers a brief comment: “Clear logic, good extensions, well done.” Whispering to teammates, you say, “We totally deserve some late-night snacks.”
+[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="34" name="ReportFailure" tags="" position="1625,1250" size="100,100">You and your teammates step onto the stage, all eyes and lights focused on you. Your palms start to sweat as you remind yourself to stick to the practice. But when you open the first slide, your mind goes blank. The script feels strange, your words come out broken, and your voice wavers. Your teammates try to jump in, but the vibe has already tensed up and the flow of the presentation is off.
+ You push through the content, but many in the audience start looking down at their phones. The most awkward moment comes when the professor asks a question at the end and you can’t answer, only managing to say, “We can add this … later.” 
+Back at your seat, your back is sweaty and your cheeks burn. You avoid making eye contact with classmates. The professor says calmly, “Next time, try practicing the flow more please.” You lower your head, thinking only one thing: “I don’t even want to eat dinner now…”
+
 [[next-&gt;start]]</tw-passagedata><tw-passagedata pid="35" name="sleepresult" tags="" position="425,550" size="100,100">&lt;&lt;set $sleepRoll = random(1, 100)&gt;&gt;
 
 &lt;&lt;if $sleepRoll &lt;= 50&gt;&gt;
@@ -874,48 +1014,59 @@ During discussion time, the room feels more alive. Some people ask questions, an
   &lt;&lt;set $energy = max(0, $energy - 2)&gt;&gt;
   &lt;&lt;set $stress = max(0, $stress - 1)&gt;&gt;
   &lt;&lt;goto &quot;BadSleepResult&quot;&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="depression" tags="" position="925,1300" size="100,100">你感受到極大的壓力，開始出現憂鬱症狀...
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="depression" tags="" position="1000,1525" size="100,100">你感受到極大的壓力，開始出現憂鬱症狀...
 (content about : what is depression?)
 
 [[重新開始-&gt;start]]
-</tw-passagedata><tw-passagedata pid="37" name="escape" tags="" position="1075,1300" size="100,100">你選擇逃學一天，想逃離一切...
+</tw-passagedata><tw-passagedata pid="37" name="escape" tags="" position="1125,1500" size="100,100">你選擇逃學一天，想逃離一切...
 would u like to restart?
 [[重新開始-&gt;start]]
-</tw-passagedata><tw-passagedata pid="38" name="fever" tags="" position="1225,1300" size="100,100">你因壓力過大而發燒了，需要休息...
+</tw-passagedata><tw-passagedata pid="38" name="fever" tags="" position="1250,1475" size="100,100">你因壓力過大而發燒了，需要休息...
 (content about : why you have fever now ?)
 
 [[重新開始-&gt;start]]
-</tw-passagedata><tw-passagedata pid="39" name="Drowsiness" tags="" position="1475,625" size="100,100">You feel sleepy during the class. Do you push through or give in?
+</tw-passagedata><tw-passagedata pid="39" name="Drowsiness" tags="" position="1475,625" size="100,100">You walk into the classroom with tired steps. Sunlight slants through the windows, and the air smells faintly of whiteboard markers.
+ The lesson has only just begun, but a strange sleepiness starts to wash over you. Your eyelids feel heavy, like they’re made of lead.
+ You try to sit up straight and tell yourself to focus... but before you know it, your head tilts, and you accidentally doze off.
+Just as you drift into that blurry space between dreaming and waking…
+ “Hey. Can you answer this question?”
+
 
 &lt;&lt;if $canChooseSuccess&gt;&gt;
-[[Succeed|DrowsinessSuccess]]
+[[Answering the Question (Field proficiency level: C)-&gt;DrowsinessSuccess]]
 &lt;&lt;else&gt;&gt;
 &lt;span style=&quot;color: grey; pointer-events: none;&quot;&gt;Succeed&lt;/span&gt;
 &lt;&lt;/if&gt;&gt;
 
-[[Fail|DrowsinessFailure]]
+[[umm…-&gt;DrowsinessFailure]]
 
-</tw-passagedata><tw-passagedata pid="40" name="Quiz" tags="" position="1675,875" size="100,100">You have test during the class. Do you push through or give in?
+</tw-passagedata><tw-passagedata pid="40" name="Quiz" tags="" position="1675,875" size="100,100">You walk down the hallway with sunlight streaming through the windows, your footsteps echoing on the tile floor. 
+Like usual, you push open the classroom door, find a seat, and plan to daydream for a few minutes before getting ready to focus. 
+But just as the professor walks in, holding a thick stack of papers, he calmly says, “Today we have a pop quiz. It counts for 10% of your final grade. I’ll be handing out the papers now. Please put your books away.”
+
 
 &lt;&lt;if $canChooseSuccess&gt;&gt;
-[[Succeed|QuizSuccess]]
+[[Bring it on.  (Field proficiency level: C)-&gt;QuizSuccess]]
 &lt;&lt;else&gt;&gt;
 &lt;span style=&quot;color: grey; pointer-events: none;&quot;&gt;Succeed&lt;/span&gt;
 &lt;&lt;/if&gt;&gt;
 
-[[Fail|QuizFailure]]
+[[What did we even learn last week?-&gt;QuizFailure]]
 
-</tw-passagedata><tw-passagedata pid="41" name="Report" tags="" position="1550,1125" size="100,100">You have presentation. Do you push through or give in?
+</tw-passagedata><tw-passagedata pid="41" name="Report" tags="" position="1550,1125" size="100,100">You walk into the classroom and see the projector set up. The professor is adjusting the slides. You glance at your schedule and remind yourself, “It’s our group’s turn to present today.” 
+You exchange looks with your teammates and nod. Everyone opens their laptops to check the presentation files and get their notes ready. When it’s time, the professor signals, “Group four, please get ready.” 
+You take a deep breath and stand up. Walking to the front of the room, the light from the projector flickers on your face. Your heart beats a little faster, but you stay calm. At that moment, you know it’s your time to shine.
+
 
 &lt;&lt;if $canChooseSuccess&gt;&gt;
-[[Succeed|ReportSuccess]]
+[[Stay calm, we&#39;ve got this!-&gt;ReportSuccess]]
 &lt;&lt;else&gt;&gt;
 &lt;span style=&quot;color: grey; pointer-events: none;&quot;&gt;Succeed&lt;/span&gt;
 &lt;&lt;/if&gt;&gt;
 
-[[Fail|ReportFailure]]
+[[Not My Best Three Minutes…-&gt;ReportFailure]]
 
-</tw-passagedata><tw-passagedata pid="42" name="savediary" tags="" position="175,1050" size="100,100">&lt;p&gt;日記已儲存！&lt;/p&gt;
+</tw-passagedata><tw-passagedata pid="42" name="savediary" tags="" position="175,1050" size="100,100">&lt;p&gt;Saved successfully!&lt;/p&gt;
 &lt;&lt;button &quot;返回寫日記&quot;&gt;&gt;
     &lt;&lt;goto &quot;寫日記&quot;&gt;&gt;
 &lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="lookdiary" tags="" position="350,1075" size="100,100">:: lookdiary
@@ -935,6 +1086,39 @@ In just 30 seconds of deep breathing, it feels like you drift through the fog of
 When you open your eyes, everything around you looks the same. Still, somehow, it all feels a little different.
 [[next-&gt;start]] 
 &lt;br&gt;
+</tw-passagedata><tw-passagedata pid="49" name="aboutus" tags="" position="675,150" size="100,100">&lt;button class=&quot;panel-btn&quot; onclick=&quot;SugarCube.Engine.restart()&quot;&gt;▶ RESTART&lt;/button&gt;
+&lt;button class=&quot;panel-btn&quot; onclick=&quot;showAboutUs()&quot;&gt;📝 ABOUT US&lt;/button&gt;</tw-passagedata><tw-passagedata pid="50" name="Ending" tags="" position="1050,1325" size="100,100">&lt;&lt;set _stress = $stress&gt;&gt;
+&lt;&lt;set _energy = $energy&gt;&gt;
+
+&lt;&lt;if _stress &gt;= 9 &amp;&amp; _energy &lt;= 2&gt;&gt;
+  &lt;&lt;goto &quot;depression&quot;&gt;&gt;
+
+&lt;&lt;elseif _stress &gt;= 8 &amp;&amp; _energy &gt;= 8&gt;&gt;
+  &lt;&lt;goto &quot;escape&quot;&gt;&gt;
+
+&lt;&lt;elseif _stress &gt;= 7 &amp;&amp; _energy &gt;= 2 &amp;&amp; _energy &lt;= 7&gt;&gt;
+  &lt;&lt;goto &quot;fever&quot;&gt;&gt;
+
+&lt;&lt;elseif _stress &lt;= 6 &amp;&amp; _energy &gt;= 4&gt;&gt;
+  &lt;&lt;set _translationGrade = $courseCountTranslation&gt;&gt;
+  &lt;&lt;set _appliedGrade = $courseCountApplied&gt;&gt;
+  &lt;&lt;set _businessGrade = $courseCountBusiness&gt;&gt;
+  &lt;&lt;set _literatureGrade = $courseCountLiterature&gt;&gt;
+
+  &lt;&lt;if _translationGrade == &quot;A&quot;&gt;&gt;
+    &lt;&lt;goto &quot;TranslationEnding&quot;&gt;&gt;
+  &lt;&lt;elseif _appliedGrade == &quot;A&quot;&gt;&gt;
+    &lt;&lt;goto &quot;TeachingEnding&quot;&gt;&gt;
+  &lt;&lt;elseif _businessGrade == &quot;A&quot;&gt;&gt;
+    &lt;&lt;goto &quot;BusinessEnding&quot;&gt;&gt;
+  &lt;&lt;elseif _literatureGrade == &quot;A&quot;&gt;&gt;
+    &lt;&lt;goto &quot;LiteratureEnding&quot;&gt;&gt;
+  &lt;&lt;else&gt;&gt;
+    &lt;&lt;goto &quot;NormalEnding&quot;&gt;&gt;
+  &lt;&lt;/if&gt;&gt;
+&lt;&lt;else&gt;&gt;
+  &lt;&lt;goto &quot;NormalEnding&quot;&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="51" name="NormalEnding" tags="" position="450,1450" size="100,100">Congrats! You fininsh the game
 </tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
