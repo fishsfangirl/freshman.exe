@@ -260,6 +260,20 @@ a:hover {
   // 清除舊的計時器或按鈕（如果存在）
   $('#timer').remove();
   $('#start-timer-btn').remove();
+  
+const imagesToPreload = [
+  '/freshman.exe/images/school.png',
+  '/freshman.exe/images/room.png',
+  '/freshman.exe/images/playground.png',
+  '/freshman.exe/images/speech.png',
+  '/freshman.exe/images/bookshelve.png',
+  '/freshman.exe/images/aisle.png',
+  '/freshman.exe/images/classroom.png'
+];
+gesToPreload.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
 
   // 狀態變數
   let day = State.getVar("$day") || 1;
@@ -339,32 +353,36 @@ State.setVar("$sleepCount", sleepCount);
 
   
   // ✅ 背景設定
-  const bgGroups = [
-    { keywords: ["大學背景", "first", "start", "second", "學校"], url: "images/school.png" },
-    { keywords: ["回家", "寫日記", "睡覺", "繼續睡","報告", "讀小考","GoodSleepResult","BadSleepResult"], url: "images/room.png" },
-    { keywords: ["西校區", "運動"], url: "images/playground.png" },
-    { keywords: ["參加心靈講座"], url: "images/speech.png" },
-    { keywords: ["看心靈書籍(有知識點)"], url: "images/bookshelve.png" },
-    { keywords: ["走廊"], url: "images/aisle.png" },
-    { keywords: ["上課", "選擇想上的課", "DrowsinessSuccess", "DrowsinessFailure", "QuizSuccess", "QuizFailure", "ReportSuccess", "ReportFailure"], url: "images/classroom.png" }
-  ];
+const baseUrl = "https://fishsfangirl.github.io/freshman.exe/";
 
-  let bgUrl = "images/school.png"; // 預設背景圖片
+const bgGroups = [
+  { keywords: ["大學背景", "first", "start", "second", "學校"], url: "images/school.png" },
+  { keywords: ["回家", "寫日記", "睡覺", "繼續睡","報告", "讀小考","GoodSleepResult","BadSleepResult","坐到書桌前面做些什麼。"], url: "images/room.png" },
+  { keywords: ["西校區", "運動"], url: "images/playground.png" },
+  { keywords: ["參加心靈講座"], url: "images/speech.png" },
+  { keywords: ["看心靈書籍(有知識點)"], url: "images/bookshelve.png" },
+  { keywords: ["走廊"], url: "images/aisle.png" },
+  { keywords: ["上課", "選擇想上的課", "DrowsinessSuccess", "DrowsinessFailure", "QuizSuccess", "QuizFailure", "ReportSuccess", "ReportFailure"], url: "images/classroom.png" }
+];
+
+const baseUrl = "https://fishsfangirl.github.io/freshman.exe/";
+
+let bgUrl = baseUrl + "images/school.png"; // 預設
+
 outer: for (const group of bgGroups) {
   for (const kw of group.keywords) {
     if (currentPassage.includes(kw)) {
-      bgUrl = group.url;
+      bgUrl = baseUrl + group.url;
       break outer;
     }
   }
 }
 
+document.body.style.backgroundImage = `url('${bgUrl}')`;
 
-document.body.style.backgroundImage = "url('images/bg1.png')";
-
-  document.body.style.backgroundSize = "cover";
-  document.body.style.backgroundRepeat = "no-repeat";
-  document.body.style.backgroundPosition = "center";
+document.body.style.backgroundSize = "cover";
+document.body.style.backgroundRepeat = "no-repeat";
+document.body.style.backgroundPosition = "center";
 
   // ✅ 狀態面板
   if ($("#status-panel").length === 0) {
