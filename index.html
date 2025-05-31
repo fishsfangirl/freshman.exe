@@ -126,7 +126,7 @@ html, body {
 }
 
 .stressimage {
-    width: 600px;
+    width: 500px;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -1141,37 +1141,33 @@ When you open your eyes, everything around you looks the same. Still, somehow, i
 &lt;&lt;else&gt;&gt;
   &lt;&lt;goto &quot;NormalEnding&quot;&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="51" name="NormalEnding" tags="" position="450,1425" size="100,100">Congrats! You fininsh the game
-</tw-passagedata><tw-passagedata pid="52" name="next page" tags="" position="350,1250" size="100,100">&lt;&lt;set _images = [
+</tw-passagedata><tw-passagedata pid="52" name="next page" tags="" position="350,1250" size="100,100">&lt;&lt;set _images to [
     &quot;images/stress1.png&quot;,
     &quot;images/stress2.png&quot;,
     &quot;images/stress3.png&quot;
 ]&gt;&gt;
-&lt;&lt;set _randomIndex = random(0, 2)&gt;&gt;
-&lt;&lt;set _randomImage = _images[_randomIndex]&gt;&gt;
+&lt;&lt;set _randomIndex to random(0, 2)&gt;&gt;
+&lt;&lt;set _randomImage to _images[_randomIndex]&gt;&gt;
+&lt;img @src=&quot;_randomImage&quot; alt=&quot;stressimage&quot; class=&quot;stressimage&quot;&gt;
 
-&lt;img src=&quot;&lt;&lt;print _randomImage&gt;&gt;&quot; alt=&quot;stressimage&quot; class=&quot;stressimage&quot;&gt;
-
-&lt;&lt;if _randomImage == &quot;images/stress1.png&quot;&gt;&gt;
+&lt;&lt;if _randomImage is &quot;images/stress1.png&quot;&gt;&gt;
     &lt;a href=&quot;https://www.cdc.gov/mental-health/living-with/index.html&quot; target=&quot;_blank&quot;&gt;
         source : Learn more about managing stress (CDC)
     &lt;/a&gt;
     [[next-&gt;start]]
 &lt;&lt;/if&gt;&gt;
-
-&lt;&lt;if _randomImage == &quot;images/stress2.png&quot;&gt;&gt;
+&lt;&lt;if _randomImage is &quot;images/stress2.png&quot;&gt;&gt;
     &lt;a href=&quot;https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/tips-to-reduce-stress/&quot; target=&quot;_blank&quot;&gt;
         source : Tips to reduce stress (NHS)
     &lt;/a&gt;
     [[next-&gt;start]]
 &lt;&lt;/if&gt;&gt;
-
-&lt;&lt;if _randomImage == &quot;images/stress3.png&quot;&gt;&gt;
+&lt;&lt;if _randomImage is &quot;images/stress3.png&quot;&gt;&gt;
     &lt;a href=&quot;https://www.healthline.com/nutrition/16-ways-relieve-stress-anxiety&quot; target=&quot;_blank&quot;&gt;
         source : 16 ways to relieve stress and anxiety (Healthline)
     &lt;/a&gt;
     [[next-&gt;start]]
-&lt;&lt;/if&gt;&gt;
-</tw-passagedata><tw-passagedata pid="53" name="depression2" tags="" position="1000,1650" size="100,100">
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="53" name="depression2" tags="" position="1000,1650" size="100,100">
 
 if you want to restart, click the sidebar&#39;s &quot;RESTART&quot;.
 </tw-passagedata><tw-passagedata pid="54" name="escape2" tags="" position="1125,1625" size="100,100">
