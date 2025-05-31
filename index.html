@@ -1141,7 +1141,8 @@ When you open your eyes, everything around you looks the same. Still, somehow, i
 &lt;&lt;else&gt;&gt;
   &lt;&lt;goto &quot;NormalEnding&quot;&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="51" name="NormalEnding" tags="" position="450,1425" size="100,100">Congrats! You fininsh the game
-</tw-passagedata><tw-passagedata pid="52" name="next page" tags="" position="350,1250" size="100,100">&lt;&lt;set _images to [
+</tw-passagedata><tw-passagedata pid="52" name="next page" tags="" position="350,1250" size="100,100">&lt;&lt;silently&gt;&gt;
+&lt;&lt;set _images to [
     &quot;images/stress1.png&quot;,
     &quot;images/stress2.png&quot;,
     &quot;images/stress3.png&quot;
@@ -1149,6 +1150,7 @@ When you open your eyes, everything around you looks the same. Still, somehow, i
 &lt;&lt;set _randomIndex to random(0, 2)&gt;&gt;
 &lt;&lt;set _randomImage to _images[_randomIndex]&gt;&gt;
 &lt;img @src=&quot;_randomImage&quot; alt=&quot;stressimage&quot; class=&quot;stressimage&quot;&gt;
+&lt;&lt;/silently&gt;&gt;
 
 &lt;&lt;if _randomImage is &quot;images/stress1.png&quot;&gt;&gt;
     &lt;a href=&quot;https://www.cdc.gov/mental-health/living-with/index.html&quot; target=&quot;_blank&quot;&gt;
