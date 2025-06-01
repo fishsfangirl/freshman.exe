@@ -104,8 +104,7 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="0601" startnode="1" creator="Twine" creator-version="2.10.0" format="SugarCube" format-version="2.37.3" ifid="5218D9A0-53F6-4073-970B-F80B28D86D69" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">css
-body {
+	<tw-storydata name="0601" startnode="1" creator="Twine" creator-version="2.10.0" format="SugarCube" format-version="2.37.3" ifid="5218D9A0-53F6-4073-970B-F80B28D86D69" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body {
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -272,14 +271,11 @@ html, body {
   font-size: 1.3em;
   box-shadow: 0 0 32px rgba(0,0,0,0.3);
   text-align: center;
-  margin: 0;
-  position: fixed;
-  top: 50%;
-  left: calc(220px + (100vw - 220px)/2);
-  transform: translate(-50%, -50%);
+  margin: 100px auto; /* 垂直間距可調整 */
+  position: relative;
   z-index: 10;
-  min-height: unset;
 }
+
 
 .passage > *:first-child {
   margin-top: 0 !important;
@@ -292,7 +288,7 @@ html, body {
 #status-panel {
   background: #181818;
   color: #fff;
-  width: 280px;
+  width: 250px;
   padding: 24px 16px 24px 16px;
   border-radius: 0 12px 12px 0;
   border-left: 6px solid #fff;
@@ -325,10 +321,14 @@ html, body {
   font-size: 1em;
 }
 .status-label {
-  width: 48px;
+  width: 60px; /* 稍微增加寬度 */
   text-align: right;
   margin-right: 6px;
+  font-size: 0.9em; /* 縮小字體 */
+  white-space: nowrap;
+  font-weight: bold; /* 加粗文字 */
 }
+
 .status-bar-bg {
   background: #fff;
   border-radius: 8px;
@@ -392,6 +392,35 @@ a:hover {
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+.field-proficiency-level {
+  width: 100%;
+  margin-top: 16px;
+  font-size: 1em;
+  line-height: 1.5;
+  word-break: break-all;
+  white-space: normal;
+  text-align: center;
+}
+.field-title {
+  font-size: 1.05em;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #ffe0a3;
+}
+.field-item {
+  font-size: 1.15em;
+  margin-bottom: 4px;
+  word-break: break-all;
+  text-align: left;
+}
+.grade {
+  font-weight: bold;
+  color: #ffffff;
+}
+.count {
+  color: #ffffff;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">// JavaScript (to place inside your script or in a passage with <<script>>)
 
 $(document).on(':passagerender', function () {
@@ -523,35 +552,41 @@ $(document).on(':passagerender', function () {
   });
 
  const html = `
- <br><br>
-    <img src="images/freshman.png" alt="sidebar Image" class="sidebar-image">
-    <div class="divider"></div>
-    <h2>Day ${day}  </h2>
-    <div class="status-row">
-      <span class="status-label">Pressure：</span>
-      <div class="status-bar-bg">
-        <div class="status-bar-fill ${stressClass}" style="width:${(stress / 10) * 100}%"></div>
-      </div>
-      <span>${stress}/10</span>
+  <br><br>
+  <img src="images/freshman.png" alt="sidebar Image" class="sidebar-image">
+  <div class="divider"></div>
+  <h2>Day ${day}</h2>
+  <div class="status-row">
+    <span class="status-label">Pressure</span>
+    <div class="status-bar-bg">
+      <div class="status-bar-fill ${stressClass}" style="width:${(stress / 10) * 100}%"></div>
     </div>
-    <div class="status-row">
-      <span class="status-label">Energy：</span>
-      <div class="status-bar-bg">
-        <div class="status-bar-fill ${energyClass}" style="width:${(energy / 10) * 100}%"></div>
-      </div>
-      <span>${energy}/10</span>
+    <span>${stress}/10</span>
+  </div>
+  <div class="status-row">
+    <span class="status-label">Energy</span>
+    <div class="status-bar-bg">
+      <div class="status-bar-fill ${energyClass}" style="width:${(energy / 10) * 100}%"></div>
     </div>
-    <div class="divider"></div>
-    <button class="panel-btn" onclick="showAboutUs()">✉ ABOUT US</button>
-    <button class="panel-btn" onclick="SugarCube.Engine.restart()">▶ RESTART</button>
-    <div class="divider"></div>
-    <h2>Field Proficiency Level</h2>
-    <h2>Translation and Interpretation: ${getGrade(State.getVar("$courseCountTranslation"))} (${State.getVar("$courseCountTranslation")})</h2>
-    <h2>Applied English Studies and English Teaching: ${getGrade(State.getVar("$courseCountApplied"))} (${State.getVar("$courseCountApplied")})</h2>
-    <h2>Business English Communication: ${getGrade(State.getVar("$courseCountBusiness"))} (${State.getVar("$courseCountBusiness")})</h2>
-    <h2>Literature and Culture: ${getGrade(State.getVar("$courseCountLiterature"))} (${State.getVar("$courseCountLiterature")})</h2>
-  `;
-  $("#status-panel").html(html);
+    <span>${energy}/10</span>
+  </div>
+  <div class="divider"></div>
+  <button class="panel-btn" onclick="showAboutUs()">✉ ABOUT US</button>
+  <button class="panel-btn" onclick="SugarCube.Engine.restart()">▶ RESTART</button>
+  <div class="divider"></div>
+  <div class="field-proficiency-level">
+    <div class="field-title">Field Proficiency Level</div>
+    <div class="field-item">Translation and Interpretation: <span class="grade">${getGrade(State.getVar("$courseCountTranslation"))}</span> (<span class="count">${State.getVar("$courseCountTranslation")}</span>)</div>
+    <br>
+    <div class="field-item">Applied English Studies and English Teaching: <span class="grade">${getGrade(State.getVar("$courseCountApplied"))}</span> (<span class="count">${State.getVar("$courseCountApplied")}</span>)</div>
+<br>
+    <div class="field-item">Business English Communication: <span class="grade">${getGrade(State.getVar("$courseCountBusiness"))}</span> (<span class="count">${State.getVar("$courseCountBusiness")}</span>)</div>
+<br>
+    <div class="field-item">Literature and Culture: <span class="grade">${getGrade(State.getVar("$courseCountLiterature"))}</span> (<span class="count">${State.getVar("$courseCountLiterature")}</span>)</div>
+  </div>
+`;
+
+$("#status-panel").html(html);
 
   // ✅ 課程事件計數
   const courseFieldMap = {
