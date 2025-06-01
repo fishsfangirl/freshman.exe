@@ -1029,25 +1029,28 @@ Back at your seat, your back is sweaty and your cheeks burn. You avoid making ey
   &lt;&lt;set $energy = max(0, $energy - 2)&gt;&gt;
   &lt;&lt;set $stress = max(0, $stress - 1)&gt;&gt;
   &lt;&lt;goto &quot;BadSleepResult&quot;&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="depression" tags="" position="575,1175" size="100,100">DAY 14!!!
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="depression" tags="" position="550,1250" size="100,100">DAY 14!!!
 You start feeling a heavy sadness like a dark shadow over your mind. No matter how much you try, it stays quietly in the background. You lose interest in life. Things you once enjoyed seem dull, and even small joys feel far away. Loneliness grows, as if an invisible wall separates you from others. It feels like you are falling into a deep hole, and the more you struggle, the deeper you sink. Night after night, sleep doesn’t come easily. 
 The darkness feels endless and hard to bear. Your thoughts get tangled, and worries rush in like waves. Your heart races, but you still can’t rest. You begin to doubt yourself and wonder if there is any hope. Sometimes, you think, “Maybe giving up would be easier.” These thoughts bring deep sadness. 
 But even in the darkest moments, you want to find some light. You gather your courage and reach out for help.
+[[next-&gt;depressionafter]] 
 
 
 
-</tw-passagedata><tw-passagedata pid="37" name="escape" tags="" position="725,1175" size="100,100">DAY 14!!!
+</tw-passagedata><tw-passagedata pid="37" name="escape" tags="" position="725,1250" size="100,100">DAY 14!!!
 You feel huge pressure from schoolwork and relationships, like a mountain ready to collapse on your chest. Inside, there is strong energy, a rebellious fire burning that keeps you restless. You want to run away from it all, but you know avoiding problems will not help. Your feelings are mixed. 
 
 Part of you wants to face the challenges, while another part just wants to skip school and hide from the stress for a while. One day, you finally decide not to go to school. Walking down the empty streets, the first moments of freedom make your heart race, and it feels like a fresh start. 
 
 However, skipping school does not bring real relief. This path of avoidance does not lead to freedom but builds invisible cages instead.
+[[next-&gt;escapeafter]] 
 
-</tw-passagedata><tw-passagedata pid="38" name="fever" tags="" position="950,1200" size="100,100">DAY 14!!!
+</tw-passagedata><tw-passagedata pid="38" name="fever" tags="" position="900,1225" size="100,100">DAY 14!!!
 You feel pressure coming like waves. Sometimes strong, sometimes mild… But it never really goes away. Although your body still has some energy, the tightness inside makes it hard to relax. Suddenly, a heat spreads across your forehead, and your body temperature seems to rise without control. 
 When you touch your forehead, your palm feels slightly warm, but there is no clear reason. This unexplained fever feels like your body’s response to stress, making you even more tired. Your thoughts become blurry, and your focus drifts at times. Y
 our heartbeat grows restless. Even though you still have some energy, your body is warning you that this stress is quietly harming your health. 
 You know you can’t ignore these signals anymore.
+[[next-&gt;feverafter]] 
 
 
 </tw-passagedata><tw-passagedata pid="39" name="Drowsiness" tags="" position="1500,550" size="100,100">You walk into the classroom with tired steps. Sunlight slants through the windows, and the air smells faintly of whiteboard markers.
@@ -1114,13 +1117,16 @@ When you open your eyes, everything around you looks the same. Still, somehow, i
 &lt;button class=&quot;panel-btn&quot; onclick=&quot;showAboutUs()&quot;&gt;📝 ABOUT US&lt;/button&gt;</tw-passagedata><tw-passagedata pid="50" name="Ending" tags="" position="825,1050" size="100,100">&lt;&lt;if _stress &gt;= 9 &amp;&amp; _energy &lt;= 2&gt;&gt;
   &lt;&lt;goto &quot;depression&quot;&gt;&gt;
 
-&lt;&lt;elseif _stress &gt;= 7 &amp;&amp; _stress &lt;= 8 &amp;&amp; _energy &gt;= 3 &amp;&amp; _energy &lt;= 5&gt;&gt;
+&lt;&lt;elseif _stress &gt;= 7 &amp;&amp; _stress &lt;= 10 &amp;&amp; _energy &gt;= 2 &amp;&amp; _energy &lt;= 5&gt;&gt;
   &lt;&lt;goto &quot;depression&quot;&gt;&gt;
 
-&lt;&lt;elseif _stress &gt;= 7 &amp;&amp; _stress &lt;= 8 &amp;&amp; _energy == 6&gt;&gt;
+&lt;&lt;elseif _stress &gt;= 7 &amp;&amp; _stress &lt;= 10 &amp;&amp; _energy == 6&gt;&gt;
   &lt;&lt;goto &quot;fever&quot;&gt;&gt;
 
-&lt;&lt;elseif _stress &gt;= 7 &amp;&amp; _stress &lt;= 8 &amp;&amp; _energy == 7&gt;&gt;
+&lt;&lt;elseif _stress &gt;= 7 &amp;&amp; _stress &lt;= 10 &amp;&amp; _energy == 7&gt;&gt;
+  &lt;&lt;goto &quot;escape&quot;&gt;&gt;
+
+&lt;&lt;elseif _stress &gt;= 8 &amp;&amp; _stress &lt;= 10 &amp;&amp; _energy &gt;= 8&gt;&gt;
   &lt;&lt;goto &quot;escape&quot;&gt;&gt;
 
 &lt;&lt;elseif _stress &lt;= 6 &amp;&amp; _energy &gt;= 4&gt;&gt;
