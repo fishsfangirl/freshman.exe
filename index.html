@@ -482,7 +482,7 @@ $(document).on(':passagerender', function () {
     { keywords: ["參加心靈講座","心靈講座後"], url: "images/speech.png" },
     { keywords: ["看心靈書籍(有知識點)"], url: "images/bookshelve.png" },
     { keywords: ["走廊"], url: "images/aisle.png" },
-    { keywords: ["上課", "選擇想上的課","▶英文短篇小說選讀", "▶視譯與口語入門", "▶文學翻譯入門", "▶外語教學法", "▶繪本閱讀與教學", "▶導覽英文", "▶國際禮儀", "▶希臘羅馬神話", "Drowsiness", " Quiz", "Report", "DrowsinessSuccess", "DrowsinessFailure", "QuizSuccess", "QuizFailure", "ReportSuccess", "ReportFailure"], url: "images/classroom.png" }
+    { keywords: ["上課", "選擇想上的課","▶英文短篇小說選讀", "▶ 視譯與口語入門", "▶文學翻譯入門", "▶外語教學法", "▶繪本閱讀與教學", "▶導覽英文", "▶國際禮儀", "▶希臘羅馬神話", "Drowsiness", " Quiz", "Report", "DrowsinessSuccess", "DrowsinessFailure", "QuizSuccess", "QuizFailure", "ReportSuccess", "ReportFailure"], url: "images/classroom.png" }
   ];
 
   const baseUrl = "https://fishsfangirl.github.io/freshman.exe/";
@@ -880,7 +880,7 @@ You push the door open and take a seat. The room is calm and still. The speaker�
 Following the instructions, you breathe in slowly... then breathe out slowly.
 &lt;&lt;set $stress = Math.max(0, $stress - 2)&gt;&gt;
 &lt;&lt;set $energy -= 2&gt;&gt;
-</tw-passagedata><tw-passagedata pid="20" name="選擇想上的課" tags="" position="1800,175" size="100,100">[[Sight Translation and Introductory Interpretation-&gt;▶ 視譯與口語入門]]
+</tw-passagedata><tw-passagedata pid="20" name="選擇想上的課" tags="" position="1775,100" size="100,100">[[Sight Translation and Introductory Interpretation-&gt;▶ 視譯與口語入門]]
 
 [[Introduction to Literary Translation-&gt;▶文學翻譯入門]]
 
@@ -895,7 +895,7 @@ Following the instructions, you breathe in slowly... then breathe out slowly.
 [[Greek and Roman Mythology-&gt;▶希臘羅馬神話]]
 
 [[Selected Readings of Short Stories-&gt;▶英文短篇小說選讀]]
-</tw-passagedata><tw-passagedata pid="21" name="▶ 視譯與口語入門" tags="" position="1875,375" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
+</tw-passagedata><tw-passagedata pid="21" name="▶ 視譯與口語入門" tags="" position="1850,275" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
 &lt;br&gt;
 During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
 
@@ -926,20 +926,6 @@ During discussion time, the room feels more alive. Some people ask questions, an
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="▶外語教學法" tags="" position="1975,550" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
 &lt;br&gt;
 During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
-&lt;&lt;link &quot;next&quot;&gt;&gt;
-    &lt;&lt;set _r to Math.random()&gt;&gt;
-    &lt;&lt;if _r &lt; 0.3&gt;&gt;
-        &lt;&lt;set _events to [&quot;drowsiness&quot;, &quot;quiz&quot;, &quot;report&quot;]&gt;&gt;
-        &lt;&lt;set $selectedEventType to _events.random()&gt;&gt;
-        &lt;&lt;set _capitalized to $selectedEventType.substr(0, 1).toUpperCase() + $selectedEventType.substr(1)&gt;&gt;
-        &lt;&lt;goto _capitalized&gt;&gt;
-    &lt;&lt;else&gt;&gt;
-        &lt;&lt;goto &quot;start&quot;&gt;&gt;
-    &lt;&lt;/if&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="▶繪本閱讀與教學" tags="" position="2000,400" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
-&lt;br&gt;
-During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
-
 
 &lt;&lt;link &quot;next&quot;&gt;&gt;
     &lt;&lt;set _r to Math.random()&gt;&gt;
@@ -951,10 +937,23 @@ During discussion time, the room feels more alive. Some people ask questions, an
     &lt;&lt;else&gt;&gt;
         &lt;&lt;goto &quot;start&quot;&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="▶導覽英文" tags="" position="1750,375" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="▶繪本閱讀與教學" tags="" position="2050,350" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
 &lt;br&gt;
 During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
 
+&lt;&lt;link &quot;next&quot;&gt;&gt;
+    &lt;&lt;set _r to Math.random()&gt;&gt;
+    &lt;&lt;if _r &lt; 0.3&gt;&gt;
+        &lt;&lt;set _events to [&quot;drowsiness&quot;, &quot;quiz&quot;, &quot;report&quot;]&gt;&gt;
+        &lt;&lt;set $selectedEventType to _events.random()&gt;&gt;
+        &lt;&lt;set _capitalized to $selectedEventType.substr(0, 1).toUpperCase() + $selectedEventType.substr(1)&gt;&gt;
+        &lt;&lt;goto _capitalized&gt;&gt;
+    &lt;&lt;else&gt;&gt;
+        &lt;&lt;goto &quot;start&quot;&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="▶導覽英文" tags="" position="1775,375" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
+&lt;br&gt;
+During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
 
 &lt;&lt;link &quot;next&quot;&gt;&gt;
     &lt;&lt;set _r to Math.random()&gt;&gt;
@@ -969,7 +968,6 @@ During discussion time, the room feels more alive. Some people ask questions, an
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="▶國際禮儀" tags="" position="1700,525" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
 &lt;br&gt;
 During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
-
 
 &lt;&lt;link &quot;next&quot;&gt;&gt;
     &lt;&lt;set _r to Math.random()&gt;&gt;
@@ -1110,7 +1108,7 @@ You take a deep breath and stand up. Walking to the front of the room, the light
 &lt;p style=&quot;background:#f9f9f9; color:#00aa00; padding:10px; border:1px solid #ccc;&quot;&gt;
 &lt;&lt;print $diaryEntry&gt;&gt;
 &lt;/p&gt;
-&lt;&lt;button &quot;返回寫日記&quot;&gt;&gt;
+&lt;&lt;button &quot;return your diary&quot;&gt;&gt;
     &lt;&lt;goto &quot;寫日記&quot;&gt;&gt;
 &lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="44" name="TranslationEnding" tags="" position="625,1400" size="100,100">完成這段口筆譯的課程後，你驚喜地發現自己不只是語言能力提升，還意外成了「雙語超人」。 不管是聽得懂各種口音的講話，還是瞬間把外語轉成流利中文，都讓旁人投來崇拜的目光。教授打趣說：「你這樣下去，應該可以去當國際間諜了！」而你自己也偷偷幻想，未來出差國外時，不用翻譯App也能輕鬆溝通，還能幫朋友當臨時口譯員的樣子。更重要的是，在這段時間，你不只學會了翻譯技巧，還掌握了時間管理和情緒調適的秘訣。你開始相信，未來自己能在口筆譯這條路上發光發熱的！
 </tw-passagedata><tw-passagedata pid="45" name="LiteratureEnding" tags="" position="625,1700" size="100,100">經歷了這段時間的文學與文化課程，你彷彿踏上了一場穿越時空的奇妙旅程。從海明威的詩句到現代流行文化的潮流，每一次閱讀都像是打開一扇窗，讓你看見世界不同的樣貌。教授常說：「文學是靈魂的鏡子，文化則是它的色彩。」你開始懂得用文字去感受人心，用文化去理解多元世界。這一個月，你不僅學會分析文本，更學會了用自己的眼光去欣賞每個故事背後的生命力。有時候，你會在課堂上揣摩角色的心情，甚至偷偷在筆記本裡寫下自己的小故事。最重要的是，你掌握了時間管理和情緒調適的方法，讓大量的文本都不再是負擔，而是充滿熱情與動力的一趟旅程。未來，你相信這些養分，會讓你在人生的舞台上，擁有更豐富的視野和更深刻的感受力。說不定哪天，你也會成為那個用文字溫暖他人心靈的故事講述者。</tw-passagedata><tw-passagedata pid="46" name="TeachingEnding" tags="" position="625,1500" size="100,100">經過一連串的應用語言與英語教學課程，你發現自己不只是語言變得流利，連教學的腦洞也越來越大了！你開始幻想自己成為那位能用五種不同口音說笑話的幽默老師，甚至在課堂上用戲劇橋段讓學生笑翻天。教授看到你創意十足的教學方式，笑著說：「你這樣下去，不只是教語言，還能去演戲了呀！」這一個月，你不僅學會了如何有效教學，還偷偷練就了用英文說冷笑話的功力（雖然偶爾尷尬，但你很樂在其中！）。
