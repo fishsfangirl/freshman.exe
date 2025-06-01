@@ -1114,27 +1114,21 @@ When you open your eyes, everything around you looks the same. Still, somehow, i
 [[next-&gt;start]] 
 &lt;br&gt;
 </tw-passagedata><tw-passagedata pid="49" name="aboutus" tags="" position="25,225" size="100,100">&lt;button class=&quot;panel-btn&quot; onclick=&quot;SugarCube.Engine.restart()&quot;&gt;▶ RESTART&lt;/button&gt;
-&lt;button class=&quot;panel-btn&quot; onclick=&quot;showAboutUs()&quot;&gt;📝 ABOUT US&lt;/button&gt;</tw-passagedata><tw-passagedata pid="50" name="Ending" tags="" position="825,1050" size="100,100">&lt;&lt;if _stress &gt;= 9 &amp;&amp; _energy &lt;= 2&gt;&gt;
+&lt;button class=&quot;panel-btn&quot; onclick=&quot;showAboutUs()&quot;&gt;📝 ABOUT US&lt;/button&gt;</tw-passagedata><tw-passagedata pid="50" name="Ending" tags="" position="825,1050" size="100,100">&lt;&lt;if $stress &gt;= 9 &amp;&amp; $energy &lt;= 2&gt;&gt;
   &lt;&lt;goto &quot;depression&quot;&gt;&gt;
-
-&lt;&lt;elseif _stress &gt;= 7 &amp;&amp; _stress &lt;= 10 &amp;&amp; _energy &gt;= 2 &amp;&amp; _energy &lt;= 5&gt;&gt;
+&lt;&lt;elseif $stress &gt;= 7 &amp;&amp; $stress &lt;= 10 &amp;&amp; $energy &gt;= 2 &amp;&amp; $energy &lt;= 5&gt;&gt;
   &lt;&lt;goto &quot;depression&quot;&gt;&gt;
-
-&lt;&lt;elseif _stress &gt;= 7 &amp;&amp; _stress &lt;= 10 &amp;&amp; _energy == 6&gt;&gt;
+&lt;&lt;elseif $stress &gt;= 7 &amp;&amp; $stress &lt;= 10 &amp;&amp; $energy == 6&gt;&gt;
   &lt;&lt;goto &quot;fever&quot;&gt;&gt;
-
-&lt;&lt;elseif _stress &gt;= 7 &amp;&amp; _stress &lt;= 10 &amp;&amp; _energy == 7&gt;&gt;
+&lt;&lt;elseif $stress &gt;= 7 &amp;&amp; $stress &lt;= 10 &amp;&amp; $energy == 7&gt;&gt;
   &lt;&lt;goto &quot;escape&quot;&gt;&gt;
-
-&lt;&lt;elseif _stress &gt;= 8 &amp;&amp; _stress &lt;= 10 &amp;&amp; _energy &gt;= 8&gt;&gt;
+&lt;&lt;elseif $stress &gt;= 8 &amp;&amp; $stress &lt;= 10 &amp;&amp; $energy &gt;= 8&gt;&gt;
   &lt;&lt;goto &quot;escape&quot;&gt;&gt;
-
-&lt;&lt;elseif _stress &lt;= 6 &amp;&amp; _energy &gt;= 4&gt;&gt;
+&lt;&lt;elseif $stress &lt;= 6 &amp;&amp; $energy &gt;= 4&gt;&gt;
   &lt;&lt;set _translationGrade = $courseCountTranslation&gt;&gt;
   &lt;&lt;set _appliedGrade = $courseCountApplied&gt;&gt;
   &lt;&lt;set _businessGrade = $courseCountBusiness&gt;&gt;
   &lt;&lt;set _literatureGrade = $courseCountLiterature&gt;&gt;
-
   &lt;&lt;if _translationGrade == &quot;A&quot; or _translationGrade == &quot;B&quot;&gt;&gt;
     &lt;&lt;goto &quot;TranslationEnding&quot;&gt;&gt;
   &lt;&lt;elseif _appliedGrade == &quot;A&quot; or _appliedGrade == &quot;B&quot;&gt;&gt;
@@ -1146,8 +1140,7 @@ When you open your eyes, everything around you looks the same. Still, somehow, i
   &lt;&lt;else&gt;&gt;
     &lt;&lt;goto &quot;NormalEnding&quot;&gt;&gt;
   &lt;&lt;/if&gt;&gt;
-&lt;&lt;/if&gt;&gt;
-</tw-passagedata><tw-passagedata pid="51" name="NormalEnding" tags="" position="225,975" size="100,100">Congrats! You fininsh the game
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="51" name="NormalEnding" tags="" position="225,975" size="100,100">Congrats! You fininsh the game
 </tw-passagedata><tw-passagedata pid="52" name="next page" tags="" position="475,750" size="100,100">&lt;&lt;set _images to [
     &quot;images/stress1.png&quot;,
     &quot;images/stress2.png&quot;,
