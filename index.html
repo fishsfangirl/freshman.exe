@@ -482,7 +482,7 @@ $(document).on(':passagerender', function () {
     { keywords: ["參加心靈講座","心靈講座後"], url: "images/speech.png" },
     { keywords: ["看心靈書籍(有知識點)"], url: "images/bookshelve.png" },
     { keywords: ["走廊"], url: "images/aisle.png" },
-    { keywords: ["上課", "選擇想上的課","▶英文短篇小說選讀", "▶ 視譯與口語入門", "▶文學翻譯入門", "▶外語教學法", "▶繪本閱讀與教學", "▶導覽英文", "▶國際禮儀", "▶希臘羅馬神話", "Drowsiness", " Quiz", "Report", "DrowsinessSuccess", "DrowsinessFailure", "QuizSuccess", "QuizFailure", "ReportSuccess", "ReportFailure"], url: "images/classroom.png" }
+    { keywords: ["上課", "選擇想上的課","▶英文短篇小說選讀", "▶視譯與口語入門", "▶文學翻譯入門", "▶外語教學法", "▶繪本閱讀與教學", "▶導覽英文", "▶國際禮儀", "▶希臘羅馬神話", "Drowsiness", " Quiz", "Report", "DrowsinessSuccess", "DrowsinessFailure", "QuizSuccess", "QuizFailure", "ReportSuccess", "ReportFailure"], url: "images/classroom.png" }
   ];
 
   const baseUrl = "https://fishsfangirl.github.io/freshman.exe/";
@@ -728,13 +728,12 @@ document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         closeAboutUs();
     }
-});</script><tw-passagedata pid="1" name="first" tags="" position="150,0" size="100,100">&lt;br&gt;
+});</script><tw-passagedata pid="1" name="first" tags="" position="125,25" size="100,100">&lt;br&gt;
 ●Freshman.exe●
-
 Please type your name：&lt;br&gt; After typing, press enter!
 &lt;&lt;textbox &quot;$playerName&quot; &quot;&quot; &quot;second&quot; &quot;oninput&quot;&gt;&gt;
 &lt;br&gt;
-&lt;br&gt;</tw-passagedata><tw-passagedata pid="2" name="StoryInit" tags="" position="1125,75" size="100,100">:: StoryInit
+&lt;br&gt;</tw-passagedata><tw-passagedata pid="2" name="StoryInit" tags="" position="25,350" size="100,100">:: StoryInit
 &lt;&lt;set $sleepCount = 0&gt;&gt;
 &lt;&lt;set $year = 2025&gt;&gt;
 &lt;&lt;set $month = 6&gt;&gt;
@@ -748,11 +747,11 @@ $completed_兒童文學與繪本 = false
 $completed_導覽英文 = false
 $completed_國際禮儀 = false
 $completed_希臘羅馬神話 = false
-$completed_英文短篇小說選讀 = false</tw-passagedata><tw-passagedata pid="3" name="second" tags="" position="525,0" size="100,100">&lt;br&gt;
+$completed_英文短篇小說選讀 = false</tw-passagedata><tw-passagedata pid="3" name="second" tags="" position="250,25" size="100,100">&lt;br&gt;
 You, $playerName are a freshman who just started at NKUST in the Department of Applied English. You just left home, and you’re excited to start a new chapter in your life. But things change fast. A lot of presentations, meetings, and stress keep piling up. You start to feel lost about the future. That’s when you decide to take back control by learning time management!
 
 &lt;br&gt;
-[[start]] </tw-passagedata><tw-passagedata pid="4" name="start" tags="" position="75,175" size="100,100">&lt;&lt;silently&gt;&gt;
+[[start]] </tw-passagedata><tw-passagedata pid="4" name="start" tags="" position="150,225" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;if $day == 1&gt;&gt;
   &lt;&lt;set $endTriggered = false&gt;&gt;
 &lt;&lt;/if&gt;&gt;
@@ -768,7 +767,7 @@ Today is &lt;&lt;print _weekday&gt;&gt;
 You decide...
 
 [[Go home -&gt;回家]]
-[[Go to school -&gt;學校]]</tw-passagedata><tw-passagedata pid="5" name="回家" tags="" position="600,450" size="100,100">Finally, you reach your front door. You take off your shoes and step inside. The weight on your shoulders lifts as your backpack drops to the floor. You set your bag down next to the chair. 
+[[Go to school -&gt;學校]]</tw-passagedata><tw-passagedata pid="5" name="回家" tags="" position="400,300" size="100,100">Finally, you reach your front door. You take off your shoes and step inside. The weight on your shoulders lifts as your backpack drops to the floor. You set your bag down next to the chair. 
 After a long day, you can finally relax.
 Now, you want to...
 
@@ -778,10 +777,10 @@ Now, you want to...
 &lt;&lt;if $sleepCount &gt;= 4&gt;&gt;
   &lt;span style=&quot;color:red;&quot;&gt;你已經連續睡覺四次，不能再睡了！請先去上課。&lt;/span&gt;
 &lt;&lt;/if&gt;&gt;
-[[Sit down at the desk and do something.-&gt;坐到書桌前面做些什麼。]]</tw-passagedata><tw-passagedata pid="6" name="學校" tags="" position="875,25" size="100,100">&lt;br&gt;
+[[Sit down at the desk and do something.-&gt;坐到書桌前面做些什麼。]]</tw-passagedata><tw-passagedata pid="6" name="學校" tags="" position="400,125" size="100,100">&lt;br&gt;
 [[West campus / exercise -&gt;西校區/運動]]
 [[aisle -&gt;走廊]]
-&lt;br&gt;</tw-passagedata><tw-passagedata pid="7" name="睡覺  (警告：睡覺將會跳轉到另一天)。" tags="" position="475,250" size="100,100">&lt;&lt;set $sleepCount += 1&gt;&gt;
+&lt;br&gt;</tw-passagedata><tw-passagedata pid="7" name="睡覺  (警告：睡覺將會跳轉到另一天)。" tags="" position="525,500" size="100,100">&lt;&lt;set $sleepCount += 1&gt;&gt;
 &lt;&lt;set $justSlept = true&gt;&gt;
 
 You head into your room and softly shut the door behind you. You tap the light switch and everything goes quiet.
@@ -792,7 +791,7 @@ The room smells familiar and comforting. Your bed has been waiting all day.
 &lt;&lt;else&gt;&gt;
     [[next -&gt;sleepresult]]
 &lt;&lt;/if&gt;&gt;
-</tw-passagedata><tw-passagedata pid="8" name="坐到書桌前面做些什麼。" tags="" position="100,625" size="100,100">After a deep breath, you get up and turn on the desk lamp. You spread out your notes and start working. Your thoughts begin to clear.
+</tw-passagedata><tw-passagedata pid="8" name="坐到書桌前面做些什麼。" tags="" position="375,500" size="100,100">After a deep breath, you get up and turn on the desk lamp. You spread out your notes and start working. Your thoughts begin to clear.
 Even though you’re still tired, you know this hard work is necessary. Every minute counts as you get ready for tomorrow. In the quiet night, you quietly build your own determination.
 
 You choose to sit down at your desk. What do you want to do?
@@ -801,17 +800,17 @@ You choose to sit down at your desk. What do you want to do?
 [[Read a self-help book -&gt;看心靈書籍(有知識點)]]
 [[Write something in your diary-&gt;寫日記]]
 
-</tw-passagedata><tw-passagedata pid="9" name="繼續睡" tags="" position="750,950" size="100,100">&lt;br&gt;
+</tw-passagedata><tw-passagedata pid="9" name="繼續睡" tags="" position="825,750" size="100,100">&lt;br&gt;
 You take a short nap, but a sudden thought wakes you up …  tomorrow’s quiz or presentation! Your chest tightens as stress rushes in, yet your body is too tired to fight it. You close your eyes again and let yourself drift back to sleep, telling yourself to forget the worries for now and deal with them tomorrow.
 &lt;&lt;set $energy = Math.min($energy + 2, 10)&gt;&gt;
 &lt;&lt;set $stress += 2&gt;&gt;
-[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="10" name="看心靈書籍(有知識點)" tags="" position="375,850" size="100,100">You reach for the self-help book and open the cover. The pages softly give off the scent of paper. It feels like an invitation to begin an inner journey.
+[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="10" name="看心靈書籍(有知識點)" tags="" position="475,625" size="100,100">You reach for the self-help book and open the cover. The pages softly give off the scent of paper. It feels like an invitation to begin an inner journey.
 You settle back into your chair and let your thoughts flow with the words. Each sentence feels like a beam of light that cuts through fatigue and distractions. It leads you to a peaceful place inside.
 As you turn the pages, the noise of the outside world fades away. It is just you and the gentle power of the book, breathing quietly together and feeling calm.
 
 
 [[next page]]
-&lt;&lt;set $energy -= 2&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="寫日記" tags="" position="200,900" size="100,100">You gently set your backpack beside the chair and take a deep breath. The tiredness from the day slowly fades away.
+&lt;&lt;set $energy -= 2&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="寫日記" tags="" position="250,625" size="100,100">You gently set your backpack beside the chair and take a deep breath. The tiredness from the day slowly fades away.
 Sitting at your desk, you open your notebook. Your pen glides softly across the paper as you begin to write about today’s experiences...
 
 
@@ -829,38 +828,38 @@ write down your diary：
         &lt;&lt;goto &quot;lookdiary&quot;&gt;&gt;
     &lt;&lt;/button&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="12" name="GoodSleepResult" tags="" position="525,825" size="100,100">After changing into your pajamas, flop down and sink into the soft blankets.
+[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="12" name="GoodSleepResult" tags="" position="825,600" size="100,100">After changing into your pajamas, flop down and sink into the soft blankets.
 You can feel your eyelids getting heavier with each breath, and your thoughts start to drift off on the comfy pillow.
 
-[[start]] </tw-passagedata><tw-passagedata pid="13" name="西校區/運動" tags="" position="850,375" size="100,100">&lt;&lt;set $stress -= 2&gt;&gt;
+[[start]] </tw-passagedata><tw-passagedata pid="13" name="西校區/運動" tags="" position="675,225" size="100,100">&lt;&lt;set $stress -= 2&gt;&gt;
 You walk through the campus path and reach the West Campus.
 The sun’s shining down on the field, and the air smells like fresh grass and sweat.
 You take a deep breath and start feeling your body wake up. Your mood gets lighter too.
 
 
 [[next-&gt;start]]
-&lt;&lt;set $energy -= 2&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="BadSleepResult" tags="" position="575,1000" size="100,100">&lt;&lt;set _event to either(&quot;報告&quot;, &quot;讀小考&quot;)&gt;&gt;
+&lt;&lt;set $energy -= 2&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="BadSleepResult" tags="" position="700,750" size="100,100">&lt;&lt;set _event to either(&quot;報告&quot;, &quot;讀小考&quot;)&gt;&gt;
 
 Suddenly, a sharp thought hits you like a warning siren:  
 YOU HAVEN’T PREPARED FOR TOMORROW’S &lt;&lt;if _event == &quot;報告&quot;&gt;&gt;PRESENTATION&lt;&lt;else&gt;&gt;QUIZ&lt;&lt;/if&gt;&gt;!  
 Your heart races even though your body feels exhausted. What will you do now?
 
 [[prepare-&gt;準備]]
-[[keep sleeping-&gt;繼續睡]]</tw-passagedata><tw-passagedata pid="15" name="準備" tags="" position="575,1225" size="100,100">&lt;br&gt;
+[[keep sleeping-&gt;繼續睡]]</tw-passagedata><tw-passagedata pid="15" name="準備" tags="" position="825,875" size="100,100">&lt;br&gt;
 You start to practice right now, want to make good performance in tommorw.
 Meanwhile, your energy declined a little bit.
 &lt;&lt;set $energy -= 2&gt;&gt;
 &lt;&lt;set $stress -= 1&gt;&gt;
 [[next-&gt;start]] 
-</tw-passagedata><tw-passagedata pid="16" name="讀小考" tags="" position="750,1225" size="100,100">&lt;br&gt;
+</tw-passagedata><tw-passagedata pid="16" name="讀小考" tags="" position="950,875" size="100,100">&lt;br&gt;
 你努力準備小考，精神有些不濟，但壓力也減少了一些。
 &lt;&lt;set $energy -= 2&gt;&gt;
 &lt;&lt;set $stress -= 1&gt;&gt;
-[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="17" name="走廊" tags="" position="1075,300" size="100,100">&lt;br&gt;
+[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="17" name="走廊" tags="" position="675,75" size="100,100">&lt;br&gt;
 [[Classroom-&gt;上課]]
 [[Wellness Seminar-&gt;參加心靈講座]]
 &lt;br&gt;
-</tw-passagedata><tw-passagedata pid="18" name="上課" tags="" position="1400,450" size="100,100">&lt;&lt;if $energy &lt;= 1&gt;&gt;
+</tw-passagedata><tw-passagedata pid="18" name="上課" tags="" position="875,200" size="100,100">&lt;&lt;if $energy &lt;= 1&gt;&gt;
 ⚠ 你太累了，已經沒有力氣上課。請回家睡覺。
 [[回家-&gt;回家]]
 &lt;&lt;else&gt;&gt;
@@ -873,14 +872,14 @@ Clearing their throat, the teacher says in a steady voice, “Alright, let’s g
 [[choose what course to take-&gt;選擇想上的課]] 
 &lt;&lt;set $energy -= 2&gt;&gt;
 &lt;&lt;set $stress += 1&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="參加心靈講座" tags="" position="1500,225" size="100,100">You walk slowly down the school corridor, your footsteps weaving through patches of light and shadow.
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="參加心靈講座" tags="" position="875,25" size="100,100">You walk slowly down the school corridor, your footsteps weaving through patches of light and shadow.
 Not far ahead, a quiet classroom is holding a mindfulness talk. The air is filled with a soft scent of sandalwood.
 
 You push the door open and take a seat. The room is calm and still. The speaker’s gentle voice guides you to close your eyes.
 Following the instructions, you breathe in slowly... then breathe out slowly.
 &lt;&lt;set $stress = Math.max(0, $stress - 2)&gt;&gt;
 &lt;&lt;set $energy -= 2&gt;&gt;
-</tw-passagedata><tw-passagedata pid="20" name="選擇想上的課" tags="" position="1775,100" size="100,100">[[Sight Translation and Introductory Interpretation-&gt;▶ 視譯與口語入門]]
+</tw-passagedata><tw-passagedata pid="20" name="選擇想上的課" tags="" position="1050,200" size="100,100">[[Sight Translation and Introductory Interpretation-&gt;▶ 視譯與口語入門]]
 
 [[Introduction to Literary Translation-&gt;▶文學翻譯入門]]
 
@@ -895,10 +894,9 @@ Following the instructions, you breathe in slowly... then breathe out slowly.
 [[Greek and Roman Mythology-&gt;▶希臘羅馬神話]]
 
 [[Selected Readings of Short Stories-&gt;▶英文短篇小說選讀]]
-</tw-passagedata><tw-passagedata pid="21" name="▶ 視譯與口語入門" tags="" position="1850,275" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
+</tw-passagedata><tw-passagedata pid="21" name="▶ 視譯與口語入門" tags="" position="1275,0" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
 &lt;br&gt;
 During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
-
 &lt;&lt;link &quot;next&quot;&gt;&gt;
     &lt;&lt;set _r to Math.random()&gt;&gt;
     &lt;&lt;if _r &lt; 0.3&gt;&gt;
@@ -909,10 +907,9 @@ During discussion time, the room feels more alive. Some people ask questions, an
     &lt;&lt;else&gt;&gt;
         &lt;&lt;goto &quot;start&quot;&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="▶文學翻譯入門" tags="" position="1850,525" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="▶文學翻譯入門" tags="" position="1425,0" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
 &lt;br&gt;
 During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
-
 &lt;&lt;link &quot;next&quot;&gt;&gt;
     &lt;&lt;set _r to Math.random()&gt;&gt;
     &lt;&lt;if _r &lt; 0.3&gt;&gt;
@@ -923,10 +920,9 @@ During discussion time, the room feels more alive. Some people ask questions, an
     &lt;&lt;else&gt;&gt;
         &lt;&lt;goto &quot;start&quot;&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="▶外語教學法" tags="" position="1975,550" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="▶外語教學法" tags="" position="1275,150" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
 &lt;br&gt;
 During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
-
 &lt;&lt;link &quot;next&quot;&gt;&gt;
     &lt;&lt;set _r to Math.random()&gt;&gt;
     &lt;&lt;if _r &lt; 0.3&gt;&gt;
@@ -937,10 +933,9 @@ During discussion time, the room feels more alive. Some people ask questions, an
     &lt;&lt;else&gt;&gt;
         &lt;&lt;goto &quot;start&quot;&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="▶繪本閱讀與教學" tags="" position="2050,350" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="▶繪本閱讀與教學" tags="" position="1425,150" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
 &lt;br&gt;
 During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
-
 &lt;&lt;link &quot;next&quot;&gt;&gt;
     &lt;&lt;set _r to Math.random()&gt;&gt;
     &lt;&lt;if _r &lt; 0.3&gt;&gt;
@@ -951,10 +946,9 @@ During discussion time, the room feels more alive. Some people ask questions, an
     &lt;&lt;else&gt;&gt;
         &lt;&lt;goto &quot;start&quot;&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="▶導覽英文" tags="" position="1775,375" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="▶導覽英文" tags="" position="1275,275" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
 &lt;br&gt;
 During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
-
 &lt;&lt;link &quot;next&quot;&gt;&gt;
     &lt;&lt;set _r to Math.random()&gt;&gt;
     &lt;&lt;if _r &lt; 0.3&gt;&gt;
@@ -965,10 +959,9 @@ During discussion time, the room feels more alive. Some people ask questions, an
     &lt;&lt;else&gt;&gt;
         &lt;&lt;goto &quot;start&quot;&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="▶國際禮儀" tags="" position="1700,525" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="▶國際禮儀" tags="" position="1425,250" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
 &lt;br&gt;
 During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
-
 &lt;&lt;link &quot;next&quot;&gt;&gt;
     &lt;&lt;set _r to Math.random()&gt;&gt;
     &lt;&lt;if _r &lt; 0.3&gt;&gt;
@@ -979,10 +972,9 @@ During discussion time, the room feels more alive. Some people ask questions, an
     &lt;&lt;else&gt;&gt;
         &lt;&lt;goto &quot;start&quot;&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="▶希臘羅馬神話" tags="" position="2150,500" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="▶希臘羅馬神話" tags="" position="1425,425" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
 &lt;br&gt;
 During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
-
 &lt;&lt;link &quot;next&quot;&gt;&gt;
     &lt;&lt;set _r to Math.random()&gt;&gt;
     &lt;&lt;if _r &lt; 0.3&gt;&gt;
@@ -993,10 +985,9 @@ During discussion time, the room feels more alive. Some people ask questions, an
     &lt;&lt;else&gt;&gt;
         &lt;&lt;goto &quot;start&quot;&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="▶英文短篇小說選讀" tags="" position="1625,375" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="▶英文短篇小說選讀" tags="" position="1275,425" size="100,100">You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
 &lt;br&gt;
 During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
-
 &lt;&lt;link &quot;next&quot;&gt;&gt;
     &lt;&lt;set _r to Math.random()&gt;&gt;
     &lt;&lt;if _r &lt; 0.3&gt;&gt;
@@ -1007,28 +998,28 @@ During discussion time, the room feels more alive. Some people ask questions, an
     &lt;&lt;else&gt;&gt;
         &lt;&lt;goto &quot;start&quot;&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="DrowsinessSuccess" tags="" position="1375,775" size="100,100">Your mind goes completely blank for half a second, but then something AMAZING happens. Everything you reviewed last night suddenly comes flooding back in that split second of panic. 
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="DrowsinessSuccess" tags="" position="1425,675" size="100,100">Your mind goes completely blank for half a second, but then something AMAZING happens. Everything you reviewed last night suddenly comes flooding back in that split second of panic. 
 You blurt out a full answer, listing the key points without even thinking. The room goes quiet. The professor’s eyes light up as he nods and says, “Excellent. That’s exactly the direction I wanted us to explore.” 
 You slowly sit back down, your heart still racing, but deep down, you can’t help but shout to yourself, “Thank goodness I studied last night!”
 
-[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="30" name="DrowsinessFailure" tags="" position="1550,775" size="100,100">The professor’s voice booms like thunder in your ears. The room falls dead silent, and dozens of eyes turn toward you. You&#39;re instantly awake, your mind completely blank. All you can hear is the loud thumping of your own heartbeat. Your pen slips from your hand as you automatically stand up, trying to form a sentence…
+[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="30" name="DrowsinessFailure" tags="" position="1625,700" size="100,100">The professor’s voice booms like thunder in your ears. The room falls dead silent, and dozens of eyes turn toward you. You&#39;re instantly awake, your mind completely blank. All you can hear is the loud thumping of your own heartbeat. Your pen slips from your hand as you automatically stand up, trying to form a sentence…
 
 
  but your mouth speaks first: “HUh? UH... soRry...”
 A few students chuckle, and even the professor lets out a small smile. “At least you’re awake now, right?” he says.
  You sit back down, your face burning like you just came in from the sun. Deep inside, you make a promise to yourself: Next time, I’m definitely drinking coffee before class.
 
- [[next-&gt;start]]</tw-passagedata><tw-passagedata pid="31" name="QuizSuccess" tags="" position="1575,1000" size="100,100">Taking the quiz papers, a deep breath is drawn. The questions seem harder than expected, but last night’s review slowly comes back. Settling into the zone, one question after another gets solved. Even the tricky ones start to make sense. 
+ [[next-&gt;start]]</tw-passagedata><tw-passagedata pid="31" name="QuizSuccess" tags="" position="1425,950" size="100,100">Taking the quiz papers, a deep breath is drawn. The questions seem harder than expected, but last night’s review slowly comes back. Settling into the zone, one question after another gets solved. Even the tricky ones start to make sense. 
 While some sigh around the room, focus stays sharp and the pen keeps moving. By the time the paper is handed in, there’s still time left. 
 Quietly, the thought comes: “I think I nailed it.” Stepping outside, the warm sunlight feels comforting. The brain is tired, but the heart feels light.
 
-[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="32" name="QuizFailure" tags="" position="1725,1000" size="100,100">You grab the quiz and look at the first question. Your forehead wrinkles right away because your mind is blank like an empty notebook. One minute passes, then two, but you are still stuck on that first question. You peek at your classmates. They are already halfway done. Anxiety hits you like a wave. You write down some messy answers, but deep down you know you are not ready. When you hand in the paper, only half is done. Your hands are sweaty, and you avoid looking at anyone. It feels like the test is blaming you. Walking out of the classroom, your heart feels heavy. You just think, “I’m doomed.”
-[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="33" name="ReportSuccess" tags="" position="1475,1250" size="100,100">Standing at the front of the classroom with your teammates, the slides advance one by one. At first, nerves make your voice shake slightly, but after a few sentences, confidence grows and the rhythm returns. Instead of just reading the script, points are explained clearly, with extra information added to engage several classmates. The professor nods and smiles when key theories are mentioned, occasionally jotting down notes. When the presentation ends and the screen goes dark, applause fills the room. Sitting back down, your heart still races, yet the mind thinks, “I really held it together this time.” The professor offers a brief comment: “Clear logic, good extensions, well done.” Whispering to teammates, you say, “We totally deserve some late-night snacks.”
-[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="34" name="ReportFailure" tags="" position="1625,1250" size="100,100">You and your teammates step onto the stage, all eyes and lights focused on you. Your palms start to sweat as you remind yourself to stick to the practice. But when you open the first slide, your mind goes blank. The script feels strange, your words come out broken, and your voice wavers. Your teammates try to jump in, but the vibe has already tensed up and the flow of the presentation is off.
+[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="32" name="QuizFailure" tags="" position="1600,975" size="100,100">You grab the quiz and look at the first question. Your forehead wrinkles right away because your mind is blank like an empty notebook. One minute passes, then two, but you are still stuck on that first question. You peek at your classmates. They are already halfway done. Anxiety hits you like a wave. You write down some messy answers, but deep down you know you are not ready. When you hand in the paper, only half is done. Your hands are sweaty, and you avoid looking at anyone. It feels like the test is blaming you. Walking out of the classroom, your heart feels heavy. You just think, “I’m doomed.”
+[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="33" name="ReportSuccess" tags="" position="1450,1225" size="100,100">Standing at the front of the classroom with your teammates, the slides advance one by one. At first, nerves make your voice shake slightly, but after a few sentences, confidence grows and the rhythm returns. Instead of just reading the script, points are explained clearly, with extra information added to engage several classmates. The professor nods and smiles when key theories are mentioned, occasionally jotting down notes. When the presentation ends and the screen goes dark, applause fills the room. Sitting back down, your heart still races, yet the mind thinks, “I really held it together this time.” The professor offers a brief comment: “Clear logic, good extensions, well done.” Whispering to teammates, you say, “We totally deserve some late-night snacks.”
+[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="34" name="ReportFailure" tags="" position="1575,1250" size="100,100">You and your teammates step onto the stage, all eyes and lights focused on you. Your palms start to sweat as you remind yourself to stick to the practice. But when you open the first slide, your mind goes blank. The script feels strange, your words come out broken, and your voice wavers. Your teammates try to jump in, but the vibe has already tensed up and the flow of the presentation is off.
  You push through the content, but many in the audience start looking down at their phones. The most awkward moment comes when the professor asks a question at the end and you can’t answer, only managing to say, “We can add this … later.” 
 Back at your seat, your back is sweaty and your cheeks burn. You avoid making eye contact with classmates. The professor says calmly, “Next time, try practicing the flow more please.” You lower your head, thinking only one thing: “I don’t even want to eat dinner now…”
 
-[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="35" name="sleepresult" tags="" position="425,550" size="100,100">&lt;&lt;set $sleepRoll = random(1, 100)&gt;&gt;
+[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="35" name="sleepresult" tags="" position="700,600" size="100,100">&lt;&lt;set $sleepRoll = random(1, 100)&gt;&gt;
 
 &lt;&lt;if $sleepRoll &lt;= 50&gt;&gt;
   &lt;&lt;set $energy = 10&gt;&gt;
@@ -1038,14 +1029,14 @@ Back at your seat, your back is sweaty and your cheeks burn. You avoid making ey
   &lt;&lt;set $energy = max(0, $energy - 2)&gt;&gt;
   &lt;&lt;set $stress = max(0, $stress - 1)&gt;&gt;
   &lt;&lt;goto &quot;BadSleepResult&quot;&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="depression" tags="" position="1000,1525" size="100,100">DAY 14!!!
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="depression" tags="" position="575,1175" size="100,100">DAY 14!!!
 You start feeling a heavy sadness like a dark shadow over your mind. No matter how much you try, it stays quietly in the background. You lose interest in life. Things you once enjoyed seem dull, and even small joys feel far away. Loneliness grows, as if an invisible wall separates you from others. It feels like you are falling into a deep hole, and the more you struggle, the deeper you sink. Night after night, sleep doesn’t come easily. 
 The darkness feels endless and hard to bear. Your thoughts get tangled, and worries rush in like waves. Your heart races, but you still can’t rest. You begin to doubt yourself and wonder if there is any hope. Sometimes, you think, “Maybe giving up would be easier.” These thoughts bring deep sadness. 
 But even in the darkest moments, you want to find some light. You gather your courage and reach out for help.
 
 [[next-&gt;depression2]] 
 
-</tw-passagedata><tw-passagedata pid="37" name="escape" tags="" position="1125,1500" size="100,100">DAY 14!!!
+</tw-passagedata><tw-passagedata pid="37" name="escape" tags="" position="750,1200" size="100,100">DAY 14!!!
 You feel huge pressure from schoolwork and relationships, like a mountain ready to collapse on your chest. Inside, there is strong energy, a rebellious fire burning that keeps you restless. You want to run away from it all, but you know avoiding problems will not help. Your feelings are mixed. 
 
 Part of you wants to face the challenges, while another part just wants to skip school and hide from the stress for a while. One day, you finally decide not to go to school. Walking down the empty streets, the first moments of freedom make your heart race, and it feels like a fresh start. 
@@ -1053,14 +1044,14 @@ Part of you wants to face the challenges, while another part just wants to skip 
 However, skipping school does not bring real relief. This path of avoidance does not lead to freedom but builds invisible cages instead.
 
 
-[[next-&gt;escape2]] </tw-passagedata><tw-passagedata pid="38" name="fever" tags="" position="1250,1475" size="100,100">DAY 14!!!
+[[next-&gt;escape2]] </tw-passagedata><tw-passagedata pid="38" name="fever" tags="" position="950,1200" size="100,100">DAY 14!!!
 You feel pressure coming like waves. Sometimes strong, sometimes mild… But it never really goes away. Although your body still has some energy, the tightness inside makes it hard to relax. Suddenly, a heat spreads across your forehead, and your body temperature seems to rise without control. 
 When you touch your forehead, your palm feels slightly warm, but there is no clear reason. This unexplained fever feels like your body’s response to stress, making you even more tired. Your thoughts become blurry, and your focus drifts at times. Y
 our heartbeat grows restless. Even though you still have some energy, your body is warning you that this stress is quietly harming your health. 
 You know you can’t ignore these signals anymore.
 
 [[next-&gt;fever2]] 
-</tw-passagedata><tw-passagedata pid="39" name="Drowsiness" tags="" position="1475,625" size="100,100">You walk into the classroom with tired steps. Sunlight slants through the windows, and the air smells faintly of whiteboard markers.
+</tw-passagedata><tw-passagedata pid="39" name="Drowsiness" tags="" position="1500,550" size="100,100">You walk into the classroom with tired steps. Sunlight slants through the windows, and the air smells faintly of whiteboard markers.
  The lesson has only just begun, but a strange sleepiness starts to wash over you. Your eyelids feel heavy, like they’re made of lead.
  You try to sit up straight and tell yourself to focus... but before you know it, your head tilts, and you accidentally doze off.
 Just as you drift into that blurry space between dreaming and waking…
@@ -1075,7 +1066,7 @@ Just as you drift into that blurry space between dreaming and waking…
 
 [[umm…-&gt;DrowsinessFailure]]
 
-</tw-passagedata><tw-passagedata pid="40" name="Quiz" tags="" position="1675,875" size="100,100">You walk down the hallway with sunlight streaming through the windows, your footsteps echoing on the tile floor. 
+</tw-passagedata><tw-passagedata pid="40" name="Quiz" tags="" position="1525,800" size="100,100">You walk down the hallway with sunlight streaming through the windows, your footsteps echoing on the tile floor. 
 Like usual, you push open the classroom door, find a seat, and plan to daydream for a few minutes before getting ready to focus. 
 But just as the professor walks in, holding a thick stack of papers, he calmly says, “Today we have a pop quiz. It counts for 10% of your final grade. I’ll be handing out the papers now. Please put your books away.”
 
@@ -1088,7 +1079,7 @@ But just as the professor walks in, holding a thick stack of papers, he calmly s
 
 [[What did we even learn last week?-&gt;QuizFailure]]
 
-</tw-passagedata><tw-passagedata pid="41" name="Report" tags="" position="1550,1125" size="100,100">You walk into the classroom and see the projector set up. The professor is adjusting the slides. You glance at your schedule and remind yourself, “It’s our group’s turn to present today.” 
+</tw-passagedata><tw-passagedata pid="41" name="Report" tags="" position="1500,1100" size="100,100">You walk into the classroom and see the projector set up. The professor is adjusting the slides. You glance at your schedule and remind yourself, “It’s our group’s turn to present today.” 
 You exchange looks with your teammates and nod. Everyone opens their laptops to check the presentation files and get their notes ready. When it’s time, the professor signals, “Group four, please get ready.” 
 You take a deep breath and stand up. Walking to the front of the room, the light from the projector flickers on your face. Your heart beats a little faster, but you stay calm. At that moment, you know it’s your time to shine.
 
@@ -1101,37 +1092,37 @@ You take a deep breath and stand up. Walking to the front of the room, the light
 
 [[Not My Best Three Minutes…-&gt;ReportFailure]]
 
-</tw-passagedata><tw-passagedata pid="42" name="savediary" tags="" position="175,1050" size="100,100">&lt;p&gt;Saved successfully!&lt;/p&gt;
+</tw-passagedata><tw-passagedata pid="42" name="savediary" tags="" position="175,750" size="100,100">&lt;p&gt;Saved successfully!&lt;/p&gt;
 &lt;&lt;button &quot;return your diary&quot;&gt;&gt;
     &lt;&lt;goto &quot;寫日記&quot;&gt;&gt;
-&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="lookdiary" tags="" position="350,1075" size="100,100">&lt;p&gt;&lt;b&gt;Content:&lt;/b&gt;&lt;/p&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="lookdiary" tags="" position="325,750" size="100,100">&lt;p&gt;&lt;b&gt;Content:&lt;/b&gt;&lt;/p&gt;
 &lt;p style=&quot;background:#f9f9f9; color:#00aa00; padding:10px; border:1px solid #ccc;&quot;&gt;
 &lt;&lt;print $diaryEntry&gt;&gt;
 &lt;/p&gt;
 &lt;&lt;button &quot;return your diary&quot;&gt;&gt;
     &lt;&lt;goto &quot;寫日記&quot;&gt;&gt;
-&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="44" name="TranslationEnding" tags="" position="625,1400" size="100,100">完成這段口筆譯的課程後，你驚喜地發現自己不只是語言能力提升，還意外成了「雙語超人」。 不管是聽得懂各種口音的講話，還是瞬間把外語轉成流利中文，都讓旁人投來崇拜的目光。教授打趣說：「你這樣下去，應該可以去當國際間諜了！」而你自己也偷偷幻想，未來出差國外時，不用翻譯App也能輕鬆溝通，還能幫朋友當臨時口譯員的樣子。更重要的是，在這段時間，你不只學會了翻譯技巧，還掌握了時間管理和情緒調適的秘訣。你開始相信，未來自己能在口筆譯這條路上發光發熱的！
-</tw-passagedata><tw-passagedata pid="45" name="LiteratureEnding" tags="" position="625,1700" size="100,100">經歷了這段時間的文學與文化課程，你彷彿踏上了一場穿越時空的奇妙旅程。從海明威的詩句到現代流行文化的潮流，每一次閱讀都像是打開一扇窗，讓你看見世界不同的樣貌。教授常說：「文學是靈魂的鏡子，文化則是它的色彩。」你開始懂得用文字去感受人心，用文化去理解多元世界。這一個月，你不僅學會分析文本，更學會了用自己的眼光去欣賞每個故事背後的生命力。有時候，你會在課堂上揣摩角色的心情，甚至偷偷在筆記本裡寫下自己的小故事。最重要的是，你掌握了時間管理和情緒調適的方法，讓大量的文本都不再是負擔，而是充滿熱情與動力的一趟旅程。未來，你相信這些養分，會讓你在人生的舞台上，擁有更豐富的視野和更深刻的感受力。說不定哪天，你也會成為那個用文字溫暖他人心靈的故事講述者。</tw-passagedata><tw-passagedata pid="46" name="TeachingEnding" tags="" position="625,1500" size="100,100">經過一連串的應用語言與英語教學課程，你發現自己不只是語言變得流利，連教學的腦洞也越來越大了！你開始幻想自己成為那位能用五種不同口音說笑話的幽默老師，甚至在課堂上用戲劇橋段讓學生笑翻天。教授看到你創意十足的教學方式，笑著說：「你這樣下去，不只是教語言，還能去演戲了呀！」這一個月，你不僅學會了如何有效教學，還偷偷練就了用英文說冷笑話的功力（雖然偶爾尷尬，但你很樂在其中！）。
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="44" name="TranslationEnding" tags="" position="325,975" size="100,100">完成這段口筆譯的課程後，你驚喜地發現自己不只是語言能力提升，還意外成了「雙語超人」。 不管是聽得懂各種口音的講話，還是瞬間把外語轉成流利中文，都讓旁人投來崇拜的目光。教授打趣說：「你這樣下去，應該可以去當國際間諜了！」而你自己也偷偷幻想，未來出差國外時，不用翻譯App也能輕鬆溝通，還能幫朋友當臨時口譯員的樣子。更重要的是，在這段時間，你不只學會了翻譯技巧，還掌握了時間管理和情緒調適的秘訣。你開始相信，未來自己能在口筆譯這條路上發光發熱的！
+</tw-passagedata><tw-passagedata pid="45" name="LiteratureEnding" tags="" position="625,975" size="100,100">經歷了這段時間的文學與文化課程，你彷彿踏上了一場穿越時空的奇妙旅程。從海明威的詩句到現代流行文化的潮流，每一次閱讀都像是打開一扇窗，讓你看見世界不同的樣貌。教授常說：「文學是靈魂的鏡子，文化則是它的色彩。」你開始懂得用文字去感受人心，用文化去理解多元世界。這一個月，你不僅學會分析文本，更學會了用自己的眼光去欣賞每個故事背後的生命力。有時候，你會在課堂上揣摩角色的心情，甚至偷偷在筆記本裡寫下自己的小故事。最重要的是，你掌握了時間管理和情緒調適的方法，讓大量的文本都不再是負擔，而是充滿熱情與動力的一趟旅程。未來，你相信這些養分，會讓你在人生的舞台上，擁有更豐富的視野和更深刻的感受力。說不定哪天，你也會成為那個用文字溫暖他人心靈的故事講述者。</tw-passagedata><tw-passagedata pid="46" name="TeachingEnding" tags="" position="425,975" size="100,100">經過一連串的應用語言與英語教學課程，你發現自己不只是語言變得流利，連教學的腦洞也越來越大了！你開始幻想自己成為那位能用五種不同口音說笑話的幽默老師，甚至在課堂上用戲劇橋段讓學生笑翻天。教授看到你創意十足的教學方式，笑著說：「你這樣下去，不只是教語言，還能去演戲了呀！」這一個月，你不僅學會了如何有效教學，還偷偷練就了用英文說冷笑話的功力（雖然偶爾尷尬，但你很樂在其中！）。
 最重要的是，你已經掌握了時間管理和情緒調適的秘訣，這也讓你在眾多的教案設計Demo中依然能保持好心情及穩定的品質。你相信未來無論是站上講台還是跨文化交流，都能用你的熱情與創意，讓學習變得活潑又有趣，甚至連最害羞的學生都會願意開口說話，成為真正的語言達人！
-</tw-passagedata><tw-passagedata pid="47" name="BusinessEnding" tags="" position="625,1600" size="100,100">經過這堂商用英文溝通與應用課程，你不只是學會了如何在會議上侃侃而談，還能用一口流利英文讓老闆點頭微笑，客戶聽了也想拍手叫好。
+</tw-passagedata><tw-passagedata pid="47" name="BusinessEnding" tags="" position="525,975" size="100,100">經過這堂商用英文溝通與應用課程，你不只是學會了如何在會議上侃侃而談，還能用一口流利英文讓老闆點頭微笑，客戶聽了也想拍手叫好。
 從寫商業郵件到處理突發狀況，你的表現簡直完美！更棒的是，你還掌握了時間管理和情緒調適的秘訣，讓工作和學習效率大幅提升，壓力也變得更容易掌控。未來，你相信自己能用這些技能在職場上大放異彩，甚至成為那個讓同事驚呼自己才能的超級高手。
-</tw-passagedata><tw-passagedata pid="48" name="心靈講座後" tags="" position="1725,675" size="100,100">&lt;br&gt;
+</tw-passagedata><tw-passagedata pid="48" name="心靈講座後" tags="" position="1025,0" size="100,100">&lt;br&gt;
 In just 30 seconds of deep breathing, it feels like you drift through the fog of noise and thoughts. You arrive at a quiet, clear lake inside your mind.
 When you open your eyes, everything around you looks the same. Still, somehow, it all feels a little different.
 [[next-&gt;start]] 
 &lt;br&gt;
-</tw-passagedata><tw-passagedata pid="49" name="aboutus" tags="" position="675,150" size="100,100">&lt;button class=&quot;panel-btn&quot; onclick=&quot;SugarCube.Engine.restart()&quot;&gt;▶ RESTART&lt;/button&gt;
-&lt;button class=&quot;panel-btn&quot; onclick=&quot;showAboutUs()&quot;&gt;📝 ABOUT US&lt;/button&gt;</tw-passagedata><tw-passagedata pid="50" name="Ending" tags="" position="1050,1325" size="100,100">&lt;&lt;set _stress = $stress&gt;&gt;
-&lt;&lt;set _energy = $energy&gt;&gt;
-
-&lt;&lt;if _stress &gt;= 9 &amp;&amp; _energy &lt;= 2&gt;&gt;
+</tw-passagedata><tw-passagedata pid="49" name="aboutus" tags="" position="25,225" size="100,100">&lt;button class=&quot;panel-btn&quot; onclick=&quot;SugarCube.Engine.restart()&quot;&gt;▶ RESTART&lt;/button&gt;
+&lt;button class=&quot;panel-btn&quot; onclick=&quot;showAboutUs()&quot;&gt;📝 ABOUT US&lt;/button&gt;</tw-passagedata><tw-passagedata pid="50" name="Ending" tags="" position="825,1050" size="100,100">&lt;&lt;if _stress &gt;= 9 &amp;&amp; _energy &lt;= 2&gt;&gt;
   &lt;&lt;goto &quot;depression&quot;&gt;&gt;
 
-&lt;&lt;elseif _stress &gt;= 8 &amp;&amp; _energy &gt;= 8&gt;&gt;
-  &lt;&lt;goto &quot;escape&quot;&gt;&gt;
+&lt;&lt;elseif _stress &gt;= 7 &amp;&amp; _stress &lt;= 8 &amp;&amp; _energy &gt;= 3 &amp;&amp; _energy &lt;= 5&gt;&gt;
+  &lt;&lt;goto &quot;depression&quot;&gt;&gt;
 
-&lt;&lt;elseif _stress &gt;= 7 &amp;&amp; _energy &gt;= 2 &amp;&amp; _energy &lt;= 7&gt;&gt;
+&lt;&lt;elseif _stress &gt;= 7 &amp;&amp; _stress &lt;= 8 &amp;&amp; _energy == 6&gt;&gt;
   &lt;&lt;goto &quot;fever&quot;&gt;&gt;
+
+&lt;&lt;elseif _stress &gt;= 7 &amp;&amp; _stress &lt;= 8 &amp;&amp; _energy == 7&gt;&gt;
+  &lt;&lt;goto &quot;escape&quot;&gt;&gt;
 
 &lt;&lt;elseif _stress &lt;= 6 &amp;&amp; _energy &gt;= 4&gt;&gt;
   &lt;&lt;set _translationGrade = $courseCountTranslation&gt;&gt;
@@ -1139,21 +1130,20 @@ When you open your eyes, everything around you looks the same. Still, somehow, i
   &lt;&lt;set _businessGrade = $courseCountBusiness&gt;&gt;
   &lt;&lt;set _literatureGrade = $courseCountLiterature&gt;&gt;
 
-  &lt;&lt;if _translationGrade == &quot;A&quot;&gt;&gt;
+  &lt;&lt;if _translationGrade == &quot;A&quot; or _translationGrade == &quot;B&quot;&gt;&gt;
     &lt;&lt;goto &quot;TranslationEnding&quot;&gt;&gt;
-  &lt;&lt;elseif _appliedGrade == &quot;A&quot;&gt;&gt;
+  &lt;&lt;elseif _appliedGrade == &quot;A&quot; or _appliedGrade == &quot;B&quot;&gt;&gt;
     &lt;&lt;goto &quot;TeachingEnding&quot;&gt;&gt;
-  &lt;&lt;elseif _businessGrade == &quot;A&quot;&gt;&gt;
+  &lt;&lt;elseif _businessGrade == &quot;A&quot; or _businessGrade == &quot;B&quot;&gt;&gt;
     &lt;&lt;goto &quot;BusinessEnding&quot;&gt;&gt;
-  &lt;&lt;elseif _literatureGrade == &quot;A&quot;&gt;&gt;
+  &lt;&lt;elseif _literatureGrade == &quot;A&quot; or _literatureGrade == &quot;B&quot;&gt;&gt;
     &lt;&lt;goto &quot;LiteratureEnding&quot;&gt;&gt;
   &lt;&lt;else&gt;&gt;
     &lt;&lt;goto &quot;NormalEnding&quot;&gt;&gt;
   &lt;&lt;/if&gt;&gt;
-&lt;&lt;else&gt;&gt;
-  &lt;&lt;goto &quot;NormalEnding&quot;&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="51" name="NormalEnding" tags="" position="450,1425" size="100,100">Congrats! You fininsh the game
-</tw-passagedata><tw-passagedata pid="52" name="next page" tags="" position="350,1250" size="100,100">&lt;&lt;set _images to [
+&lt;&lt;/if&gt;&gt;
+</tw-passagedata><tw-passagedata pid="51" name="NormalEnding" tags="" position="225,975" size="100,100">Congrats! You fininsh the game
+</tw-passagedata><tw-passagedata pid="52" name="next page" tags="" position="475,750" size="100,100">&lt;&lt;set _images to [
     &quot;images/stress1.png&quot;,
     &quot;images/stress2.png&quot;,
     &quot;images/stress3.png&quot;
@@ -1179,11 +1169,29 @@ When you open your eyes, everything around you looks the same. Still, somehow, i
         source : 16 ways to relieve stress and anxiety (Healthline)
     &lt;/a&gt;
     [[next-&gt;start]]
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="53" name="depression2" tags="" position="1000,1650" size="100,100">
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="53" name="depression2" tags="" position="575,1350" size="100,100">&lt;&lt;set _images to [
+    &quot;images/depression.png&quot;,
+
+&lt;a href=&quot;https://my.clevelandclinic.org/health/diseases/9290-depression&quot; target=&quot;_blank&quot;&gt;
+        source : Learn more about preventing depression 
+    &lt;/a&gt;
+
 
 if you want to restart, click the sidebar&#39;s &quot;RESTART&quot;.
-</tw-passagedata><tw-passagedata pid="54" name="escape2" tags="" position="1125,1625" size="100,100">
-if you want to restart, click the sidebar&#39;s &quot;RESTART&quot;.</tw-passagedata><tw-passagedata pid="55" name="fever2" tags="" position="1250,1600" size="100,100">
+</tw-passagedata><tw-passagedata pid="54" name="escape2" tags="" position="775,1350" size="100,100">&lt;&lt;set _images to [
+    &quot;images/escape.png&quot;,
+
+&lt;a href=&quot;https://www.healthline.com/health/stress/effects-on-body&quot; target=&quot;_blank&quot;&gt;
+        source : The effects of stress on your body
+    &lt;/a&gt;
+    
+if you want to restart, click the sidebar&#39;s &quot;RESTART&quot;.</tw-passagedata><tw-passagedata pid="55" name="fever2" tags="" position="950,1350" size="100,100">&lt;&lt;set _images to [
+    &quot;images/fever.png&quot;,
+
+&lt;a href=&quot;https://www.health.com/mind-body/can-stress-cause-fever&quot; target=&quot;_blank&quot;&gt;
+        source : Learn more about stress can cause fever
+    &lt;/a&gt;
+    
 if you want to restart, click the sidebar&#39;s &quot;RESTART&quot;.</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
