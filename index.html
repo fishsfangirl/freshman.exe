@@ -1040,25 +1040,28 @@ Back at your seat, your back is sweaty and your cheeks burn. You avoid making ey
   &lt;&lt;set $energy = max(0, $energy - 2)&gt;&gt;
   &lt;&lt;set $stress = max(0, $stress - 1)&gt;&gt;
   &lt;&lt;goto &quot;BadSleepResult&quot;&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="depression" tags="" position="975,1550" size="100,100">You start feeling a heavy sadness like a dark shadow over your mind. No matter how much you try, it stays quietly in the background. You lose interest in life. Things you once enjoyed seem dull, and even small joys feel far away. Loneliness grows, as if an invisible wall separates you from others. It feels like you are falling into a deep hole, and the more you struggle, the deeper you sink. Night after night, sleep doesn’t come easily. 
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="depression" tags="" position="1000,1525" size="100,100">DAY 14!!!
+You start feeling a heavy sadness like a dark shadow over your mind. No matter how much you try, it stays quietly in the background. You lose interest in life. Things you once enjoyed seem dull, and even small joys feel far away. Loneliness grows, as if an invisible wall separates you from others. It feels like you are falling into a deep hole, and the more you struggle, the deeper you sink. Night after night, sleep doesn’t come easily. 
 The darkness feels endless and hard to bear. Your thoughts get tangled, and worries rush in like waves. Your heart races, but you still can’t rest. You begin to doubt yourself and wonder if there is any hope. Sometimes, you think, “Maybe giving up would be easier.” These thoughts bring deep sadness. 
 But even in the darkest moments, you want to find some light. You gather your courage and reach out for help.
 
+[[next-&gt;depression2]] 
 
-
-</tw-passagedata><tw-passagedata pid="37" name="escape" tags="" position="1125,1500" size="100,100">You feel huge pressure from schoolwork and relationships, like a mountain ready to collapse on your chest. Inside, there is strong energy, a rebellious fire burning that keeps you restless. You want to run away from it all, but you know avoiding problems will not help. Your feelings are mixed. 
+</tw-passagedata><tw-passagedata pid="37" name="escape" tags="" position="1125,1500" size="100,100">DAY 14!!!
+You feel huge pressure from schoolwork and relationships, like a mountain ready to collapse on your chest. Inside, there is strong energy, a rebellious fire burning that keeps you restless. You want to run away from it all, but you know avoiding problems will not help. Your feelings are mixed. 
 
 Part of you wants to face the challenges, while another part just wants to skip school and hide from the stress for a while. One day, you finally decide not to go to school. Walking down the empty streets, the first moments of freedom make your heart race, and it feels like a fresh start. 
 
 However, skipping school does not bring real relief. This path of avoidance does not lead to freedom but builds invisible cages instead.
 
 
-</tw-passagedata><tw-passagedata pid="38" name="fever" tags="" position="1250,1475" size="100,100">You feel pressure coming like waves. Sometimes strong, sometimes mild… But it never really goes away. Although your body still has some energy, the tightness inside makes it hard to relax. Suddenly, a heat spreads across your forehead, and your body temperature seems to rise without control. 
+[[next-&gt;escape2]] </tw-passagedata><tw-passagedata pid="38" name="fever" tags="" position="1250,1475" size="100,100">DAY 14!!!
+You feel pressure coming like waves. Sometimes strong, sometimes mild… But it never really goes away. Although your body still has some energy, the tightness inside makes it hard to relax. Suddenly, a heat spreads across your forehead, and your body temperature seems to rise without control. 
 When you touch your forehead, your palm feels slightly warm, but there is no clear reason. This unexplained fever feels like your body’s response to stress, making you even more tired. Your thoughts become blurry, and your focus drifts at times. Y
 our heartbeat grows restless. Even though you still have some energy, your body is warning you that this stress is quietly harming your health. 
 You know you can’t ignore these signals anymore.
 
-
+[[next-&gt;fever2]] 
 </tw-passagedata><tw-passagedata pid="39" name="Drowsiness" tags="" position="1475,625" size="100,100">You walk into the classroom with tired steps. Sunlight slants through the windows, and the air smells faintly of whiteboard markers.
  The lesson has only just begun, but a strange sleepiness starts to wash over you. Your eyelids feel heavy, like they’re made of lead.
  You try to sit up straight and tell yourself to focus... but before you know it, your head tilts, and you accidentally doze off.
@@ -1101,10 +1104,9 @@ You take a deep breath and stand up. Walking to the front of the room, the light
 [[Not My Best Three Minutes…-&gt;ReportFailure]]
 
 </tw-passagedata><tw-passagedata pid="42" name="savediary" tags="" position="175,1050" size="100,100">&lt;p&gt;Saved successfully!&lt;/p&gt;
-&lt;&lt;button &quot;返回寫日記&quot;&gt;&gt;
+&lt;&lt;button &quot;return your diary&quot;&gt;&gt;
     &lt;&lt;goto &quot;寫日記&quot;&gt;&gt;
-&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="lookdiary" tags="" position="350,1075" size="100,100">:: lookdiary
-&lt;p&gt;&lt;b&gt;你寫下的內容：&lt;/b&gt;&lt;/p&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="lookdiary" tags="" position="350,1075" size="100,100">&lt;p&gt;&lt;b&gt;Content:&lt;/b&gt;&lt;/p&gt;
 &lt;p style=&quot;background:#f9f9f9; color:#00aa00; padding:10px; border:1px solid #ccc;&quot;&gt;
 &lt;&lt;print $diaryEntry&gt;&gt;
 &lt;/p&gt;
