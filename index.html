@@ -740,6 +740,14 @@ Please type your name：&lt;br&gt; After typing, press enter!
 &lt;&lt;set $day = 1&gt;&gt;
 &lt;&lt;set $stress = 0&gt;&gt;
 &lt;&lt;set $energy = 10&gt;&gt;
+&lt;&lt;script&gt;&gt;
+window.max = function(a, b) {
+    return a &gt; b ? a : b;
+};
+window.min = function(a, b) {
+    return a &lt; b ? a : b;
+};
+&lt;&lt;/script&gt;&gt;
 $completed_視譯與口語 = false
 $completed_文學翻譯入門 = false
 $completed_外語教學法 = false
@@ -831,7 +839,7 @@ write down your diary：
 [[next-&gt;start]] </tw-passagedata><tw-passagedata pid="12" name="GoodSleepResult" tags="" position="825,600" size="100,100">After changing into your pajamas, flop down and sink into the soft blankets.
 You can feel your eyelids getting heavier with each breath, and your thoughts start to drift off on the comfy pillow.
 
-[[start]] </tw-passagedata><tw-passagedata pid="13" name="西校區/運動" tags="" position="675,225" size="100,100">&lt;&lt;set $stress -= 2&gt;&gt;
+[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="13" name="西校區/運動" tags="" position="675,225" size="100,100">&lt;&lt;set $stress -= 2&gt;&gt;
 You walk through the campus path and reach the West Campus.
 The sun’s shining down on the field, and the air smells like fresh grass and sweat.
 You take a deep breath and start feeling your body wake up. Your mood gets lighter too.
