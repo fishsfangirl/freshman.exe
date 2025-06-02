@@ -772,10 +772,9 @@ Today is &lt;&lt;print _weekday&gt;&gt;
 You decide...
 
 [[Go home -&gt;回家]]
-[[Go to school -&gt;學校]]</tw-passagedata><tw-passagedata pid="5" name="回家" tags="" position="400,300" size="100,100">&lt;&lt;run&gt;&gt;
-var audio = new Audio(&quot;audio/irondoor.mp3&quot;);
-audio.play();
-&lt;&lt;/run&gt;&gt;
+[[Go to school -&gt;學校]]</tw-passagedata><tw-passagedata pid="5" name="回家" tags="" position="400,300" size="100,100">&lt;&lt;audio &quot;irondoor&quot; &quot;audio/irondoor.mp3&quot;&gt;&gt;
+&lt;&lt;audio &quot;irondoor&quot; play&gt;&gt;
+
 &lt;div class=&quot;left-align&quot;&gt;
 Finally, you reach your front door. You take off your shoes and step inside. The weight on your shoulders lifts as your backpack drops to the floor. You set your bag down next to the chair. 
 After a long day, you can finally relax.
@@ -818,10 +817,9 @@ You take a short nap, but a sudden thought wakes you up …  tomorrow’s quiz o
 &lt;div class=&quot;left-align&quot;&gt;
 &lt;&lt;set $energy = Math.min($energy + 2, 10)&gt;&gt;
 &lt;&lt;set $stress += 2&gt;&gt;
-[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="10" name="看心靈書籍(有知識點)" tags="" position="475,625" size="100,100">&lt;&lt;run&gt;&gt;
-var audio = new Audio(&quot;audio/magazine.mp3&quot;);
-audio.play();
-&lt;&lt;/run&gt;&gt;
+[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="10" name="看心靈書籍(有知識點)" tags="" position="475,625" size="100,100">&lt;&lt;audio &quot;magazine&quot; &quot;audio/magazine.mp3&quot;&gt;&gt;
+&lt;&lt;audio &quot;magazine&quot; play&gt;&gt;
+
 &lt;div class=&quot;left-align&quot;&gt;
 You reach for the self-help book and open the cover. The pages softly give off the scent of paper. It feels like an invitation to begin an inner journey.
 You settle back into your chair and let your thoughts flow with the words. Each sentence feels like a beam of light that cuts through fatigue and distractions. It leads you to a peaceful place inside.
@@ -829,10 +827,9 @@ As you turn the pages, the noise of the outside world fades away. It is just you
 &lt;/div&gt;
 
 [[next page]]
-&lt;&lt;set $energy -= 2&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="寫日記" tags="" position="250,625" size="100,100">&lt;&lt;run&gt;&gt;
-var audio = new Audio(&quot;audio/bookopen.mp3&quot;);
-audio.play();
-&lt;&lt;/run&gt;&gt;
+&lt;&lt;set $energy -= 2&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="寫日記" tags="" position="250,625" size="100,100">&lt;&lt;audio &quot;bookopen&quot; &quot;audio/bookopen.mp3&quot;&gt;&gt;
+&lt;&lt;audio &quot;bookopen&quot; play&gt;&gt;
+
 &lt;div class=&quot;left-align&quot;&gt;
 You gently set your backpack beside the chair and take a deep breath. The tiredness from the day slowly fades away.
 Sitting at your desk, you open your notebook. Your pen glides softly across the paper as you begin to write about today’s experiences...
