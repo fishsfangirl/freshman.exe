@@ -817,7 +817,7 @@ You take a short nap, but a sudden thought wakes you up …  tomorrow’s quiz o
 &lt;div class=&quot;left-align&quot;&gt;
 &lt;&lt;set $energy = Math.min($energy + 2, 10)&gt;&gt;
 &lt;&lt;set $stress += 2&gt;&gt;
-[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="10" name="看心靈書籍(有知識點)" tags="" position="475,625" size="100,100">&lt;&lt;cacheaudio &quot;magazine&quot; &quot;audio/magzine.mp3&quot;&gt;&gt;
+[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="10" name="看心靈書籍(有知識點)" tags="" position="475,625" size="100,100">&lt;&lt;cacheaudio &quot;magazine&quot; &quot;audio/magazine.mp3&quot;&gt;&gt;
 &lt;&lt;audio &quot;magazine&quot; play&gt;&gt;
 
 &lt;div class=&quot;left-align&quot;&gt;
@@ -1229,9 +1229,12 @@ When you open your eyes, everything around you looks the same. Still, somehow, i
   &lt;&lt;else&gt;&gt;
     &lt;&lt;goto &quot;NormalEnding&quot;&gt;&gt;
   &lt;&lt;/if&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="NormalEnding" tags="" position="225,975" size="100,100">Congrats! You fininsh the game
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="NormalEnding" tags="" position="225,975" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
+You’ve maintained perfect balance. However, without focusing on a specific path, you’ve remained open to many possibilities. While you didn’t specialize, you’ve kept your options wide, and sometimes, that in itself is a success.
 
-&lt;p&gt;If you want to restart, click the sidebar&#39;s &quot;RESTART&quot;.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="51" name="next page" tags="" position="475,750" size="100,100">&lt;&lt;set _images to [
+&lt;/div&gt;
+
+[[try again-&gt;start]] </tw-passagedata><tw-passagedata pid="51" name="next page" tags="" position="475,750" size="100,100">&lt;&lt;set _images to [
     &quot;images/stress1.png&quot;,
     &quot;images/stress2.png&quot;,
     &quot;images/stress3.png&quot;
