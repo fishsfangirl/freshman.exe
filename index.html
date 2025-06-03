@@ -1253,35 +1253,28 @@ You’ve maintained perfect balance. However, without focusing on a specific pat
 
 &lt;/div&gt;
 
-[[try again-&gt;start]] </tw-passagedata><tw-passagedata pid="51" name="next page" tags="" position="475,750" size="100,100">&lt;&lt;set _images to [
+[[try again-&gt;start]] </tw-passagedata><tw-passagedata pid="51" name="next page" tags="" position="475,750" size="100,100">&lt;&lt;silently&gt;&gt;
+&lt;&lt;set _images to [
     &quot;images/stress1.png&quot;,
     &quot;images/stress2.png&quot;,
     &quot;images/stress3.png&quot;
 ]&gt;&gt;
 &lt;&lt;set _randomIndex to random(0, 2)&gt;&gt;
 &lt;&lt;set _randomImage to _images[_randomIndex]&gt;&gt;
+&lt;&lt;audio &quot;helpbookai&quot; stop&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
+
 &lt;img @src=&quot;_randomImage&quot; alt=&quot;stressimage&quot; class=&quot;stressimage&quot;&gt;
 
 &lt;&lt;if _randomImage is &quot;images/stress1.png&quot;&gt;&gt;
-    &lt;a href=&quot;https://www.cdc.gov/mental-health/living-with/index.html&quot; target=&quot;_blank&quot;&gt;
-        source : Learn more about managing stress (CDC)
-    &lt;/a&gt;
-    [[next-&gt;start]]
-&lt;&lt;/if&gt;&gt;
-&lt;&lt;if _randomImage is &quot;images/stress2.png&quot;&gt;&gt;
-    &lt;a href=&quot;https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/tips-to-reduce-stress/&quot; target=&quot;_blank&quot;&gt;
-        source : Tips to reduce stress (NHS)
-    &lt;/a&gt;
-    [[next-&gt;start]]
-&lt;&lt;/if&gt;&gt;
-&lt;&lt;if _randomImage is &quot;images/stress3.png&quot;&gt;&gt;
-    &lt;a href=&quot;https://www.healthline.com/nutrition/16-ways-relieve-stress-anxiety&quot; target=&quot;_blank&quot;&gt;
-        source : 16 ways to relieve stress and anxiety (Healthline)
-    &lt;/a&gt;
-    [[next-&gt;start]]
+&lt;a href=&quot;https://www.cdc.gov/mental-health/living-with/index.html&quot; target=&quot;_blank&quot;&gt;source : Learn more about managing stress (CDC)&lt;/a&gt;
+&lt;&lt;elseif _randomImage is &quot;images/stress2.png&quot;&gt;&gt;
+&lt;a href=&quot;https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/tips-to-reduce-stress/&quot; target=&quot;_blank&quot;&gt;source : Tips to reduce stress (NHS)&lt;/a&gt;
+&lt;&lt;else&gt;&gt;
+&lt;a href=&quot;https://www.healthline.com/nutrition/16-ways-relieve-stress-anxiety&quot; target=&quot;_blank&quot;&gt;source : 16 ways to relieve stress and anxiety (Healthline)&lt;/a&gt;
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;audio &quot;helpbookai&quot; stop&gt;&gt;</tw-passagedata><tw-passagedata pid="52" name="depressionafter" tags="" position="550,1450" size="100,100">&lt;div style=&quot;height: 500px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;&quot;&gt;
+[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="52" name="depressionafter" tags="" position="550,1450" size="100,100">&lt;div style=&quot;height: 500px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;&quot;&gt;
 &lt;img src=&quot;images/depression.png&quot; alt=&quot;depression image&quot; width=&quot;500&quot;&gt;
 
 &lt;p&gt;
