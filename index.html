@@ -1259,8 +1259,8 @@ You’ve maintained perfect balance. However, without focusing on a specific pat
     &quot;images/stress3.png&quot;
 ]&gt;&gt;
 &lt;&lt;set _randomIndex to random(0, 2)&gt;&gt;
-&lt;&lt;set *randomImage to *images[_randomIndex]&gt;&gt;
-&lt;img @src=&quot;_randomImage&quot; alt=&quot;stressimage&quot; class=&quot;stressimage&quot;&gt;
+&lt;&lt;set _randomImage to _images[_randomIndex]&gt;&gt;
+&lt;img src=&quot;_randomImage&quot; alt=&quot;stressimage&quot; class=&quot;stressimage&quot;&gt;
 &lt;&lt;if _randomImage is &quot;images/stress1.png&quot;&gt;&gt;
     &lt;a href=&quot;https://www.cdc.gov/mental-health/living-with/index.html&quot; target=&quot;_blank&quot;&gt;
         source : Learn more about managing stress (CDC)
