@@ -488,6 +488,8 @@ $(document).on(':passagerender', function () {
     { keywords: ["看心靈書籍(有知識點)"], url: "images/bookshelve.png" },
     { keywords: ["走廊"], url: "images/aisle.png" },
     { keywords: ["上課", "選擇想上的課","▶英文短篇小說選讀", "▶視譯與口語入門", "▶文學翻譯入門", "▶外語教學法", "▶繪本閱讀與教學", "▶導覽英文", "▶國際禮儀", "▶希臘羅馬神話", "Drowsiness", " Quiz", "Report", "DrowsinessSuccess", "DrowsinessFailure", "QuizSuccess", "QuizFailure", "ReportSuccess", "ReportFailure"], url: "images/classroom.png" }
+    { keywords: ["Drowsiness" url: "images/drowsiness.png" },
+    { keywords: ["exercise" url: "images/run.png" },
   ];
 
   const baseUrl = "https://fishsfangirl.github.io/freshman.exe/";
@@ -817,8 +819,8 @@ You take a short nap, but a sudden thought wakes you up …  tomorrow’s quiz o
 &lt;/div&gt;
 &lt;&lt;set $energy = Math.min($energy + 2, 10)&gt;&gt;
 &lt;&lt;set $stress += 2&gt;&gt;
-[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="10" name="看心靈書籍(有知識點)" tags="" position="475,625" size="100,100">&lt;&lt;cacheaudio &quot;magazine&quot; &quot;audio/magazine.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;magazine&quot; play&gt;&gt;
+[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="10" name="看心靈書籍(有知識點)" tags="" position="475,625" size="100,100">&lt;&lt;cacheaudio &quot;helpbookai&quot; &quot;audio/helpbookai.mp3&quot;&gt;&gt;
+&lt;&lt;audio &quot;helpbookai&quot; play&gt;&gt;
 
 &lt;div class=&quot;left-align&quot;&gt;
 You reach for the self-help book and open the cover. The pages softly give off the scent of paper. It feels like an invitation to begin an inner journey.
@@ -826,7 +828,7 @@ You settle back into your chair and let your thoughts flow with the words. Each 
 As you turn the pages, the noise of the outside world fades away. It is just you and the gentle power of the book, breathing quietly together and feeling calm.
 &lt;/div&gt;
 
-[[next page]]
+[[next page]][$&lt;&lt;stopaudio &quot;helpbookai&quot;&gt;&gt;]]
 &lt;&lt;set $energy -= 2&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="寫日記" tags="" position="250,625" size="100,100">&lt;&lt;cacheaudio &quot;bookopen&quot; &quot;audio/bookopen.mp3&quot;&gt;&gt;
 &lt;&lt;audio &quot;bookopen&quot; play&gt;&gt;
 
@@ -886,15 +888,21 @@ Meanwhile, your energy declined a little bit.
 [[回家-&gt;回家]]
 &lt;&lt;else&gt;&gt;
 &lt;&lt;set $sleepCount = 0&gt;&gt;
+&lt;&lt;cacheaudio &quot;classai&quot; &quot;audio/classai.mp3&quot;&gt;&gt;
+&lt;&lt;audio &quot;classai&quot; play&gt;&gt;
+
 The classroom door’s slightly open, and you can hear pages flipping and soft chatting inside.
 You quietly push the door and pick a seat. After a bit, you hear steady footsteps outside.
 The teacher walks in, still smelling a bit like the outdoors. They set their books and papers on the desk and look around the room.
 Their eyes aren’t strict but somehow make everyone calm down naturally.
 Clearing their throat, the teacher says in a steady voice, “Alright, let’s get started.”
-[[choose what course to take-&gt;選擇想上的課]] 
+
+[[choose what course to take-&gt;選擇想上的課][$&lt;&lt;stopaudio &quot;classai&quot;&gt;&gt;]]
+
 &lt;&lt;set $energy -= 2&gt;&gt;
 &lt;&lt;set $stress += 1&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="參加心靈講座" tags="" position="875,25" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
+&lt;&lt;/if&gt;&gt;
+</tw-passagedata><tw-passagedata pid="18" name="參加心靈講座" tags="" position="875,25" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
 You walk slowly down the school corridor, your footsteps weaving through patches of light and shadow.
 Not far ahead, a quiet classroom is holding a mindfulness talk. The air is filled with a soft scent of sandalwood.
 
