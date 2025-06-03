@@ -756,6 +756,7 @@ Please type your name：&lt;br&gt; After typing, press enter!
 &lt;&lt;set $day = 1&gt;&gt;
 &lt;&lt;set $stress = 0&gt;&gt;
 &lt;&lt;set $energy = 10&gt;&gt;
+&lt;&lt;cacheaudio &quot;helpbookai&quot; &quot;audio/helpbookai.mp3&quot;&gt;&gt;
 $completed_視譯與口語 = false
 $completed_文學翻譯入門 = false
 $completed_外語教學法 = false
@@ -836,7 +837,6 @@ As you turn the pages, the noise of the outside world fades away. It is just you
 &lt;/div&gt;
 [[next page]]
 &lt;&lt;set $energy -= 2&gt;&gt;
-&lt;&lt;cacheaudio &quot;helpbookai&quot; &quot;audio/helpbookai.mp3&quot;&gt;&gt;
 &lt;&lt;audio &quot;helpbookai&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="寫日記" tags="" position="250,625" size="100,100">
 &lt;div class=&quot;left-align&quot;&gt;
 You gently set your backpack beside the chair and take a deep breath. The tiredness from the day slowly fades away.
@@ -1027,7 +1027,7 @@ During discussion time, the room feels more alive. Some people ask questions, an
     &lt;&lt;else&gt;&gt;
         &lt;&lt;goto &quot;start&quot;&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="▶希臘羅馬神話" tags="" position="1425,425" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="▶希臘羅馬神話" tags="" position="1425,450" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
 You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
 &lt;br&gt;
 During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
@@ -1253,8 +1253,7 @@ You’ve maintained perfect balance. However, without focusing on a specific pat
 
 &lt;/div&gt;
 
-[[try again-&gt;start]] </tw-passagedata><tw-passagedata pid="51" name="next page" tags="" position="475,775" size="100,100">&lt;&lt;audio &quot;helpbookai&quot; stop&gt;&gt;
-&lt;&lt;set _images to [
+[[try again-&gt;start]] </tw-passagedata><tw-passagedata pid="51" name="next page" tags="" position="475,775" size="100,100">&lt;&lt;set _images to [
     &quot;images/stress1.png&quot;,
     &quot;images/stress2.png&quot;,
     &quot;images/stress3.png&quot;
@@ -1280,7 +1279,8 @@ You’ve maintained perfect balance. However, without focusing on a specific pat
         source : 16 ways to relieve stress and anxiety (Healthline)
     &lt;/a&gt;
     [[next-&gt;start]]
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="52" name="depressionafter" tags="" position="550,1450" size="100,100">&lt;div style=&quot;height: 500px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;&quot;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;audio &quot;helpbookai&quot; stop&gt;&gt;</tw-passagedata><tw-passagedata pid="52" name="depressionafter" tags="" position="550,1450" size="100,100">&lt;div style=&quot;height: 500px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;&quot;&gt;
 &lt;img src=&quot;images/depression.png&quot; alt=&quot;depression image&quot; width=&quot;500&quot;&gt;
 
 &lt;p&gt;
