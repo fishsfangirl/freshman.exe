@@ -896,22 +896,21 @@ Meanwhile, your energy declined a little bit.
 ⚠ 你太累了，已經沒有力氣上課。請回家睡覺。
 [[回家-&gt;回家]]
 &lt;&lt;else&gt;&gt;
+&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $sleepCount = 0&gt;&gt;
-&lt;div class=&quot;left-align&quot;&gt;
-The classroom door’s slightly open, and you can hear pages flipping and soft chatting inside.
-You quietly push the door and pick a seat. After a bit, you hear steady footsteps outside.
-The teacher walks in, still smelling a bit like the outdoors. They set their books and papers on the desk and look around the room.
-Their eyes aren’t strict but somehow make everyone calm down naturally.
-Clearing their throat, the teacher says in a steady voice, “Alright, let’s get started.”
-&lt;/div&gt;
-[[choose what course to take-&gt;選擇想上的課]] 
-
 &lt;&lt;cacheaudio &quot;classai&quot; &quot;audio/classai.mp3&quot;&gt;&gt;
 &lt;&lt;audio &quot;classai&quot; play&gt;&gt;
 &lt;&lt;set $energy -= 2&gt;&gt;
 &lt;&lt;set $stress += 1&gt;&gt;
-&lt;&lt;/if&gt;&gt;
-</tw-passagedata><tw-passagedata pid="18" name="參加心靈講座" tags="" position="875,25" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
+&lt;&lt;/silently&gt;&gt;
+
+The classroom door&#39;s slightly open, and you can hear pages flipping and soft chatting inside.
+You quietly push the door and pick a seat. After a bit, you hear steady footsteps outside.
+The teacher walks in, still smelling a bit like the outdoors. They set their books and papers on the desk and look around the room.
+Their eyes aren&#39;t strict but somehow make everyone calm down naturally.
+Clearing their throat, the teacher says in a steady voice, &quot;Alright, let&#39;s get started.&quot;
+[[choose what course to take-&gt;選擇想上的課]] 
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="參加心靈講座" tags="" position="875,25" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
 You walk slowly down the school corridor, your footsteps weaving through patches of light and shadow.
 Not far ahead, a quiet classroom is holding a mindfulness talk. The air is filled with a soft scent of sandalwood.
 
@@ -920,7 +919,7 @@ Following the instructions, you breathe in slowly... then breathe out slowly.
 &lt;/div&gt;
 &lt;&lt;set $stress = Math.max(0, $stress - 2)&gt;&gt;
 &lt;&lt;set $energy -= 2&gt;&gt;
-</tw-passagedata><tw-passagedata pid="19" name="選擇想上的課" tags="" position="1050,225" size="100,100">&lt;&lt;audio &quot;helpbookai&quot; stop&gt;&gt;
+</tw-passagedata><tw-passagedata pid="19" name="選擇想上的課" tags="" position="1050,225" size="100,100">&lt;&lt;audio &quot;classai&quot; stop&gt;&gt;
 [[Sight Translation and Introductory Interpretation-&gt;▶ 視譯與口語入門]]
 
 [[Introduction to Literary Translation-&gt;▶文學翻譯入門]]
