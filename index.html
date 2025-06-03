@@ -480,17 +480,18 @@ $(document).on(':passagerender', function () {
   }
 
   // ✅ 背景設定
-  const bgGroups = [
-    { keywords: ["大學背景", "first", "start", "second", "學校"], url: "images/school.png" },
-    { keywords: ["回家", "寫日記", "睡覺", "繼續睡", "準備", "GoodSleepResult", "BadSleepResult", "坐到書桌前面做些什麼。"], url: "images/room.png" },
-    { keywords: ["西校區", "運動"], url: "images/playground.png" },
-    { keywords: ["參加心靈講座","心靈講座後"], url: "images/speech.png" },
-    { keywords: ["看心靈書籍(有知識點)"], url: "images/bookshelve.png" },
-    { keywords: ["走廊"], url: "images/aisle.png" },
-    { keywords: ["上課", "選擇想上的課","▶英文短篇小說選讀", "▶視譯與口語入門", "▶文學翻譯入門", "▶外語教學法", "▶繪本閱讀與教學", "▶導覽英文", "▶國際禮儀", "▶希臘羅馬神話", "Drowsiness", " Quiz", "Report", "DrowsinessSuccess", "DrowsinessFailure", "QuizSuccess", "QuizFailure", "ReportSuccess", "ReportFailure"], url: "images/classroom.png" }
-    { keywords: ["Drowsiness" url: "images/drowsiness.png" },
-    { keywords: ["exercise" url: "images/run.png" },
-  ];
+
+const bgGroups = [
+  { keywords: ["大學背景", "first", "start", "second", "學校"], url: "images/school.png" },
+  { keywords: ["回家", "寫日記", "睡覺", "繼續睡", "準備", "GoodSleepResult", "BadSleepResult", "坐到書桌前面做些什麼。"], url: "images/room.png" },
+  { keywords: ["西校區", "運動"], url: "images/playground.png" },
+  { keywords: ["參加心靈講座", "心靈講座後"], url: "images/speech.png" },
+  { keywords: ["看心靈書籍(有知識點)"], url: "images/bookshelve.png" },
+  { keywords: ["走廊"], url: "images/aisle.png" },
+  { keywords: ["上課", "選擇想上的課", "▶英文短篇小說選讀", "▶視譯與口語入門", "▶文學翻譯入門", "▶外語教學法", "▶繪本閱讀與教學", "▶導覽英文", "▶國際禮儀", "▶希臘羅馬神話", "Drowsiness", "Quiz", "Report", "DrowsinessSuccess", "DrowsinessFailure", "QuizSuccess", "QuizFailure", "ReportSuccess", "ReportFailure"], url: "images/classroom.png" },
+  { keywords: ["Drowsiness"], url: "images/drowsiness.png" },
+  { keywords: ["exercise"], url: "images/run.png" }
+];
 
   const baseUrl = "https://fishsfangirl.github.io/freshman.exe/";
 
@@ -789,9 +790,9 @@ Now, you want to...
 &lt;&lt;if $sleepCount &gt;= 4&gt;&gt;
   &lt;span style=&quot;color:red;&quot;&gt;你已經連續睡覺四次，不能再睡了！請先去上課。&lt;/span&gt;
 &lt;&lt;/if&gt;&gt;
-[[Sit down at the desk and do something.-&gt;坐到書桌前面做些什麼。]]</tw-passagedata><tw-passagedata pid="6" name="學校" tags="" position="400,125" size="100,100">&lt;br&gt;
-[[West campus / exercise -&gt;西校區/運動]]
-[[aisle -&gt;走廊]]
+[[Sit down at the desk and do something.-&gt;坐到書桌前面做些什麼。]]</tw-passagedata><tw-passagedata pid="6" name="學校" tags="" position="450,150" size="100,100">&lt;br&gt;
+[[sports field-&gt;西校區/運動]]
+[[hallway -&gt;走廊]]
 &lt;br&gt;</tw-passagedata><tw-passagedata pid="7" name="睡覺  (警告：睡覺將會跳轉到另一天)。" tags="" position="525,500" size="100,100">&lt;&lt;set $sleepCount += 1&gt;&gt;
 &lt;&lt;set $justSlept = true&gt;&gt;
 &lt;div class=&quot;left-align&quot;&gt;
