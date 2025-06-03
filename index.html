@@ -122,6 +122,14 @@ html, body {
   text-align: left;
 }
 
+input[type="text"] {
+    background-color: white;
+    border: 2px solid #333;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
 
 .sidebar-image {
   width: 100%;          /* makes image fit sidebar width */
@@ -829,9 +837,7 @@ As you turn the pages, the noise of the outside world fades away. It is just you
 [[next page]]
 &lt;&lt;set $energy -= 2&gt;&gt;
 &lt;&lt;cacheaudio &quot;helpbookai&quot; &quot;audio/helpbookai.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;helpbookai&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="寫日記" tags="" position="250,625" size="100,100">&lt;&lt;cacheaudio &quot;bookopen&quot; &quot;audio/bookopen.mp3&quot;&gt;&gt;
-&lt;&lt;audio &quot;bookopen&quot; play&gt;&gt;
-
+&lt;&lt;audio &quot;helpbookai&quot; play&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="寫日記" tags="" position="250,625" size="100,100">
 &lt;div class=&quot;left-align&quot;&gt;
 You gently set your backpack beside the chair and take a deep breath. The tiredness from the day slowly fades away.
 Sitting at your desk, you open your notebook. Your pen glides softly across the paper as you begin to write about today’s experiences...
@@ -851,7 +857,10 @@ write down your diary：
         &lt;&lt;goto &quot;lookdiary&quot;&gt;&gt;
     &lt;&lt;/button&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-[[next-&gt;start]] </tw-passagedata><tw-passagedata pid="12" name="GoodSleepResult" tags="" position="825,600" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
+[[next-&gt;start]] 
+&lt;&lt;cacheaudio &quot;bookopen&quot; &quot;audio/bookopen.mp3&quot;&gt;&gt;
+&lt;&lt;audio &quot;bookopen&quot; play&gt;&gt;
+</tw-passagedata><tw-passagedata pid="12" name="GoodSleepResult" tags="" position="825,600" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
 After changing into your pajamas, flop down and sink into the soft blankets.
 You can feel your eyelids getting heavier with each breath, and your thoughts start to drift off on the comfy pillow.
 &lt;/div&gt;
