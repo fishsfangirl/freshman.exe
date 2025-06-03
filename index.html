@@ -828,8 +828,7 @@ You reach for the self-help book and open the cover. The pages softly give off t
 You settle back into your chair and let your thoughts flow with the words. Each sentence feels like a beam of light that cuts through fatigue and distractions. It leads you to a peaceful place inside.
 As you turn the pages, the noise of the outside world fades away. It is just you and the gentle power of the book, breathing quietly together and feeling calm.
 &lt;/div&gt;
-
-[[next page]][$&lt;&lt;stopaudio &quot;helpbookai&quot;&gt;&gt;]]
+[[next page]]
 &lt;&lt;set $energy -= 2&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="寫日記" tags="" position="250,625" size="100,100">&lt;&lt;cacheaudio &quot;bookopen&quot; &quot;audio/bookopen.mp3&quot;&gt;&gt;
 &lt;&lt;audio &quot;bookopen&quot; play&gt;&gt;
 
@@ -891,14 +890,14 @@ Meanwhile, your energy declined a little bit.
 &lt;&lt;set $sleepCount = 0&gt;&gt;
 &lt;&lt;cacheaudio &quot;classai&quot; &quot;audio/classai.mp3&quot;&gt;&gt;
 &lt;&lt;audio &quot;classai&quot; play&gt;&gt;
-
+&lt;div class=&quot;left-align&quot;&gt;
 The classroom door’s slightly open, and you can hear pages flipping and soft chatting inside.
 You quietly push the door and pick a seat. After a bit, you hear steady footsteps outside.
 The teacher walks in, still smelling a bit like the outdoors. They set their books and papers on the desk and look around the room.
 Their eyes aren’t strict but somehow make everyone calm down naturally.
 Clearing their throat, the teacher says in a steady voice, “Alright, let’s get started.”
-
-[[choose what course to take-&gt;選擇想上的課][$&lt;&lt;stopaudio &quot;classai&quot;&gt;&gt;]]
+&lt;/div&gt;
+[[choose what course to take-&gt;選擇想上的課]
 
 &lt;&lt;set $energy -= 2&gt;&gt;
 &lt;&lt;set $stress += 1&gt;&gt;
@@ -912,7 +911,8 @@ Following the instructions, you breathe in slowly... then breathe out slowly.
 &lt;/div&gt;
 &lt;&lt;set $stress = Math.max(0, $stress - 2)&gt;&gt;
 &lt;&lt;set $energy -= 2&gt;&gt;
-</tw-passagedata><tw-passagedata pid="19" name="選擇想上的課" tags="" position="1050,200" size="100,100">[[Sight Translation and Introductory Interpretation-&gt;▶ 視譯與口語入門]]
+</tw-passagedata><tw-passagedata pid="19" name="選擇想上的課" tags="" position="1050,200" size="100,100">&lt;&lt;audio &quot;helpbookai&quot; stop&gt;&gt;
+[[Sight Translation and Introductory Interpretation-&gt;▶ 視譯與口語入門]]
 
 [[Introduction to Literary Translation-&gt;▶文學翻譯入門]]
 
@@ -1243,7 +1243,8 @@ You’ve maintained perfect balance. However, without focusing on a specific pat
 
 &lt;/div&gt;
 
-[[try again-&gt;start]] </tw-passagedata><tw-passagedata pid="51" name="next page" tags="" position="475,750" size="100,100">&lt;&lt;set _images to [
+[[try again-&gt;start]] </tw-passagedata><tw-passagedata pid="51" name="next page" tags="" position="475,750" size="100,100">&lt;&lt;audio &quot;helpbookai&quot; stop&gt;&gt;
+&lt;&lt;set _images to [
     &quot;images/stress1.png&quot;,
     &quot;images/stress2.png&quot;,
     &quot;images/stress3.png&quot;
