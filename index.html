@@ -122,6 +122,12 @@ html, body {
   text-align: left;
 }
 
+tw-passage {
+    max-height: 80vh; /* 限制高度为视窗的80% */
+    overflow-y: auto; /* 允许垂直滚动 */
+    padding-right: 10px; /* 给滚动条留点空间 */
+}
+
 input[type="text"] {
     background-color: white;
     border: 2px solid #333;
@@ -1012,14 +1018,14 @@ During discussion time, the room feels more alive. Some people ask questions, an
     &lt;&lt;else&gt;&gt;
         &lt;&lt;goto &quot;start&quot;&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="▶國際禮儀" tags="" position="1425,250" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="▶國際禮儀" tags="" position="1450,275" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
 You sit in the classroom. The air smells a bit like ink and paper. The projector slowly lights up, showing today’s topic on the screen. The professor stands at the front and speaks clearly and calmly, leading the class into the lesson. Some students are busy taking notes, while others watch and nod or whisper quietly to their neighbors. You listen while writing down a few key points. Sometimes you stop to think about what’s being said.
 &lt;br&gt;
 During discussion time, the room feels more alive. Some people ask questions, and others add ideas. You don’t speak, but you think about your own thoughts and take in what everyone is saying. The class moves at a steady pace. Ideas and examples mix together and help you understand things more clearly. Slowly, it feels like your learning is growing, little by little.
 &lt;/div&gt;
 &lt;&lt;link &quot;next&quot;&gt;&gt;
     &lt;&lt;set _r to Math.random()&gt;&gt;
-    &lt;&lt;if _r &lt; 0.3&gt;&gt;
+    &lt;&lt;if _r &lt; 0.7&gt;&gt;
         &lt;&lt;set _events to [&quot;drowsiness&quot;, &quot;quiz&quot;, &quot;report&quot;]&gt;&gt;
         &lt;&lt;set $selectedEventType to _events.random()&gt;&gt;
         &lt;&lt;set _capitalized to $selectedEventType.substr(0, 1).toUpperCase() + $selectedEventType.substr(1)&gt;&gt;
@@ -1057,13 +1063,13 @@ During discussion time, the room feels more alive. Some people ask questions, an
     &lt;&lt;else&gt;&gt;
         &lt;&lt;goto &quot;start&quot;&gt;&gt;
     &lt;&lt;/if&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="DrowsinessSuccess" tags="" position="1425,675" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="DrowsinessSuccess" tags="" position="1400,675" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
 Your mind goes completely blank for half a second, but then something AMAZING happens. Everything you reviewed last night suddenly comes flooding back in that split second of panic. 
 You blurt out a full answer, listing the key points without even thinking. The room goes quiet. The professor’s eyes light up as he nods and says, “Excellent. That’s exactly the direction I wanted us to explore.” 
 You slowly sit back down, your heart still racing, but deep down, you can’t help but shout to yourself, “Thank goodness I studied last night!”
 &lt;/div&gt;
 
-[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="29" name="DrowsinessFailure" tags="" position="1625,700" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
+[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="29" name="DrowsinessFailure" tags="" position="1650,725" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
 The professor’s voice booms like thunder in your ears. The room falls dead silent, and dozens of eyes turn toward you. You&#39;re instantly awake, your mind completely blank. All you can hear is the loud thumping of your own heartbeat. Your pen slips from your hand as you automatically stand up, trying to form a sentence…
 
 
@@ -1072,7 +1078,7 @@ A few students chuckle, and even the professor lets out a small smile. “At lea
  You sit back down, your face burning like you just came in from the sun. Deep inside, you make a promise to yourself: Next time, I’m definitely drinking coffee before class.
  &lt;/div&gt;
 
- [[next-&gt;start]]</tw-passagedata><tw-passagedata pid="30" name="QuizSuccess" tags="" position="1425,950" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
+ [[next-&gt;start]]</tw-passagedata><tw-passagedata pid="30" name="QuizSuccess" tags="" position="1425,975" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
 Taking the quiz papers, a deep breath is drawn. The questions seem harder than expected, but last night’s review slowly comes back. Settling into the zone, one question after another gets solved. Even the tricky ones start to make sense. 
 While some sigh around the room, focus stays sharp and the pen keeps moving. By the time the paper is handed in, there’s still time left. 
 Quietly, the thought comes: “I think I nailed it.” Stepping outside, the warm sunlight feels comforting. The brain is tired, but the heart feels light.
@@ -1081,10 +1087,10 @@ Quietly, the thought comes: “I think I nailed it.” Stepping outside, the war
 [[next-&gt;start]]</tw-passagedata><tw-passagedata pid="31" name="QuizFailure" tags="" position="1600,975" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
 You grab the quiz and look at the first question. Your forehead wrinkles right away because your mind is blank like an empty notebook. One minute passes, then two, but you are still stuck on that first question. You peek at your classmates. They are already halfway done. Anxiety hits you like a wave. You write down some messy answers, but deep down you know you are not ready. When you hand in the paper, only half is done. Your hands are sweaty, and you avoid looking at anyone. It feels like the test is blaming you. Walking out of the classroom, your heart feels heavy. You just think, “I’m doomed.”
 &lt;/div&gt;
-[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="32" name="ReportSuccess" tags="" position="1450,1225" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
+[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="32" name="ReportSuccess" tags="" position="1400,1250" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
 Standing at the front of the classroom with your teammates, the slides advance one by one. At first, nerves make your voice shake slightly, but after a few sentences, confidence grows and the rhythm returns. Instead of just reading the script, points are explained clearly, with extra information added to engage several classmates. The professor nods and smiles when key theories are mentioned, occasionally jotting down notes. When the presentation ends and the screen goes dark, applause fills the room. Sitting back down, your heart still races, yet the mind thinks, “I really held it together this time.” The professor offers a brief comment: “Clear logic, good extensions, well done.” Whispering to teammates, you say, “We totally deserve some late-night snacks.”
 &lt;/div&gt;
-[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="33" name="ReportFailure" tags="" position="1575,1250" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
+[[next-&gt;start]]</tw-passagedata><tw-passagedata pid="33" name="ReportFailure" tags="" position="1625,1250" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
 You and your teammates step onto the stage, all eyes and lights focused on you. Your palms start to sweat as you remind yourself to stick to the practice. But when you open the first slide, your mind goes blank. The script feels strange, your words come out broken, and your voice wavers. Your teammates try to jump in, but the vibe has already tensed up and the flow of the presentation is off.
  You push through the content, but many in the audience start looking down at their phones. The most awkward moment comes when the professor asks a question at the end and you can’t answer, only managing to say, “We can add this … later.” 
 Back at your seat, your back is sweaty and your cheeks burn. You avoid making eye contact with classmates. The professor says calmly, “Next time, try practicing the flow more please.” You lower your head, thinking only one thing: “I don’t even want to eat dinner now…”
@@ -1130,54 +1136,59 @@ You know you can’t ignore these signals anymore.
 
 
 
-</tw-passagedata><tw-passagedata pid="38" name="Drowsiness" tags="" position="1500,550" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
+</tw-passagedata><tw-passagedata pid="38" name="Drowsiness" tags="" position="1525,550" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
 You walk into the classroom with tired steps. Sunlight slants through the windows, and the air smells faintly of whiteboard markers.
  The lesson has only just begun, but a strange sleepiness starts to wash over you. Your eyelids feel heavy, like they’re made of lead.
  You try to sit up straight and tell yourself to focus... but before you know it, your head tilts, and you accidentally doze off.
 Just as you drift into that blurry space between dreaming and waking…
  “Hey. Can you answer this question?”
  &lt;/div&gt;
-
-
+&lt;&lt;silently&gt;&gt;
 &lt;&lt;if $canChooseSuccess&gt;&gt;
-[[Answering the Question (Field proficiency level: C)-&gt;DrowsinessSuccess]]
+  &lt;&lt;set $successLink to &quot;[[Answering the Question (Field proficiency level: C)-&gt;DrowsinessSuccess]]&quot;&gt;&gt;
 &lt;&lt;else&gt;&gt;
-&lt;span style=&quot;color: grey; pointer-events: none;&quot;&gt;Succeed&lt;/span&gt;
+  &lt;&lt;set $successLink to &quot;&lt;span style=&#39;color: #888; pointer-events: none;&#39;&gt;Answering the Question (Field proficiency level: C)&lt;/span&gt;&quot;&gt;&gt;
 &lt;&lt;/if&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
 
+$successLink
 [[umm…-&gt;DrowsinessFailure]]
+
+
+
 
 </tw-passagedata><tw-passagedata pid="39" name="Quiz" tags="" position="1525,800" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
 You walk down the hallway with sunlight streaming through the windows, your footsteps echoing on the tile floor. 
 Like usual, you push open the classroom door, find a seat, and plan to daydream for a few minutes before getting ready to focus. 
 But just as the professor walks in, holding a thick stack of papers, he calmly says, “Today we have a pop quiz. It counts for 10% of your final grade. I’ll be handing out the papers now. Please put your books away.”
 &lt;/div&gt;
-
-
 &lt;&lt;if $canChooseSuccess&gt;&gt;
-[[Bring it on.  (Field proficiency level: C)-&gt;QuizSuccess]]
+  [[Bring it on.  (Field proficiency level: C)-&gt;QuizSuccess]]
 &lt;&lt;else&gt;&gt;
-&lt;span style=&quot;color: grey; pointer-events: none;&quot;&gt;Succeed&lt;/span&gt;
+  &lt;span style=&quot;color: grey; pointer-events: none;&quot;&gt;
+    Bring it on.  (Field proficiency level: C)
+  &lt;/span&gt;
 &lt;&lt;/if&gt;&gt;
-
 [[What did we even learn last week?-&gt;QuizFailure]]
 
+
+
 </tw-passagedata><tw-passagedata pid="40" name="Report" tags="" position="1500,1100" size="100,100">&lt;div class=&quot;left-align&quot;&gt;
-You walk into the classroom and see the projector set up. The professor is adjusting the slides. You glance at your schedule and remind yourself, “It’s our group’s turn to present today.” 
-You exchange looks with your teammates and nod. Everyone opens their laptops to check the presentation files and get their notes ready. When it’s time, the professor signals, “Group four, please get ready.” 
-You take a deep breath and stand up. Walking to the front of the room, the light from the projector flickers on your face. Your heart beats a little faster, but you stay calm. At that moment, you know it’s your time to shine.
+You walk into the classroom and see the projector set up. The professor is adjusting the slides. You glance at your schedule and remind yourself, &quot;It&#39;s our group&#39;s turn to present today.&quot; 
+You exchange looks with your teammates and nod. Everyone opens their laptops to check the presentation files and get their notes ready. When it&#39;s time, the professor signals, &quot;Group four, please get ready.&quot; 
+You take a deep breath and stand up. Walking to the front of the room, the light from the projector flickers on your face. Your heart beats a little faster, but you stay calm. At that moment, you know it&#39;s your time to shine.
 &lt;/div&gt;
 
-
+&lt;&lt;silently&gt;&gt;
 &lt;&lt;if $canChooseSuccess&gt;&gt;
-[[Stay calm, we&#39;ve got this!(Field proficiency level: C)-&gt;ReportSuccess]]
+  &lt;&lt;set $successLink to &quot;[[Stay calm, we&#39;ve got this!(Field proficiency level: C)-&gt;ReportSuccess]]&quot;&gt;&gt;
 &lt;&lt;else&gt;&gt;
-&lt;span style=&quot;color: grey; pointer-events: none;&quot;&gt;Succeed&lt;/span&gt;
+  &lt;&lt;set $successLink to &quot;&lt;span style=&#39;color: #888; pointer-events: none;&#39;&gt;Stay calm, we&#39;ve got this!(Field proficiency level: C)&lt;/span&gt;&quot;&gt;&gt;
 &lt;&lt;/if&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
 
-[[Not My Best Three Minutes…-&gt;ReportFailure]]
-
-</tw-passagedata><tw-passagedata pid="41" name="savediary" tags="" position="175,750" size="100,100">&lt;p&gt;Saved successfully!&lt;/p&gt;
+$successLink
+[[Not My Best Three Minutes…-&gt;ReportFailure]]</tw-passagedata><tw-passagedata pid="41" name="savediary" tags="" position="175,750" size="100,100">&lt;p&gt;Saved successfully!&lt;/p&gt;
 &lt;&lt;button &quot;back to your diary&quot;&gt;&gt;
     &lt;&lt;goto &quot;寫日記&quot;&gt;&gt;
 &lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="42" name="lookdiary" tags="" position="325,750" size="100,100">&lt;&lt;script&gt;&gt;
