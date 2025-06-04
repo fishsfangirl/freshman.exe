@@ -583,6 +583,7 @@ const bgGroups = [
       State.setVar(`$courseCount${field}`, 0);
     }
   });
+  
 window.showQRModal = function () {
   let existingModal = document.getElementById("qr-modal");
   if (!existingModal) {
@@ -590,6 +591,7 @@ window.showQRModal = function () {
     modal.id = "qr-modal";
     modal.className = "modal show";
     modal.innerHTML = `
+    
       <div class="modal-content">
         <button class="close-btn" onclick="closeQRModal()">×</button>
         <div class="qr-flex">
@@ -604,6 +606,14 @@ window.showQRModal = function () {
     document.body.appendChild(modal);
   } else {
     existingModal.classList.add("show");
+  }
+};
+
+  
+window.closeQRModal = function () {
+  const modal = document.getElementById("qr-modal");
+  if (modal) {
+    modal.classList.remove("show");
   }
 };
 
