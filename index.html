@@ -123,9 +123,9 @@ html, body {
 }
 
 tw-passage {
-    max-height: 80vh; /* 限制高度为视窗的80% */
-    overflow-y: auto; /* 允许垂直滚动 */
-    padding-right: 10px; /* 给滚动条留点空间 */
+    max-height: 80vh; 
+    overflow-y: auto; 
+    padding-right: 10px; 
 }
 
 input[type="text"] {
@@ -200,6 +200,10 @@ input[type="text"] {
 .close-btn:hover {
     background-color: rgba(76, 175, 80, 0.2);
 }
+
+
+
+
 
 /* Creator Styles */
 .creator-title {
@@ -545,40 +549,37 @@ const bgGroups = [
     }
   });
 
-
-
-function showImage() {
-  document.getElementById("qrcode").style.display = "block";
+function showQRDialog() {
+  Dialog.setup("QR Code");
+  Dialog.wiki('<img src="images/qrcode.png" style="max-width:100%;">');
+  Dialog.open();
 }
-
   
-
 const html = `
-  <br><br>
-  <img src="images/freshman.png" alt="sidebar Image" class="sidebar-image">
-  <div class="divider"></div>
-  <h2>Day ${day}</h2>
-  <div class="status-row">
-    <span class="status-label">Stress</span>
-    <div class="status-bar-bg">
-      <div class="status-bar-fill ${stressClass}" style="width:${(stress / 10) * 100}%"></div>
-    </div>
-    <span>${stress}/10</span>
-  </div>
-  <div class="status-row">
-    <span class="status-label">Energy</span>
-    <div class="status-bar-bg">
-      <div class="status-bar-fill ${energyClass}" style="width:${(energy / 10) * 100}%"></div>
-    </div>
-    <span>${energy}/10</span>
-  </div>
-  <div class="divider"></div>
-  <button class="panel-btn" onclick="showAboutUs()">✉ ABOUT US</button>
-  <button class="panel-btn" onclick="SugarCube.Engine.restart()">▶ RESTART</button>
-  <button class="panel-btn" onclick="showImage()">📱 QR Code</button>
-  <img id="qrcode" src="images/qrcode.png" style="display:none; margin-top:10px; max-width:100%;" alt="qrcode">
-  <div class="divider"></div>
-  <h2>Field Proficiency Level</h2>
+  <br><br>
+  <img src="images/freshman.png" alt="sidebar Image" class="sidebar-image">
+  <div class="divider"></div>
+  <h2>Day ${day}</h2>
+  <div class="status-row">
+    <span class="status-label">Stress</span>
+    <div class="status-bar-bg">
+      <div class="status-bar-fill ${stressClass}" style="width:${(stress / 10) * 100}%"></div>
+    </div>
+    <span>${stress}/10</span>
+  </div>
+  <div class="status-row">
+    <span class="status-label">Energy</span>
+    <div class="status-bar-bg">
+      <div class="status-bar-fill ${energyClass}" style="width:${(energy / 10) * 100}%"></div>
+    </div>
+    <span>${energy}/10</span>
+  </div>
+  <div class="divider"></div>
+  <button class="panel-btn" onclick="showAboutUs()">✉ ABOUT US</button>
+  <button class="panel-btn" onclick="SugarCube.Engine.restart()">▶ RESTART</button>
+  <button class="panel-btn" onclick="showQRDialog()">📱 QR Code</button>
+  <div class="divider"></div>
+  <h2>Field Proficiency Level</h2>
   <br>
   <h2>Translation and Interpretation: ${getGrade(State.getVar("$courseCountTranslation"))} (${State.getVar("$courseCountTranslation")})</h2>
   <h2>Applied English Studies and English Teaching: ${getGrade(State.getVar("$courseCountApplied"))} (${State.getVar("$courseCountApplied")})</h2>
@@ -1243,7 +1244,8 @@ When you open your eyes, everything around you looks the same. Still, somehow, i
 [[next-&gt;start]] 
 &lt;br&gt;
 </tw-passagedata><tw-passagedata pid="48" name="aboutus" tags="" position="25,225" size="100,100">&lt;button class=&quot;panel-btn&quot; onclick=&quot;SugarCube.Engine.restart()&quot;&gt;▶ RESTART&lt;/button&gt;
-&lt;button class=&quot;panel-btn&quot; onclick=&quot;showAboutUs()&quot;&gt;📝 ABOUT US&lt;/button&gt;</tw-passagedata><tw-passagedata pid="49" name="Ending" tags="" position="775,975" size="100,100">&lt;&lt;if $stress &gt;= 9 &amp;&amp; $energy &lt;= 2&gt;&gt;
+&lt;button class=&quot;panel-btn&quot; onclick=&quot;showAboutUs()&quot;&gt;📝 ABOUT US&lt;/button&gt;
+    &lt;button class=&quot;panel-btn&quot; onclick=&quot;showImage()&quot;&gt;📱 QR Code&lt;/button&gt;</tw-passagedata><tw-passagedata pid="49" name="Ending" tags="" position="775,975" size="100,100">&lt;&lt;if $stress &gt;= 9 &amp;&amp; $energy &lt;= 2&gt;&gt;
   &lt;&lt;goto &quot;depression&quot;&gt;&gt;
 &lt;&lt;elseif $stress &gt;= 7 &amp;&amp; $stress &lt;= 10 &amp;&amp; $energy &gt;= 2 &amp;&amp; $energy &lt;= 5&gt;&gt;
   &lt;&lt;goto &quot;depression&quot;&gt;&gt;
