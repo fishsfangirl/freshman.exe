@@ -550,39 +550,31 @@ const bgGroups = [
       State.setVar(`$courseCount${field}`, 0);
     }
   });
-
-function showQRPopup() {
-  let popup = document.getElementById('qr-popup');
-  if (!popup) {
-    popup = document.createElement('div');
-    popup.id = 'qr-popup';
-    popup.style.cssText = `
-      display: flex;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    `;
-    popup.innerHTML = `
-      <div style="background: white; padding: 20px; border-radius: 10px; text-align: center;">
-        <img src="images/qrcode.png" style="max-width: 200px;"><br>
-        <button id="close-qr-btn" style="margin-top:10px;">關閉</button>
+window.showQRModal = function () {
+  let existingModal = document.getElementById("qr-modal");
+  if (!existingModal) {
+    const modal = document.createElement("div");
+    modal.id = "qr-modal";
+    modal.className = "modal show";
+    modal.innerHTML = `
+      <div class="modal-content">
+        <button class="close-btn" onclick="closeQRModal()">×</button>
+        <img src="images/qrcode.png" alt="QR Code" style="max-width: 200px; margin-bottom: 20px;">
       </div>
     `;
-    document.body.appendChild(popup);
-    document.getElementById('close-qr-btn').onclick = () => {
-      popup.style.display = 'none';
-    };
+    document.body.appendChild(modal);
   } else {
-    popup.style.display = 'flex';
+    existingModal.classList.add("show");
   }
-}
+};
 
-  
-  
+window.closeQRModal = function () {
+  const modal = document.getElementById("qr-modal");
+  if (modal) {
+    modal.classList.remove("show");
+  }
+};
+
 const html = `
   <img src="images/freshman.png" alt="sidebar Image" class="sidebar-image">
   <div class="divider"></div>
@@ -604,7 +596,7 @@ const html = `
   <div class="divider"></div>
   <button class="panel-btn" onclick="showAboutUs()">✉ ABOUT US</button>
   <button class="panel-btn" onclick="SugarCube.Engine.restart()">▶ RESTART</button>
- <button onclick="showQRPopup()">📱 QR Code</button>
+<button onclick="showQRModal()">📱 QR Code</button>
   <div class="divider"></div>
   <h2>Field Proficiency Level</h2>
   <h2>Translation and Interpretation: ${getGrade(State.getVar("$courseCountTranslation"))} (${State.getVar("$courseCountTranslation")})</h2>
