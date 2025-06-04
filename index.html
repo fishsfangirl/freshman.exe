@@ -551,21 +551,21 @@ const bgGroups = [
     }
   });
 
-  function showQRPopup() {
+function showQRPopup() {
   let popup = document.getElementById('qr-popup');
   if (!popup) {
     popup = document.createElement('div');
     popup.id = 'qr-popup';
-    Object.assign(popup.style, {
-      display: 'flex',
-      position: 'fixed',
-      top: '0', left: '0',
-      width: '100%', height: '100%',
-      background: 'rgba(0,0,0,0.6)',
-      justifyContent: 'center',
-      alignItems: 'center',
-      zIndex: '9999'
-    });
+    popup.style.cssText = `
+      display: flex;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    `;
     popup.innerHTML = `
       <div style="background: white; padding: 20px; border-radius: 10px; text-align: center;">
         <img src="images/qrcode.png" style="max-width: 200px;"><br>
