@@ -138,10 +138,12 @@ input[type="text"] {
 }
 
 .sidebar-image {
-  width: 80%;          /* makes image fit sidebar width */
-  height: 200px;         /* keeps aspect ratio */
-  display: block;       /* removes extra space below image */
-  max-width: 100%;      /* ensures it never overflows */
+  width: 80% !important;
+  max-width: 200px !important;
+  height: auto !important;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
 }
 
 .stressimage {
