@@ -567,6 +567,15 @@ const bgGroups = [
     <div class="divider"></div>
     <button class="panel-btn" onclick="showAboutUs()">✉ ABOUT US</button>
     <button class="panel-btn" onclick="SugarCube.Engine.restart()">▶ RESTART</button>
+    <button class="panel-btn" onclick="showImage()">▶game link QR Code </button>
+<img id="qrcode" src="images/qrcode" style="display:none; margin-top:10px;" alt="qrcode">
+
+<script>
+function showImage() {
+    document.getElementById("my-image").style.display = "block";
+}
+</script>
+
     <div class="divider"></div>
     <h2>Field Proficiency Level</h2>
     <br>
