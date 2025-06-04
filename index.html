@@ -575,7 +575,7 @@ const html = `
   <div class="divider"></div>
   <button class="panel-btn" onclick="showAboutUs()">✉ ABOUT US</button>
   <button class="panel-btn" onclick="SugarCube.Engine.restart()">▶ RESTART</button>
- <button onclick="document.getElementById('qr-popup').style.display = 'flex'">📱 QR Code</button>
+ <button onclick="$('#qr-popup').css('display','flex')">📱 QR Code</button>
   <div class="divider"></div>
   <h2>Field Proficiency Level</h2>
   <h2>Translation and Interpretation: ${getGrade(State.getVar("$courseCountTranslation"))} (${State.getVar("$courseCountTranslation")})</h2>
