@@ -545,39 +545,39 @@ const bgGroups = [
     }
   });
 
- const html = `
- <br><br>
-    <img src="images/freshman.png" alt="sidebar Image" class="sidebar-image">
-    <div class="divider"></div>
-    <h2>Day ${day}  </h2>
-    <div class="status-row">
-      <span class="status-label">Stress</span>
-      <div class="status-bar-bg">
-        <div class="status-bar-fill ${stressClass}" style="width:${(stress / 10) * 100}%"></div>
-      </div>
-      <span>${stress}/10</span>
-    </div>
-    <div class="status-row">
-      <span class="status-label">Energy</span>
-      <div class="status-bar-bg">
-        <div class="status-bar-fill ${energyClass}" style="width:${(energy / 10) * 100}%"></div>
-      </div>
-      <span>${energy}/10</span>
-    </div>
-    <div class="divider"></div>
-    <button class="panel-btn" onclick="showAboutUs()">✉ ABOUT US</button>
-    <button class="panel-btn" onclick="SugarCube.Engine.restart()">▶ RESTART</button>
-    <button class="panel-btn" onclick="showImage()">▶game link QR Code </button>
-<img id="qrcode" src="images/qrcode" style="display:none; margin-top:10px;" alt="qrcode">
 
-<script>
 function showImage() {
-    document.getElementById("my-image").style.display = "block";
+  document.getElementById("qrcode").style.display = "block";
 }
-</script>
 
-    <div class="divider"></div>
-    <h2>Field Proficiency Level</h2>
+  
+  
+const html = `
+  <br><br>
+  <img src="images/freshman.png" alt="sidebar Image" class="sidebar-image">
+  <div class="divider"></div>
+  <h2>Day ${day}</h2>
+  <div class="status-row">
+    <span class="status-label">Stress</span>
+    <div class="status-bar-bg">
+      <div class="status-bar-fill ${stressClass}" style="width:${(stress / 10) * 100}%"></div>
+    </div>
+    <span>${stress}/10</span>
+  </div>
+  <div class="status-row">
+    <span class="status-label">Energy</span>
+    <div class="status-bar-bg">
+      <div class="status-bar-fill ${energyClass}" style="width:${(energy / 10) * 100}%"></div>
+    </div>
+    <span>${energy}/10</span>
+  </div>
+  <div class="divider"></div>
+  <button class="panel-btn" onclick="showAboutUs()">✉ ABOUT US</button>
+  <button class="panel-btn" onclick="SugarCube.Engine.restart()">▶ RESTART</button>
+  <button class="panel-btn" onclick="showImage()">▶game link QR Code</button>
+  <img id="qrcode" src="images/qrcode" style="display:none; margin-top:10px;" alt="qrcode">
+  <div class="divider"></div>
+  <h2>Field Proficiency Level</h2>
     <br>
     <h2>Translation and Interpretation: ${getGrade(State.getVar("$courseCountTranslation"))} (${State.getVar("$courseCountTranslation")})</h2>
     <br>
