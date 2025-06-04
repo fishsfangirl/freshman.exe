@@ -154,6 +154,39 @@ input[type="text"] {
 }
 
 /* Modal Styles */
+
+.qr-flex {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.qr-img {
+  max-width: 200px;
+  height: auto;
+  border: 4px solid #fff;
+  border-radius: 10px;
+}
+
+.qr-text {
+  color: #fff;
+  max-width: 300px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.qr-text h3 {
+  color: #4CAF50;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+
 .modal {
     display: none;
     position: fixed;
@@ -559,7 +592,13 @@ window.showQRModal = function () {
     modal.innerHTML = `
       <div class="modal-content">
         <button class="close-btn" onclick="closeQRModal()">×</button>
-        <img src="images/qrcode.png" alt="QR Code" style="max-width: 200px; margin-bottom: 20px;">
+        <div class="qr-flex">
+          <img src="images/qrcode.png" alt="QR Code" class="qr-img">
+          <div class="qr-text">
+            <h3>立即掃描！</h3>
+            <p>用手機掃描 QR Code，<br>快速分享或開啟遊戲連結。(建議複製連結再到電腦上遊玩</p>
+          </div>
+        </div>
       </div>
     `;
     document.body.appendChild(modal);
@@ -568,12 +607,6 @@ window.showQRModal = function () {
   }
 };
 
-window.closeQRModal = function () {
-  const modal = document.getElementById("qr-modal");
-  if (modal) {
-    modal.classList.remove("show");
-  }
-};
 
 const html = `
   <img src="images/freshman.png" alt="sidebar Image" class="sidebar-image">
