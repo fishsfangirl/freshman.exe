@@ -551,7 +551,36 @@ const bgGroups = [
     }
   });
 
-  
+  function showQRPopup() {
+  let popup = document.getElementById('qr-popup');
+  if (!popup) {
+    popup = document.createElement('div');
+    popup.id = 'qr-popup';
+    Object.assign(popup.style, {
+      display: 'flex',
+      position: 'fixed',
+      top: '0', left: '0',
+      width: '100%', height: '100%',
+      background: 'rgba(0,0,0,0.6)',
+      justifyContent: 'center',
+      alignItems: 'center',
+      zIndex: '9999'
+    });
+    popup.innerHTML = `
+      <div style="background: white; padding: 20px; border-radius: 10px; text-align: center;">
+        <img src="images/qrcode.png" style="max-width: 200px;"><br>
+        <button id="close-qr-btn" style="margin-top:10px;">關閉</button>
+      </div>
+    `;
+    document.body.appendChild(popup);
+    document.getElementById('close-qr-btn').onclick = () => {
+      popup.style.display = 'none';
+    };
+  } else {
+    popup.style.display = 'flex';
+  }
+}
+
   
   
 const html = `
@@ -575,7 +604,7 @@ const html = `
   <div class="divider"></div>
   <button class="panel-btn" onclick="showAboutUs()">✉ ABOUT US</button>
   <button class="panel-btn" onclick="SugarCube.Engine.restart()">▶ RESTART</button>
- <button onclick="$('#qr-popup').css('display','flex')">📱 QR Code</button>
+ <button onclick="showQRPopup()">📱 QR Code</button>
   <div class="divider"></div>
   <h2>Field Proficiency Level</h2>
   <h2>Translation and Interpretation: ${getGrade(State.getVar("$courseCountTranslation"))} (${State.getVar("$courseCountTranslation")})</h2>
@@ -764,27 +793,6 @@ Please type your name：&lt;br&gt; After typing, press enter!
 &lt;&lt;textbox &quot;$playerName&quot; &quot;&quot; &quot;second&quot; &quot;oninput&quot;&gt;&gt;
 &lt;br&gt;
 &lt;br&gt;</tw-passagedata><tw-passagedata pid="2" name="StoryInit" tags="" position="25,350" size="100,100">:: StoryInit
-&lt;script src=&quot;https://code.jquery.com/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
-&lt;div id=&quot;qr-popup&quot; style=&quot;
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-&quot;&gt;
-  &lt;div style=&quot;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-  &quot;&gt;
-    &lt;img src=&quot;images/qrcode.png&quot; style=&quot;max-width: 200px;&quot;&gt;&lt;br&gt;
-    &lt;button onclick=&quot;document.getElementById(&#39;qr-popup&#39;).style.display = &#39;none&#39;&quot; style=&quot;margin-top:10px;&quot;&gt;關閉&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
 &lt;&lt;set $sleepCount = 0&gt;&gt;
 &lt;&lt;set $year = 2025&gt;&gt;
 &lt;&lt;set $month = 6&gt;&gt;
