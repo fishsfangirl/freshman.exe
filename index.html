@@ -420,12 +420,6 @@ a:hover {
   to { opacity: 1; }
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">// JavaScript (to place inside your script or in a passage with <<script>>)
 
-function showQRDialog() {
-  Dialog.setup("QR Code");
-  Dialog.wiki('<img src="images/qrcode.png" style="max-width:100%;">');
-  Dialog.open();
-}
-
 $(document).on(':passagerender', function () {
   // 清除舊的計時器或按鈕（如果存在）
   $('#timer').remove();
@@ -557,6 +551,32 @@ const bgGroups = [
     }
   });
 
+  
+function showQRDialog() {
+  if (document.getElementById("qr-popup")) return; // 避免重複顯示
+
+  const popup = document.createElement("div");
+  popup.id = "qr-popup";
+  popup.innerHTML = `
+    <div style="
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      z-index: 9999;
+      border-radius: 10px;
+      text-align: center;
+    ">
+      <img src="images/qrcode.png" style="max-width: 200px;"><br>
+      <button onclick="document.getElementById('qr-popup').remove()" style="margin-top:10px;">關閉</button>
+    </div>
+  `;
+  document.body.appendChild(popup);
+}
+  
   
 const html = `
   <img src="images/freshman.png" alt="sidebar Image" class="sidebar-image">
